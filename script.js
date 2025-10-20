@@ -123,6 +123,11 @@ function initializeApp() {
     populateSessionFilter();
     updateExerciseButtons();
     displayExercise(currentExerciseIndex);
+    // Show first exercise by default
+    const firstExerciseButton = document.querySelector('.exercise-btn');
+    if (firstExerciseButton) {
+        firstExerciseButton.click(); // triggers displayExercise for the first exercise
+    }
 }
 
 function setupEventListeners() {

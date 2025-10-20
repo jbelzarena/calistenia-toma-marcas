@@ -150,7 +150,7 @@ header h1 {
 }
 
 .reps {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 20px;
     color: #1abc9c;
@@ -314,7 +314,7 @@ header h1 {
 
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     .logo {
@@ -326,24 +326,24 @@ header h1 {
     }
 
     .podium-base {
-        width: 120px;
+        width: 80px;
     }
 
     .base-gold {
-        height: 160px;
-    }
-
-    .base-silver {
-        height: 130px;
-    }
-
-    .base-bronze {
         height: 100px;
     }
 
+    .base-silver {
+        height: 80px;
+    }
+
+    .base-bronze {
+        height: 70px;
+    }
+
     .exercise-btn {
-        font-size: 0.9em;
-        padding: 10px 20px;
+        font-size: 0.8em;
+        padding: 5px 10px;
     }
 }
 
@@ -471,6 +471,9 @@ header h1 {
 @media (max-width: 768px) {
     .session-info {
         font-size: 0.85em;
+        width: 480px;
+        gap: 2px;
+        justify-content: left;
     }
 
     .info-item {
