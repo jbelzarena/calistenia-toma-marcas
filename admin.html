@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Calistenia Valencia</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <header>
+            <h1><span class="brand-calistenia">CALISTENIA</span> <span class="brand-valencia">VALENCIA</span></h1>
+            <h2>Panel de Administración</h2>
+        </header>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="sessions">Sesiones</button>
+            <button class="tab-btn" data-tab="add-session">Nueva Sesión</button>
+            <button class="tab-btn" data-tab="edit-data">Editar JSON</button>
+        </div>
+
+        <div class="tab-content" id="sessions-tab">
+            <h3>Sesiones Existentes</h3>
+            <div id="sessions-list"></div>
+        </div>
+
+        <div class="tab-content hidden" id="add-session-tab">
+            <h3>Agregar Nueva Sesión</h3>
+            <form id="new-session-form">
+                <div class="form-group">
+                    <label>Fecha:</label>
+                    <input type="date" id="session-date" required>
+                </div>
+                <div class="form-group">
+                    <label>Hora:</label>
+                    <input type="time" id="session-time" required>
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Actividad:</label>
+                    <input type="text" id="activity-type" value="Toma de marcas" required>
+                </div>
+                <div class="form-group">
+                    <label>Categoría:</label>
+                    <input type="text" id="category" required>
+                </div>
+
+                <h4>Ejercicios</h4>
+                <div id="exercises-container"></div>
+                <button type="button" class="btn-secondary" onclick="addExerciseForm()">+ Agregar Ejercicio</button>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Guardar Sesión</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-content hidden" id="edit-data-tab">
+            <h3>Editar JSON Directo</h3>
+            <p class="warning">⚠️ Edita con cuidado. Asegúrate de que el JSON sea válido.</p>
+            <textarea id="json-editor"></textarea>
+            <div class="form-actions">
+                <button class="btn-primary" onclick="saveJSON()">Guardar JSON</button>
+                <button class="btn-secondary" onclick="loadData()">Recargar</button>
+            </div>
+        </div>
+
+        <div class="actions-bar">
+            <button class="btn-success" onclick="downloadJSON()">📥 Descargar JSON</button>
+            <a href="index.html" class="btn-secondary">👁️ Ver Leaderboard</a>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
