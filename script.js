@@ -4,6 +4,15 @@ let viewMode = 'single';
 let dateRange = { start: null, end: null };
 let showGlobalLeaderboard = false;
 
+// Resistance band color mapping
+const GOMA_COLORS = {
+    'A': { name: 'Amarilla', color: '#FFD700', emoji: '🟡' },
+    'R': { name: 'Roja', color: '#FF0000', emoji: '🔴' },
+    'N': { name: 'Negra', color: '#000000', emoji: '⚫' },
+    'M': { name: 'Morada', color: '#800080', emoji: '🟣' },
+    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' }
+};
+
 async function loadData() {
     try {
         const response = await fetch('data.json');
@@ -70,7 +79,6 @@ function initializeApp() {
             </div>
         </div>
 
-
             <div id="date-range-container" class="filter-section date-range-container hidden"  style="margin-top: 10px;">
    
             <div style="margin-top: 10; padding-top: 0;">
@@ -80,7 +88,6 @@ function initializeApp() {
                 <button id="apply-range" class="btn-apply">Aplicar</button>
                 </div>
             </div>
-
 
         <div id="global-filter" class="filter-section hidden" style="margin-top: 0; padding-top: 0;">     
             
@@ -190,9 +197,8 @@ function setupEventListeners() {
 
         if (value === 'range') {
             dateRangeContainer.classList.remove('hidden');
-            globalFilter.classList.add('hidden'); // Hide global filter until we have valid dates
+            globalFilter.classList.add('hidden');
             viewMode = 'range';
-            // Hide ranking/content until dates are selected
             document.getElementById('date-range-container').classList.remove('hidden');
             document.getElementById('content-container').classList.add('hidden');
             document.getElementById('global-view').classList.add('hidden');
@@ -203,6 +209,7 @@ function setupEventListeners() {
             updateView();
         }
     });
+
     if (applyBtn) {
         applyBtn.addEventListener('click', () => {
             dateRange.start = document.getElementById('start-date').value;
@@ -249,7 +256,6 @@ function updateView() {
 
     const exerciseSelector = document.querySelector('.exercise-selector');
 
-    // If in range mode and dates not selected, only show range input, hide rankings
     if (viewMode === 'range' && (!dateRange.start || !dateRange.end)) {
         document.getElementById('exercise-view').classList.add('hidden');
         document.getElementById('global-view').classList.add('hidden');
@@ -330,6 +336,13 @@ function parseReps(reps) {
     return { value: 0, modifier: '' };
 }
 
+// NEW: Format goma badge HTML
+function getGomaBadge(gomaCode) {
+    if (!gomaCode || !GOMA_COLORS[gomaCode]) return '';
+    const goma = GOMA_COLORS[gomaCode];
+    return `<span class="goma-badge" style="background-color: ${goma.color};" title="Goma ${goma.name}">${goma.emoji}</span>`;
+}
+
 function getFilteredSessions() {
     const category = document.getElementById('category-filter').value;
     const exercise = document.getElementById('exercise-filter').value;
@@ -339,13 +352,11 @@ function getFilteredSessions() {
 
     let sessions = data.sessions.filter(s => s.category === category);
 
-    // Filter by specific session
     if (sessionValue && sessionValue !== 'range') {
         const sessionIndex = parseInt(sessionValue);
         sessions = [data.sessions[sessionIndex]];
     }
 
-    // Filter by date range
     if (viewMode === 'range' && dateRange.start && dateRange.end) {
         const start = new Date(dateRange.start);
         const end = new Date(dateRange.end);
@@ -355,7 +366,6 @@ function getFilteredSessions() {
         });
     }
 
-    // Filter by exercise
     if (exercise) {
         sessions = sessions.filter(s => s.exercises.some(ex => ex.exercise === exercise));
     }
@@ -393,12 +403,12 @@ function updateExerciseButtons() {
         exerciseSelector.appendChild(btn);
     });
 
-    // Auto-select first exercise if current is not available
     if (!exercisesSet.has(currentExerciseName) && exercisesSet.size > 0) {
         currentExerciseName = [...exercisesSet][0];
     }
 }
 
+// UPDATED: Aggregate results now includes goma information
 function aggregateResultsByName(exerciseName) {
     const filteredSessions = getFilteredSessions();
     const aggregated = {};
@@ -410,12 +420,30 @@ function aggregateResultsByName(exerciseName) {
                 exercise.results.forEach(result => {
                     const parsed = parseReps(result.reps);
                     if (!aggregated[result.person]) {
-                        aggregated[result.person] = { person: result.person, total: 0, count: 0, max: 0, sessions: [] };
+                        aggregated[result.person] = {
+                            person: result.person,
+                            total: 0,
+                            count: 0,
+                            max: 0,
+                            sessions: [],
+                            goma: result.goma || null // Store goma info
+                        };
                     }
                     aggregated[result.person].total += parsed.value;
                     aggregated[result.person].count += 1;
-                    aggregated[result.person].max = Math.max(aggregated[result.person].max, parsed.value);
-                    aggregated[result.person].sessions.push({ date: session.date, reps: result.reps, parsed });
+
+                    // Update max and goma for the max rep
+                    if (parsed.value > aggregated[result.person].max) {
+                        aggregated[result.person].max = parsed.value;
+                        aggregated[result.person].maxGoma = result.goma || null;
+                    }
+
+                    aggregated[result.person].sessions.push({
+                        date: session.date,
+                        reps: result.reps,
+                        parsed,
+                        goma: result.goma || null
+                    });
                 });
             });
     });
@@ -425,7 +453,8 @@ function aggregateResultsByName(exerciseName) {
         reps: viewMode === 'single' ? person.max : Math.round(person.total / person.count),
         max: person.max,
         average: Math.round(person.total / person.count),
-        sessions: person.sessions
+        sessions: person.sessions,
+        goma: viewMode === 'single' ? person.maxGoma : null // Show goma for max rep in single view
     }));
 }
 
@@ -440,6 +469,7 @@ function displayExercise(exerciseName) {
     displayLeaderboard(results);
 }
 
+// UPDATED: Display podium with goma badges
 function displayPodium(results) {
     const sorted = sortResults(results);
     const podiumPlaces = document.querySelectorAll('.podium-place');
@@ -455,7 +485,8 @@ function displayPodium(results) {
 
             if (viewMode === 'single') {
                 const parsed = parseReps(result.reps);
-                place.querySelector('.reps').textContent = `${parsed.value} reps${parsed.modifier ? ' ' + parsed.modifier : ''}`;
+                const gomaBadge = getGomaBadge(result.goma);
+                place.querySelector('.reps').innerHTML = `${gomaBadge} ${parsed.value} reps${parsed.modifier ? ' ' + parsed.modifier : ''} `;
             } else {
                 place.querySelector('.reps').innerHTML = `
                     <div>${result.average} reps <span style="font-size: 0.6em; opacity: 0.8;">(promedio)</span></div>
@@ -499,16 +530,20 @@ function displayLeaderboard(results) {
 
         if (viewMode === 'single') {
             const parsed = parseReps(result.reps);
+            const gomaBadge = getGomaBadge(result.goma);
             item.innerHTML = `<div class="rank">${rankEmoji}</div>
-                              <div class="name">${result.person}</div>
-                              <div class="score">${parsed.value}<span class="modifier">${parsed.modifier}</span></div>`;
+                <div class="name">${result.person}</div>
+                <div class="score" style="display: flex; align-items: center; justify-content: flex-end;">
+                    ${gomaBadge ? `<span class="goma-badge-container">${gomaBadge}</span>` : ""}
+                    <span class="score-number" style="min-width: 40px; text-align: right;">${parsed.value}<span class="modifier">${parsed.modifier}</span></span>
+                </div>`;
         } else {
             item.innerHTML = `<div class="rank">${rankEmoji}</div>
-                              <div class="name">${result.person}</div>
-                              <div class="score-multi">
-                                  <div>${result.average} <span class="label">promedio</span></div>
-                                  <div class="max-score">${result.max} <span class="label">máx</span></div>
-                              </div>`;
+                <div class="name">${result.person}</div>
+                <div class="score-multi" style="text-align: right;">
+                    <div>${result.average} <span class="label">promedio</span></div>
+                    <div class="max-score">${result.max} <span class="label">máx</span></div>
+                </div>`;
         }
         leaderboardList.appendChild(item);
     });
@@ -519,24 +554,25 @@ function calculateGlobalPoints() {
     const exercisesSet = new Set();
     const globalScores = {};
 
-    // Get all exercises
     sessions.forEach(s => s.exercises.forEach(ex => exercisesSet.add(ex.exercise)));
 
-    // Calculate points for each exercise
     [...exercisesSet].forEach(exerciseName => {
         const results = aggregateResultsByName(exerciseName);
         const sorted = sortResults(results);
         const totalParticipants = sorted.length;
 
         sorted.forEach((result, index) => {
-            // More dynamic point system based on total participants
-            // 1st place gets 100% of max points, decreasing proportionally
             const maxPoints = 100;
             const pointsPercentage = 1 - (index / totalParticipants);
-            const points = Math.round(maxPoints * pointsPercentage * pointsPercentage); // Squared for steeper curve
+            const points = Math.round(maxPoints * pointsPercentage * pointsPercentage);
 
             if (!globalScores[result.person]) {
-                globalScores[result.person] = { person: result.person, totalPoints: 0, exercises: {}, medals: { gold: 0, silver: 0, bronze: 0 } };
+                globalScores[result.person] = {
+                    person: result.person,
+                    totalPoints: 0,
+                    exercises: {},
+                    medals: { gold: 0, silver: 0, bronze: 0 }
+                };
             }
 
             globalScores[result.person].totalPoints += points;
@@ -546,7 +582,6 @@ function calculateGlobalPoints() {
                 reps: result.reps
             };
 
-            // Count medals
             if (index === 0) globalScores[result.person].medals.gold++;
             else if (index === 1) globalScores[result.person].medals.silver++;
             else if (index === 2) globalScores[result.person].medals.bronze++;
@@ -582,7 +617,6 @@ function displayGlobalLeaderboard() {
         const rankEmoji = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : index + 1;
         const exerciseCount = Object.keys(score.exercises).length;
 
-        // Build medals display
         let medalsHTML = '';
         if (score.medals.gold > 0) medalsHTML += `<span style="margin-right: 8px;">🥇×${score.medals.gold}</span>`;
         if (score.medals.silver > 0) medalsHTML += `<span style="margin-right: 8px;">🥈×${score.medals.silver}</span>`;

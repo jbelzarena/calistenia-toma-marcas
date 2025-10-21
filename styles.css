@@ -78,6 +78,39 @@ header h1 {
     letter-spacing: 2px;
 }
 
+.goma-badge {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 8px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+}
+
+.leaderboard-item .score {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 80px;
+}
+
+.score-number {
+    min-width: 40px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.goma-badge-container {
+    margin-right: 6px;
+    display: flex;
+    align-items: center;
+}
+
 .subtitle {
     font-size: 1.5em;
     opacity: 0.9;

@@ -2,6 +2,20 @@ let data = null;
 let userName = '';
 let selectedExercises = [];
 
+
+const GOMA_COLORS = {
+    'A': { name: 'Amarilla', color: '#FFD700', emoji: '🟡' },
+    'R': { name: 'Roja', color: '#FF0000', emoji: '🔴' },
+    'N': { name: 'Negra', color: '#000', emoji: '⚫' },
+    'M': { name: 'Morada', color: '#800080', emoji: '🟣' },
+    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' }
+};
+function getGomaBadge(gomaCode) {
+    if (!gomaCode || !GOMA_COLORS[gomaCode]) return '';
+    const goma = GOMA_COLORS[gomaCode];
+    return `<span class="goma-badge" style="background-color:${goma.color}" title="Goma ${goma.name}">${goma.emoji}</span>`;
+}
+
 async function loadData() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
@@ -71,7 +85,8 @@ function getUserData() {
                     name: exercise.exercise,
                     reps: parsed.value,
                     modifier: parsed.modifier,
-                    raw: userResult.reps
+                    raw: userResult.reps,
+                    goma: userResult.goma || null
                 });
 
                 if (!userData.exercises[exercise.exercise]) {
@@ -90,8 +105,16 @@ function getUserData() {
                     date: session.date,
                     reps: parsed.value,
                     modifier: parsed.modifier,
-                    raw: userResult.reps
+                    raw: userResult.reps,
+                    goma: userResult.goma || null
                 });
+                // Then, after calculating .max and .min, also store which goma was used.
+                if (parsed.value > exerciseData.max) {
+                    exerciseData.maxGoma = userResult.goma || null;
+                }
+                if (parsed.value < exerciseData.min) {
+                    exerciseData.minGoma = userResult.goma || null;
+                }
                 exerciseData.max = Math.max(exerciseData.max, parsed.value);
                 exerciseData.min = Math.min(exerciseData.min, parsed.value);
                 exerciseData.total += parsed.value;
@@ -365,18 +388,28 @@ function displayUserProfile() {
                         <div class="exercise-card">
                             <h3>${exercise.name}</h3>
                             <div class="exercise-stats">
-                                <div class="stat-row">
-                                    <span>Máximo:</span>
-                                    <span class="stat-highlight">${exercise.max} reps</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Promedio:</span>
-                                    <span>${exercise.average} reps</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Mínimo:</span>
-                                    <span>${exercise.min} reps</span>
-                                </div>
+                        <div class="stat-row">
+                                <span>Máximo:</span>
+                                <span class="stat-highlight">
+                                    ${exercise.maxGoma ? getGomaBadge(exercise.maxGoma) : ''}
+                                    <span class="score-number">${exercise.max} reps</span>
+                                </span>
+                            </div>
+            
+                        <div class="stat-row">
+                            <span>Promedio:</span>
+                            <span>
+                                ${exercise.averageGoma ? getGomaBadge(exercise.averageGoma) : ''}
+                                <span class="score-number">${exercise.average} reps</span>
+                            </span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Mínimo:</span>
+                            <span>
+                                ${exercise.minGoma ? getGomaBadge(exercise.minGoma) : ''}
+                                <span class="score-number">${exercise.min} reps</span>
+                            </span>
+                        </div>
                                 <div class="stat-row">
                                     <span>Sesiones:</span>
                                     <span>${exercise.count}</span>
@@ -420,7 +453,12 @@ function displayUserProfile() {
                         ${session.exercises.map(exercise => `
                             <div class="exercise-result">
                                 <span class="exercise-name">${exercise.name}</span>
-                                <span class="exercise-reps">${exercise.reps}${exercise.modifier ? ' ' + exercise.modifier : ''} reps</span>
+                                <span class="exercise-reps">
+    ${exercise.goma ? getGomaBadge(exercise.goma) : ''} 
+    <span class="score-number" style="min-width:36px;text-align:right;">
+        ${exercise.reps}${exercise.modifier ? ' ' + exercise.modifier : ''} reps
+    </span>
+</span>
                             </div>
                         `).join('')}
                     </div>
