@@ -38,13 +38,7 @@ function initializeApp() {
                 <img src="logo.jpg" alt="Calistenia Valencia Logo" class="logo" onerror="this.style.display='none'">
             </div>
             <h1><span class="brand-calistenia">CALISTENIA</span><br><span class="brand-valencia">VALENCIA</span></h1>
-            <p class="subtitle">${currentSession ? `${currentSession.activity_type} - ${currentSession.category}` : ''}</p>
-            <div class="session-info">
-                ${currentSession ? `
-                <span class="info-item">📅 ${formatDate(currentSession.date)}</span>
-                <span class="info-item">🕐 ${currentSession.time}</span>
-                ${data.location ? `<span class="info-item">📍 ${data.location}</span>` : ''}` : ''}
-            </div>
+            
         </header>
 
         <div class="filter-section">
