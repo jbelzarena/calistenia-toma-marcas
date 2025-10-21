@@ -25,6 +25,13 @@ body::before {
     z-index: 0;
 }
 
+.header-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -46,6 +53,10 @@ header {
     max-width: 120px;
     height: auto;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.hidden {
+    display: none !important;
 }
 
 header h1 {
@@ -538,16 +549,51 @@ header h1 {
     .filter-section {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
-        padding: 15px;
+        gap: 5px;
+        padding: 5px;
     }
 
     .filter-group {
         width: 100%;
         max-width: 300px;
+        align-items: center;
     }
 
     .filter-select {
         width: 100%;
     }
+
+    .header-flex {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .logo-container {
+        margin-bottom: 0;
+        margin-right: 12px;
+    }
+
+    .brand-title {
+        flex: 1 1 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .brand-title h1 {
+        font-size: 1.2em;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        line-height: 1.15;
+    }
+
+    .brand-title h1 br {
+        display: none;
+
+    }
+
 }
