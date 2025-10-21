@@ -533,17 +533,78 @@
             ]
         },
         {
-            "date": "2025-10-01",
+            "date": "2023-10-01",
             "time": "18:00",
             "activity_type": "Toma de marcas",
-            "category": "TESTE",
+            "category": "Salva-Professional",
             "exercises": [
                 {
                     "exercise": "Dominada Prona",
                     "results": [
                         {
-                            "person": "Jeferson",
-                            "reps": 1
+                            "person": "Salva",
+                            "reps": 10
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada Supino",
+                    "results": [
+                        {
+                            "person": "Salva",
+                            "reps": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-01",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Salva-Professional",
+            "exercises": [
+                {
+                    "exercise": "Dominada Prona",
+                    "results": [
+                        {
+                            "person": "Salva",
+                            "reps": 30
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada Supino",
+                    "results": [
+                        {
+                            "person": "Salva",
+                            "reps": 20
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-10-01",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Salva-Professional",
+            "exercises": [
+                {
+                    "exercise": "Dominada Prona",
+                    "results": [
+                        {
+                            "person": "Salva",
+                            "reps": 60
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada Supino",
+                    "results": [
+                        {
+                            "person": "Salva",
+                            "reps": 45
                         }
                     ]
                 }
