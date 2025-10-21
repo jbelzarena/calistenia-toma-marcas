@@ -1,536 +1,557 @@
 {
-    "location": "Calistenia Valencia",
-    "sessions": [
+  "location": "Calistenia Valencia",
+  "sessions": [
+    {
+      "date": "2025-10-20",
+      "time": "18:00",
+      "activity_type": "Toma de marcas",
+      "category": "Tracción",
+      "exercises": [
         {
-            "date": "2025-10-20",
-            "time": "18:00",
-            "activity_type": "Toma de marcas",
-            "category": "Tracción",
-            "exercises": [
-                {
-                    "exercise": "Dominada prona",
-                    "results": [
-                        {
-                            "person": "Carlos",
-                            "reps": 15
-                        },
-                        {
-                            "person": "Gaston",
-                            "reps": 16
-                        },
-                        {
-                            "person": "David",
-                            "reps": "9H"
-                        },
-                        {
-                            "person": "Rafa",
-                            "reps": 13
-                        },
-                        {
-                            "person": "Damián",
-                            "reps": 19
-                        },
-                        {
-                            "person": "Fran",
-                            "reps": 6
-                        },
-                        {
-                            "person": "Jefferson",
-                            "reps": 12
-                        },
-                        {
-                            "person": "Jonu Yuara",
-                            "reps": "8N"
-                        },
-                        {
-                            "person": "Álvaro",
-                            "reps": 21
-                        },
-                        {
-                            "person": "Regina",
-                            "reps": 9
-                        },
-                        {
-                            "person": "Helena",
-                            "reps": "12V"
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Dominada supino",
-                    "results": [
-                        {
-                            "person": "Carlos",
-                            "reps": 14
-                        },
-                        {
-                            "person": "Gaston",
-                            "reps": 9
-                        },
-                        {
-                            "person": "David",
-                            "reps": "8H"
-                        },
-                        {
-                            "person": "Rafa",
-                            "reps": 11
-                        },
-                        {
-                            "person": "Damián",
-                            "reps": 13
-                        },
-                        {
-                            "person": "Fran",
-                            "reps": 8
-                        },
-                        {
-                            "person": "Jefferson",
-                            "reps": 10
-                        },
-                        {
-                            "person": "Jonu Yuara",
-                            "reps": "7N"
-                        },
-                        {
-                            "person": "Álvaro",
-                            "reps": 12
-                        },
-                        {
-                            "person": "Regina",
-                            "reps": 9
-                        },
-                        {
-                            "person": "Helena",
-                            "reps": "11V"
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Remo austriaco",
-                    "results": [
-                        {
-                            "person": "Carlos",
-                            "reps": 24
-                        },
-                        {
-                            "person": "Gaston",
-                            "reps": 25
-                        },
-                        {
-                            "person": "David",
-                            "reps": 19
-                        },
-                        {
-                            "person": "Rafa",
-                            "reps": 22
-                        },
-                        {
-                            "person": "Damián",
-                            "reps": 23
-                        },
-                        {
-                            "person": "Fran",
-                            "reps": 15
-                        },
-                        {
-                            "person": "Jefferson",
-                            "reps": 8
-                        },
-                        {
-                            "person": "Jonu Yuara",
-                            "reps": 12
-                        },
-                        {
-                            "person": "Álvaro",
-                            "reps": 40
-                        },
-                        {
-                            "person": "Regina",
-                            "reps": 21
-                        },
-                        {
-                            "person": "Helena",
-                            "reps": 19
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Remo neutro",
-                    "results": [
-                        {
-                            "person": "Carlos",
-                            "reps": 17
-                        },
-                        {
-                            "person": "Gaston",
-                            "reps": 23
-                        },
-                        {
-                            "person": "David",
-                            "reps": 10
-                        },
-                        {
-                            "person": "Rafa",
-                            "reps": 12
-                        },
-                        {
-                            "person": "Damián",
-                            "reps": 15
-                        },
-                        {
-                            "person": "Fran",
-                            "reps": 15
-                        },
-                        {
-                            "person": "Jefferson",
-                            "reps": 9
-                        },
-                        {
-                            "person": "Jonu Yuara",
-                            "reps": 7
-                        },
-                        {
-                            "person": "Álvaro",
-                            "reps": 23
-                        },
-                        {
-                            "person": "Regina",
-                            "reps": 15
-                        },
-                        {
-                            "person": "Helena",
-                            "reps": 9
-                        }
-                    ]
-                }
-            ]
+          "exercise": "Dominada prona",
+          "results": [
+            {
+              "person": "Carlos",
+              "reps": 15
+            },
+            {
+              "person": "Gaston",
+              "reps": 16
+            },
+            {
+              "person": "David",
+              "reps": "9H"
+            },
+            {
+              "person": "Rafa",
+              "reps": 13
+            },
+            {
+              "person": "Damián",
+              "reps": 19
+            },
+            {
+              "person": "Fran",
+              "reps": 6
+            },
+            {
+              "person": "Jefferson",
+              "reps": 12
+            },
+            {
+              "person": "Jonu Yuara",
+              "reps": "8N"
+            },
+            {
+              "person": "Álvaro",
+              "reps": 21
+            },
+            {
+              "person": "Regina",
+              "reps": 9
+            },
+            {
+              "person": "Helena",
+              "reps": "12V"
+            }
+          ]
         },
         {
-            "date": "2025-10-20",
-            "time": "18:00",
-            "activity_type": "Toma de marcas",
-            "category": "Empuje",
-            "exercises": [
-                {
-                    "exercise": "Flexiones militares",
-                    "results": [
-                        {
-                            "person": "Álvaro",
-                            "reps": 30
-                        },
-                        {
-                            "person": "Íñigo",
-                            "reps": 30
-                        },
-                        {
-                            "person": "Travis",
-                            "reps": 48
-                        },
-                        {
-                            "person": "Paula",
-                            "reps": 27
-                        },
-                        {
-                            "person": "Alba",
-                            "reps": 13
-                        },
-                        {
-                            "person": "Roa",
-                            "reps": 17
-                        },
-                        {
-                            "person": "Amparo",
-                            "reps": "12R"
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Flexiones diamante",
-                    "results": [
-                        {
-                            "person": "Álvaro",
-                            "reps": 38
-                        },
-                        {
-                            "person": "Íñigo",
-                            "reps": 33
-                        },
-                        {
-                            "person": "Travis",
-                            "reps": 25
-                        },
-                        {
-                            "person": "Paula",
-                            "reps": 10
-                        },
-                        {
-                            "person": "Alba",
-                            "reps": "21a"
-                        },
-                        {
-                            "person": "Roa",
-                            "reps": 12
-                        },
-                        {
-                            "person": "Amparo",
-                            "reps": "12R"
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Fondos tríceps (SBD)",
-                    "results": [
-                        {
-                            "person": "Álvaro",
-                            "reps": "13|9"
-                        },
-                        {
-                            "person": "Íñigo",
-                            "reps": "11|10"
-                        },
-                        {
-                            "person": "Travis",
-                            "reps": "26|13"
-                        },
-                        {
-                            "person": "Paula",
-                            "reps": "4|4"
-                        },
-                        {
-                            "person": "Alba",
-                            "reps": "8|4"
-                        },
-                        {
-                            "person": "Roa",
-                            "reps": "7|7"
-                        },
-                        {
-                            "person": "Amparo",
-                            "reps": "3u|2u"
-                        }
-                    ]
-                }
-            ]
+          "exercise": "Dominada supino",
+          "results": [
+            {
+              "person": "Carlos",
+              "reps": 14
+            },
+            {
+              "person": "Gaston",
+              "reps": 9
+            },
+            {
+              "person": "David",
+              "reps": "8H"
+            },
+            {
+              "person": "Rafa",
+              "reps": 11
+            },
+            {
+              "person": "Damián",
+              "reps": 13
+            },
+            {
+              "person": "Fran",
+              "reps": 8
+            },
+            {
+              "person": "Jefferson",
+              "reps": 10
+            },
+            {
+              "person": "Jonu Yuara",
+              "reps": "7N"
+            },
+            {
+              "person": "Álvaro",
+              "reps": 12
+            },
+            {
+              "person": "Regina",
+              "reps": 9
+            },
+            {
+              "person": "Helena",
+              "reps": "11V"
+            }
+          ]
         },
         {
-            "date": "2025-10-20",
-            "time": "19:30",
-            "activity_type": "Toma de marcas",
-            "category": "Empuje",
-            "exercises": [
-                {
-                    "exercise": "Flexiones militares",
-                    "results": [
-                        {
-                            "person": "Emi",
-                            "reps": 38
-                        },
-                        {
-                            "person": "Laura",
-                            "reps": 16
-                        },
-                        {
-                            "person": "Paloma",
-                            "reps": 7
-                        },
-                        {
-                            "person": "Paula",
-                            "reps": 13
-                        },
-                        {
-                            "person": "Alba",
-                            "reps": 8
-                        },
-                        {
-                            "person": "Bryan",
-                            "reps": 29
-                        },
-                        {
-                            "person": "Pipe",
-                            "reps": 39
-                        },
-                        {
-                            "person": "Alberto",
-                            "reps": 38
-                        },
-                        {
-                            "person": "Ado",
-                            "reps": 13
-                        },
-                        {
-                            "person": "Andreu",
-                            "reps": 29
-                        },
-                        {
-                            "person": "Pascu",
-                            "reps": 32
-                        },
-                        {
-                            "person": "Iván",
-                            "reps": 60
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Flexiones diamante",
-                    "results": [
-                        {
-                            "person": "Emi",
-                            "reps": 33
-                        },
-                        {
-                            "person": "Laura",
-                            "reps": 8
-                        },
-                        {
-                            "person": "Paloma",
-                            "reps": 5
-                        },
-                        {
-                            "person": "Paula",
-                            "reps": 7
-                        },
-                        {
-                            "person": "Alba",
-                            "reps": 6
-                        },
-                        {
-                            "person": "Bryan",
-                            "reps": 22
-                        },
-                        {
-                            "person": "Pipe",
-                            "reps": 26
-                        },
-                        {
-                            "person": "Alberto",
-                            "reps": 28
-                        },
-                        {
-                            "person": "Ado",
-                            "reps": 7
-                        },
-                        {
-                            "person": "Andreu",
-                            "reps": 24
-                        },
-                        {
-                            "person": "Pascu",
-                            "reps": 30
-                        },
-                        {
-                            "person": "Iván",
-                            "reps": 35
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Fondos",
-                    "results": [
-                        {
-                            "person": "Emi",
-                            "reps": 22
-                        },
-                        {
-                            "person": "Laura",
-                            "reps": 6
-                        },
-                        {
-                            "person": "Paloma",
-                            "reps": 8
-                        },
-                        {
-                            "person": "Paula",
-                            "reps": 7
-                        },
-                        {
-                            "person": "Alba",
-                            "reps": 8
-                        },
-                        {
-                            "person": "Bryan",
-                            "reps": 19
-                        },
-                        {
-                            "person": "Pipe",
-                            "reps": 19
-                        },
-                        {
-                            "person": "Alberto",
-                            "reps": 30
-                        },
-                        {
-                            "person": "Ado",
-                            "reps": 6
-                        },
-                        {
-                            "person": "Andreu",
-                            "reps": 8
-                        },
-                        {
-                            "person": "Pascu",
-                            "reps": 16
-                        },
-                        {
-                            "person": "Iván",
-                            "reps": 20
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Fondos tríceps (SBD)",
-                    "results": [
-                        {
-                            "person": "Emi",
-                            "reps": 21
-                        },
-                        {
-                            "person": "Laura",
-                            "reps": 6
-                        },
-                        {
-                            "person": "Paloma",
-                            "reps": 5
-                        },
-                        {
-                            "person": "Paula",
-                            "reps": 6
-                        },
-                        {
-                            "person": "Alba",
-                            "reps": 7
-                        },
-                        {
-                            "person": "Bryan",
-                            "reps": 22
-                        },
-                        {
-                            "person": "Pipe",
-                            "reps": 28
-                        },
-                        {
-                            "person": "Alberto",
-                            "reps": 24
-                        },
-                        {
-                            "person": "Ado",
-                            "reps": 11
-                        },
-                        {
-                            "person": "Andreu",
-                            "reps": 13
-                        },
-                        {
-                            "person": "Pascu",
-                            "reps": 22
-                        },
-                        {
-                            "person": "Iván",
-                            "reps": 24
-                        }
-                    ]
-                }
-            ]
+          "exercise": "Remo austriaco",
+          "results": [
+            {
+              "person": "Carlos",
+              "reps": 24
+            },
+            {
+              "person": "Gaston",
+              "reps": 25
+            },
+            {
+              "person": "David",
+              "reps": 19
+            },
+            {
+              "person": "Rafa",
+              "reps": 22
+            },
+            {
+              "person": "Damián",
+              "reps": 23
+            },
+            {
+              "person": "Fran",
+              "reps": 15
+            },
+            {
+              "person": "Jefferson",
+              "reps": 8
+            },
+            {
+              "person": "Jonu Yuara",
+              "reps": 12
+            },
+            {
+              "person": "Álvaro",
+              "reps": 40
+            },
+            {
+              "person": "Regina",
+              "reps": 21
+            },
+            {
+              "person": "Helena",
+              "reps": 19
+            }
+          ]
+        },
+        {
+          "exercise": "Remo neutro",
+          "results": [
+            {
+              "person": "Carlos",
+              "reps": 17
+            },
+            {
+              "person": "Gaston",
+              "reps": 23
+            },
+            {
+              "person": "David",
+              "reps": 10
+            },
+            {
+              "person": "Rafa",
+              "reps": 12
+            },
+            {
+              "person": "Damián",
+              "reps": 15
+            },
+            {
+              "person": "Fran",
+              "reps": 15
+            },
+            {
+              "person": "Jefferson",
+              "reps": 9
+            },
+            {
+              "person": "Jonu Yuara",
+              "reps": 7
+            },
+            {
+              "person": "Álvaro",
+              "reps": 23
+            },
+            {
+              "person": "Regina",
+              "reps": 15
+            },
+            {
+              "person": "Helena",
+              "reps": 9
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "date": "2025-10-20",
+      "time": "18:00",
+      "activity_type": "Toma de marcas",
+      "category": "Empuje",
+      "exercises": [
+        {
+          "exercise": "Flexiones militares",
+          "results": [
+            {
+              "person": "Álvaro",
+              "reps": 30
+            },
+            {
+              "person": "Íñigo",
+              "reps": 30
+            },
+            {
+              "person": "Travis",
+              "reps": 48
+            },
+            {
+              "person": "Paula",
+              "reps": 27
+            },
+            {
+              "person": "Alba",
+              "reps": 13
+            },
+            {
+              "person": "Roa",
+              "reps": 17
+            },
+            {
+              "person": "Amparo",
+              "reps": "12R"
+            }
+          ]
+        },
+        {
+          "exercise": "Flexiones diamante",
+          "results": [
+            {
+              "person": "Álvaro",
+              "reps": 38
+            },
+            {
+              "person": "Íñigo",
+              "reps": 33
+            },
+            {
+              "person": "Travis",
+              "reps": 25
+            },
+            {
+              "person": "Paula",
+              "reps": 10
+            },
+            {
+              "person": "Alba",
+              "reps": "21a"
+            },
+            {
+              "person": "Roa",
+              "reps": 12
+            },
+            {
+              "person": "Amparo",
+              "reps": "12R"
+            }
+          ]
+        },
+        {
+          "exercise": "Fondos tríceps (SBD)",
+          "results": [
+            {
+              "person": "Álvaro",
+              "reps": "13|9"
+            },
+            {
+              "person": "Íñigo",
+              "reps": "11|10"
+            },
+            {
+              "person": "Travis",
+              "reps": "26|13"
+            },
+            {
+              "person": "Paula",
+              "reps": "4|4"
+            },
+            {
+              "person": "Alba",
+              "reps": "8|4"
+            },
+            {
+              "person": "Roa",
+              "reps": "7|7"
+            },
+            {
+              "person": "Amparo",
+              "reps": "3u|2u"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2025-10-20",
+      "time": "19:30",
+      "activity_type": "Toma de marcas",
+      "category": "Empuje",
+      "exercises": [
+        {
+          "exercise": "Flexiones militares",
+          "results": [
+            {
+              "person": "Emi",
+              "reps": 38
+            },
+            {
+              "person": "Laura",
+              "reps": 16
+            },
+            {
+              "person": "Paloma",
+              "reps": 7
+            },
+            {
+              "person": "Paula",
+              "reps": 13
+            },
+            {
+              "person": "Alba",
+              "reps": 8
+            },
+            {
+              "person": "Bryan",
+              "reps": 29
+            },
+            {
+              "person": "Pipe",
+              "reps": 39
+            },
+            {
+              "person": "Alberto",
+              "reps": 38
+            },
+            {
+              "person": "Ado",
+              "reps": 13
+            },
+            {
+              "person": "Andreu",
+              "reps": 29
+            },
+            {
+              "person": "Pascu",
+              "reps": 32
+            },
+            {
+              "person": "Iván",
+              "reps": 60
+            }
+          ]
+        },
+        {
+          "exercise": "Flexiones diamante",
+          "results": [
+            {
+              "person": "Emi",
+              "reps": 33
+            },
+            {
+              "person": "Laura",
+              "reps": 8
+            },
+            {
+              "person": "Paloma",
+              "reps": 5
+            },
+            {
+              "person": "Paula",
+              "reps": 7
+            },
+            {
+              "person": "Alba",
+              "reps": 6
+            },
+            {
+              "person": "Bryan",
+              "reps": 22
+            },
+            {
+              "person": "Pipe",
+              "reps": 26
+            },
+            {
+              "person": "Alberto",
+              "reps": 28
+            },
+            {
+              "person": "Ado",
+              "reps": 7
+            },
+            {
+              "person": "Andreu",
+              "reps": 24
+            },
+            {
+              "person": "Pascu",
+              "reps": 30
+            },
+            {
+              "person": "Iván",
+              "reps": 35
+            }
+          ]
+        },
+        {
+          "exercise": "Fondos",
+          "results": [
+            {
+              "person": "Emi",
+              "reps": 22
+            },
+            {
+              "person": "Laura",
+              "reps": 6
+            },
+            {
+              "person": "Paloma",
+              "reps": 8
+            },
+            {
+              "person": "Paula",
+              "reps": 7
+            },
+            {
+              "person": "Alba",
+              "reps": 8
+            },
+            {
+              "person": "Bryan",
+              "reps": 19
+            },
+            {
+              "person": "Pipe",
+              "reps": 19
+            },
+            {
+              "person": "Alberto",
+              "reps": 30
+            },
+            {
+              "person": "Ado",
+              "reps": 6
+            },
+            {
+              "person": "Andreu",
+              "reps": 8
+            },
+            {
+              "person": "Pascu",
+              "reps": 16
+            },
+            {
+              "person": "Iván",
+              "reps": 20
+            }
+          ]
+        },
+        {
+          "exercise": "Fondos tríceps (SBD)",
+          "results": [
+            {
+              "person": "Emi",
+              "reps": 21
+            },
+            {
+              "person": "Laura",
+              "reps": 6
+            },
+            {
+              "person": "Paloma",
+              "reps": 5
+            },
+            {
+              "person": "Paula",
+              "reps": 6
+            },
+            {
+              "person": "Alba",
+              "reps": 7
+            },
+            {
+              "person": "Bryan",
+              "reps": 22
+            },
+            {
+              "person": "Pipe",
+              "reps": 28
+            },
+            {
+              "person": "Alberto",
+              "reps": 24
+            },
+            {
+              "person": "Ado",
+              "reps": 11
+            },
+            {
+              "person": "Andreu",
+              "reps": 13
+            },
+            {
+              "person": "Pascu",
+              "reps": 22
+            },
+            {
+              "person": "Iván",
+              "reps": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2025-10-01",
+      "time": "18:00",
+      "activity_type": "Toma de marcas",
+      "category": "TESTE",
+      "exercises": [
+        {
+          "exercise": "Dominada Prona",
+          "results": [
+            {
+              "person": "Jeferson",
+              "reps": 1
+            },
+            {
+              "person": "Pepe",
+              "reps": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
