@@ -6,9 +6,13 @@ let selectedExercises = [];
 const GOMA_COLORS = {
     'A': { name: 'Amarilla', color: '#FFD700', emoji: '🟡' },
     'R': { name: 'Roja', color: '#FF0000', emoji: '🔴' },
-    'N': { name: 'Negra', color: '#000', emoji: '⚫' },
+    'N': { name: 'Negra', color: '#000000', emoji: '⚫' },
+    'RN': { name: 'Roja-Negra', color: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', emoji: '🔴⚫' },
     'M': { name: 'Morada', color: '#800080', emoji: '🟣' },
-    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' }
+    'MR': { name: 'Morada-Roja', color: 'linear-gradient(135deg, #800080 50%, #FF0000 50%)', emoji: '🟣🔴' },
+    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' },
+    'VRo': { name: 'Verde-Roja', color: 'linear-gradient(135deg, #00FF00 50%, #FF0000 50%)', emoji: '🟢🔴' },
+    'VN': { name: 'Verde-Negra', color: 'linear-gradient(135deg, #00FF00 50%, #000000 50%)', emoji: '🟢⚫' }
 };
 function getGomaBadge(gomaCode) {
     if (!gomaCode || !GOMA_COLORS[gomaCode]) return '';

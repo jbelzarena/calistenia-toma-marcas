@@ -9,9 +9,27 @@ const GOMA_COLORS = {
     'A': { name: 'Amarilla', color: '#FFD700', emoji: '🟡' },
     'R': { name: 'Roja', color: '#FF0000', emoji: '🔴' },
     'N': { name: 'Negra', color: '#000000', emoji: '⚫' },
+    'RN': { name: 'Roja-Negra', color: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', emoji: '🔴⚫' },
     'M': { name: 'Morada', color: '#800080', emoji: '🟣' },
-    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' }
+    'MR': { name: 'Morada-Roja', color: 'linear-gradient(135deg, #800080 50%, #FF0000 50%)', emoji: '🟣🔴' },
+    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' },
+    'VRo': { name: 'Verde-Roja', color: 'linear-gradient(135deg, #00FF00 50%, #FF0000 50%)', emoji: '🟢🔴' },
+    'VN': { name: 'Verde-Negra', color: 'linear-gradient(135deg, #00FF00 50%, #000000 50%)', emoji: '🟢⚫' }
 };
+
+const GOMA_PENALTY = {
+    '': 1,        // No goma, no penalty
+    'A': 0.95,
+    'R': 0.92,
+    'N': 0.90,
+    'RN': 0.86,
+    'M': 0.82,
+    'MR': 0.76,
+    'V': 0.7,
+    'VRo': 0.6,
+    'VN': 0.5     // Most supportive, biggest penalty
+};
+
 
 async function loadData() {
     try {
@@ -43,7 +61,7 @@ function initializeApp() {
        <header>
     <div class="header-flex">
         <div class="logo-container">
-            <img src="logo.jpg" alt="Calistenia Valencia Logo" class="logo">
+            <img src="logo.png" alt="Calistenia Valencia Logo" class="logo">
         </div>
         <div class="brand-title">
             <h1>
@@ -138,17 +156,39 @@ function initializeApp() {
             </div>
 
             <div id="global-view" class="hidden">
-                <div class="global-header">
-                    <h2>🏆 Clasificación Global - <span id="global-category"></span></h2>
-                    <p class="global-description">Sistema de puntos ponderado + conteo de medallas por ejercicio</p>
-                </div>
+              <div class="global-header">
+  <h2>🏆 Clasificación Global - <span id="global-category"></span></h2>
+  <p class="global-description">
+    <b>Resumen:</b> Sólo cuenta tu mejor marca semanal en cada ejercicio, con penalización por goma si usas asistencia, y se suman tus puntos y medallas por estar en el top 3.<br>
+    <span style="color:#7ac242;font-weight:bold;">¡Supera tus marcas y usa menos goma para subir en el ranking!</span>
+    <button class="details-toggle" onclick="document.getElementById('global-details').classList.toggle('hidden');this.textContent=this.textContent==='¿Cómo funciona?'?'Ocultar detalle':'¿Cómo funciona?';" style="margin-left:20px;">¿Cómo funciona?</button>
+  </p>
+  <div id="global-details" class="global-details hidden" style="margin-top:10px; background:rgba(255,255,255,0.10); border-radius:6px; padding:14px;">
+    <ul style="margin-top:0;">
+      <li>Para cada ejercicio, cada semana solo se tiene en cuenta tu <b>mejor resultado</b> (si repites ese ejercicio esa semana, solo la mejor vale).</li>
+      <li>Si tuviste ayuda de goma, se aplica una penalización proporcional: cuanto mayor la asistencia, mayor la resta de puntos.<br>
+        <b>Penalizaciones de menor a mayor:</b>
+        🟡 Amarilla <b>&lt; </b> 🔴 Roja <b>&lt; </b> ⚫ Negra <b>&lt; </b> 🔴⚫ Roja-Negra <b>&lt; </b> 🟣 Morada <b>&lt; </b> 🟣🔴 Morada-Roja <b>&lt; </b> 🟢 Verde <b>&lt; </b> 🟢🔴 Verde-Roja <b>&lt; </b> 🟢⚫ Verde-Negra
+      </li>
+      <li>Tras aplicar las penalizaciones, se ordenan los resultados y se reparten los puntos (100 para el mejor y luego baja progresivamente).</li>
+      <li>Por cada entrada entre los 3 primeros en cualquier ejercicio/semana, recibes una medalla virtual (🥇, 🥈, 🥉) que aparece junto a tu nombre.</li>
+      <li>El ranking global suma todos tus puntos y medallas: ¡Participa mucho, supera tus marcas y sube niveles de dificultad!</li>
+    </ul>
+  </div>
+</div>
                 <div class="leaderboard">
                     <div class="leaderboard-list" id="global-leaderboard-list"></div>
                 </div>
             </div>
         </div>
     `;
-
+    // Hide or show expandable details
+    if (!window.detailsToggleCssInjected) {
+        const style = document.createElement('style');
+        style.innerHTML = '.global-details.hidden { display:none; } .details-toggle{background:transparent;color:#2391ff;border:1px solid #2391ff;border-radius:6px;font-weight:bold;cursor:pointer;padding:2px 10px;font-size:1em;}';
+        document.head.appendChild(style);
+        window.detailsToggleCssInjected = true;
+    }
     setupEventListeners();
     showWelcomeMessage();
 }
@@ -549,48 +589,6 @@ function displayLeaderboard(results) {
     });
 }
 
-function calculateGlobalPoints() {
-    const sessions = getFilteredSessions();
-    const exercisesSet = new Set();
-    const globalScores = {};
-
-    sessions.forEach(s => s.exercises.forEach(ex => exercisesSet.add(ex.exercise)));
-
-    [...exercisesSet].forEach(exerciseName => {
-        const results = aggregateResultsByName(exerciseName);
-        const sorted = sortResults(results);
-        const totalParticipants = sorted.length;
-
-        sorted.forEach((result, index) => {
-            const maxPoints = 100;
-            const pointsPercentage = 1 - (index / totalParticipants);
-            const points = Math.round(maxPoints * pointsPercentage * pointsPercentage);
-
-            if (!globalScores[result.person]) {
-                globalScores[result.person] = {
-                    person: result.person,
-                    totalPoints: 0,
-                    exercises: {},
-                    medals: { gold: 0, silver: 0, bronze: 0 }
-                };
-            }
-
-            globalScores[result.person].totalPoints += points;
-            globalScores[result.person].exercises[exerciseName] = {
-                position: index + 1,
-                points: points,
-                reps: result.reps
-            };
-
-            if (index === 0) globalScores[result.person].medals.gold++;
-            else if (index === 1) globalScores[result.person].medals.silver++;
-            else if (index === 2) globalScores[result.person].medals.bronze++;
-        });
-    });
-
-    return Object.values(globalScores).sort((a, b) => b.totalPoints - a.totalPoints);
-}
-
 function displayGlobalLeaderboard() {
     const category = document.getElementById('category-filter').value;
     document.getElementById('global-category').textContent = category;
@@ -637,6 +635,107 @@ function displayGlobalLeaderboard() {
         leaderboardList.appendChild(item);
     });
 }
+
+function getISOWeek(dateStr) {
+    const date = new Date(dateStr);
+    const temp = new Date(date.getTime());
+    temp.setHours(0, 0, 0, 0);
+    // Thursday in current week decides the year
+    temp.setDate(temp.getDate() + 3 - ((temp.getDay() + 6) % 7));
+    // January 4 is always in week 1
+    const week1 = new Date(temp.getFullYear(), 0, 4);
+    // Adjust to Thursday in week 1 and count number of weeks from week1 to temp
+    return temp.getFullYear() + '-W' +
+        String(1 + Math.round(((temp.getTime() - week1.getTime()) / 86400000
+            - 3 + ((week1.getDay() + 6) % 7)) / 7)).padStart(2, '0');
+}
+
+function calculateGlobalPoints() {
+    const sessions = getFilteredSessions();
+    const exercisesSet = new Set();
+    const globalScores = {};
+
+    // Gather all relevant exercise names
+    sessions.forEach(s => s.exercises.forEach(ex => exercisesSet.add(ex.exercise)));
+
+    // For each exercise
+    [...exercisesSet].forEach(exerciseName => {
+        // Gather all results for this exercise
+        let allResults = [];
+        sessions.forEach(session => {
+            session.exercises.filter(ex => ex.exercise === exerciseName).forEach(exerciseObj => {
+                exerciseObj.results.forEach(result => {
+                    // Determine goma and reps
+                    let m = result.reps.toString().match(/^(\d+)([A-Z]*)$/);
+                    let reps = m ? parseInt(m[1]) : Number(result.reps);
+                    let goma = m && m[2] ? m[2] : '';
+                    reps = reps * (GOMA_PENALTY[goma] !== undefined ? GOMA_PENALTY[goma] : 1);
+                    allResults.push({
+                        person: result.person,
+                        reps: reps,
+                        goma: goma,
+                        rawReps: result.reps,
+                        date: session.date
+                    });
+                });
+            });
+        });
+
+        // Group by person/week and get only the MAX, per exercise, for each person/week
+        let personWeekBest = {};
+        allResults.forEach(entry => {
+            let week = getISOWeek(entry.date);
+            let key = entry.person + '_' + week;
+            if (!personWeekBest[key] || entry.reps > personWeekBest[key].reps) {
+                personWeekBest[key] = entry;
+            }
+        });
+
+        // Collect highest per person (could aggregate all weeks, or for last N weeks)
+        let personMax = {};
+        Object.values(personWeekBest).forEach(entry => {
+            if (!personMax[entry.person]) personMax[entry.person] = [];
+            personMax[entry.person].push(entry.reps);
+        });
+
+        // For points calculation, sum the weekly bests per person (or choose another aggregation rule)
+        let results = Object.keys(personMax).map(person => ({
+            person,
+            reps: Math.max(...personMax[person]) // or possibly sum, but max is most common
+        }));
+
+        // Sort for leaderboard and assign points as before
+        const sorted = results.sort((a, b) => b.reps - a.reps);
+        const totalParticipants = sorted.length;
+        sorted.forEach((result, index) => {
+            const maxPoints = 100;
+            const pointsPercentage = 1 - (index / totalParticipants);
+            const points = Math.round(maxPoints * pointsPercentage * pointsPercentage);
+
+            if (!globalScores[result.person]) {
+                globalScores[result.person] = {
+                    person: result.person,
+                    totalPoints: 0,
+                    exercises: {},
+                    medals: { gold: 0, silver: 0, bronze: 0 }
+                };
+            }
+            globalScores[result.person].totalPoints += points;
+            globalScores[result.person].exercises[exerciseName] = {
+                position: index + 1,
+                points: points,
+                reps: result.reps
+            };
+
+            if (index === 0) globalScores[result.person].medals.gold++;
+            else if (index === 1) globalScores[result.person].medals.silver++;
+            else if (index === 2) globalScores[result.person].medals.bronze++;
+        });
+    });
+
+    return Object.values(globalScores).sort((a, b) => b.totalPoints - a.totalPoints);
+}
+
 
 function openUserProfile(personName) {
     window.location.href = `user.html?name=${encodeURIComponent(personName)}`;
