@@ -1,9 +1,9 @@
 let data = null;
 let userName = '';
+let selectedExercises = [];
 
 async function loadData() {
     try {
-        // Get user name from URL
         const urlParams = new URLSearchParams(window.location.search);
         userName = urlParams.get('name');
 
@@ -51,7 +51,8 @@ function getUserData() {
         name: userName,
         sessions: [],
         exercises: {},
-        totalSessions: 0
+        totalSessions: 0,
+        totalReps: 0
     };
 
     data.sessions.forEach(session => {
@@ -73,7 +74,6 @@ function getUserData() {
                     raw: userResult.reps
                 });
 
-                // Aggregate by exercise
                 if (!userData.exercises[exercise.exercise]) {
                     userData.exercises[exercise.exercise] = {
                         name: exercise.exercise,
@@ -96,6 +96,7 @@ function getUserData() {
                 exerciseData.min = Math.min(exerciseData.min, parsed.value);
                 exerciseData.total += parsed.value;
                 exerciseData.count += 1;
+                userData.totalReps += parsed.value;
             }
         });
 
@@ -105,7 +106,6 @@ function getUserData() {
         }
     });
 
-    // Calculate averages
     Object.values(userData.exercises).forEach(exercise => {
         exercise.average = Math.round(exercise.total / exercise.count);
     });
@@ -113,9 +113,195 @@ function getUserData() {
     return userData;
 }
 
+function toggleExercise(exerciseName) {
+    const index = selectedExercises.indexOf(exerciseName);
+    if (index > -1) {
+        selectedExercises.splice(index, 1);
+    } else {
+        selectedExercises.push(exerciseName);
+    }
+    renderChart();
+    updateFilterButtons();
+}
+
+function updateFilterButtons() {
+    const buttons = document.querySelectorAll('.exercise-filter-btn');
+    buttons.forEach(btn => {
+        const exerciseName = btn.dataset.exercise;
+        if (selectedExercises.includes(exerciseName)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+function getChartData() {
+    const userData = getUserData();
+    const exerciseNames = selectedExercises.length > 0
+        ? selectedExercises
+        : Object.keys(userData.exercises).slice(0, 3);
+
+    const dateMap = new Map();
+
+    exerciseNames.forEach(exerciseName => {
+        const exercise = userData.exercises[exerciseName];
+        if (exercise) {
+            exercise.history.forEach(entry => {
+                if (!dateMap.has(entry.date)) {
+                    dateMap.set(entry.date, { date: entry.date });
+                }
+                dateMap.get(entry.date)[exerciseName] = entry.reps;
+            });
+        }
+    });
+
+    return Array.from(dateMap.values()).sort((a, b) =>
+        new Date(a.date) - new Date(b.date)
+    );
+}
+
+function renderChart() {
+    const chartData = getChartData();
+    const userData = getUserData();
+    const exerciseNames = selectedExercises.length > 0
+        ? selectedExercises
+        : Object.keys(userData.exercises).slice(0, 3);
+
+    const canvas = document.getElementById('progressChart');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size - responsive
+    const container = canvas.parentElement;
+    const isMobile = window.innerWidth <= 480;
+    const isTablet = window.innerWidth <= 768;
+
+    // Use device pixel ratio for sharp rendering
+    const dpr = window.devicePixelRatio || 1;
+    const rect = container.getBoundingClientRect();
+
+    canvas.width = rect.width * dpr;
+    canvas.height = (isMobile ? 250 : isTablet ? 300 : 400) * dpr;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = (isMobile ? 250 : isTablet ? 300 : 400) + 'px';
+
+    ctx.scale(dpr, dpr);
+
+    const padding = isMobile
+        ? { top: 30, right: 15, bottom: 50, left: 45 }
+        : isTablet
+            ? { top: 35, right: 25, bottom: 55, left: 50 }
+            : { top: 40, right: 40, bottom: 60, left: 60 };
+    const chartWidth = canvas.width - padding.left - padding.right;
+    const chartHeight = canvas.height - padding.top - padding.bottom;
+
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (chartData.length === 0) return;
+
+    // Find max value
+    const allValues = chartData.flatMap(d =>
+        exerciseNames.map(ex => d[ex]).filter(v => v !== undefined)
+    );
+    const maxValue = Math.max(...allValues);
+    const minValue = Math.min(...allValues);
+    const range = maxValue - minValue || 1;
+
+    // Colors for lines
+    const colors = ['#1abc9c', '#3498db', '#e74c3c', '#f39c12', '#9b59b6', '#1abc9c'];
+
+    // Draw grid
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 5; i++) {
+        const y = padding.top + (chartHeight / 5) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(padding.left + chartWidth, y);
+        ctx.stroke();
+
+        // Y-axis labels
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'right';
+        const value = Math.round(maxValue - (range / 5) * i);
+        ctx.fillText(value, padding.left - 10, y + 4);
+    }
+
+    // Draw X-axis labels
+    const xStep = chartWidth / (chartData.length - 1 || 1);
+    chartData.forEach((point, index) => {
+        const x = padding.left + xStep * index;
+        const date = new Date(point.date);
+        const label = `${date.getDate()}/${date.getMonth() + 1}`;
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.font = '11px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(label, x, canvas.height - padding.bottom + 20);
+    });
+
+    // Draw lines for each exercise
+    exerciseNames.forEach((exerciseName, exIndex) => {
+        ctx.strokeStyle = colors[exIndex % colors.length];
+        ctx.fillStyle = colors[exIndex % colors.length];
+        ctx.lineWidth = 3;
+
+        const points = [];
+        chartData.forEach((point, index) => {
+            if (point[exerciseName] !== undefined) {
+                const x = padding.left + xStep * index;
+                const normalizedValue = (point[exerciseName] - minValue) / range;
+                const y = padding.top + chartHeight - (normalizedValue * chartHeight);
+                points.push({ x, y, value: point[exerciseName], date: point.date });
+            }
+        });
+
+        if (points.length > 0) {
+            // Draw line
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
+            for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i].x, points[i].y);
+            }
+            ctx.stroke();
+
+            // Draw points
+            points.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+    });
+
+    // Draw legend
+    let legendX = padding.left;
+    const legendY = 20;
+    exerciseNames.forEach((exerciseName, index) => {
+        ctx.fillStyle = colors[index % colors.length];
+        ctx.fillRect(legendX, legendY - 8, 15, 15);
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = '13px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText(exerciseName, legendX + 20, legendY + 4);
+
+        legendX += ctx.measureText(exerciseName).width + 40;
+    });
+}
+
 function displayUserProfile() {
     const userData = getUserData();
     const container = document.getElementById('user-container');
+    const exerciseList = Object.keys(userData.exercises);
+    const maxMark = Math.max(...Object.values(userData.exercises).map(ex => ex.max));
+
+    // Initialize selected exercises with first 3
+    if (selectedExercises.length === 0) {
+        selectedExercises = exerciseList.slice(0, 3);
+    }
 
     container.innerHTML = `
         <header>
@@ -133,50 +319,108 @@ function displayUserProfile() {
                     <div class="stat-label">Sesiones</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">${Object.keys(userData.exercises).length}</div>
+                    <div class="stat-value">${exerciseList.length}</div>
                     <div class="stat-label">Ejercicios</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${userData.totalReps}</div>
+                    <div class="stat-label">Total Reps</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${maxMark}</div>
+                    <div class="stat-label">Mejor Marca</div>
                 </div>
             </div>
         </header>
 
-        <div class="exercises-grid">
-            ${Object.values(userData.exercises).map(exercise => `
-                <div class="exercise-card">
-                    <h3>${exercise.name}</h3>
-                    <div class="exercise-stats">
-                        <div class="stat-row">
-                            <span>Máximo:</span>
-                            <span class="stat-highlight">${exercise.max} reps</span>
-                        </div>
-                        <div class="stat-row">
-                            <span>Promedio:</span>
-                            <span>${exercise.average} reps</span>
-                        </div>
-                        <div class="stat-row">
-                            <span>Mínimo:</span>
-                            <span>${exercise.min} reps</span>
-                        </div>
-                    </div>
-                    <div class="history-chart">
-                        ${renderMiniChart(exercise.history)}
-                    </div>
-                </div>
-            `).join('')}
+        <!-- Progress Chart Section -->
+        <div class="chart-section">
+            <h2>Evolución de Ejercicios</h2>
+            <p class="chart-subtitle">Selecciona los ejercicios para comparar tu progreso</p>
+            
+            <div class="exercise-filters">
+                ${exerciseList.map(exerciseName => `
+                    <button 
+                        class="exercise-filter-btn ${selectedExercises.includes(exerciseName) ? 'active' : ''}" 
+                        data-exercise="${exerciseName}"
+                        onclick="toggleExercise('${exerciseName}')"
+                    >
+                        ${exerciseName}
+                    </button>
+                `).join('')}
+            </div>
+
+            <div class="chart-container">
+                <canvas id="progressChart"></canvas>
+            </div>
         </div>
 
+        <!-- Exercise Stats Grid -->
+        <div class="exercises-section">
+            <h2>Estadísticas por Ejercicio</h2>
+            <div class="exercises-grid">
+                ${Object.values(userData.exercises).map(exercise => {
+        const progressPercent = Math.round((exercise.average / exercise.max) * 100);
+        return `
+                        <div class="exercise-card">
+                            <h3>${exercise.name}</h3>
+                            <div class="exercise-stats">
+                                <div class="stat-row">
+                                    <span>Máximo:</span>
+                                    <span class="stat-highlight">${exercise.max} reps</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Promedio:</span>
+                                    <span>${exercise.average} reps</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Mínimo:</span>
+                                    <span>${exercise.min} reps</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Sesiones:</span>
+                                    <span>${exercise.count}</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-label">
+                                    <span>Progreso</span>
+                                    <span>${progressPercent}%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-fill" style="width: ${progressPercent}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+    }).join('')}
+            </div>
+        </div>
+
+        <!-- Session History -->
         <div class="session-history">
             <h2>Historial de Sesiones</h2>
-            ${userData.sessions.map(session => `
+            ${userData.sessions.slice().reverse().map((session, index) => `
                 <div class="session-card-user">
                     <div class="session-header">
-                        <h3>${new Date(session.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</h3>
-                        <span class="session-time">${session.time}</span>
+                        <div>
+                            <h3>${new Date(session.date).toLocaleDateString('es-ES', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    })}</h3>
+                            <span class="session-time">${session.time} • ${session.category}</span>
+                        </div>
+                        <div class="session-badge">
+                            <div class="badge-number">${session.exercises.length}</div>
+                            <div class="badge-label">ejercicios</div>
+                        </div>
                     </div>
                     <div class="session-exercises">
                         ${session.exercises.map(exercise => `
                             <div class="exercise-result">
                                 <span class="exercise-name">${exercise.name}</span>
-                                <span class="exercise-reps">${exercise.reps} reps${exercise.modifier ? ' ' + exercise.modifier : ''}</span>
+                                <span class="exercise-reps">${exercise.reps}${exercise.modifier ? ' ' + exercise.modifier : ''} reps</span>
                             </div>
                         `).join('')}
                     </div>
@@ -184,24 +428,12 @@ function displayUserProfile() {
             `).join('')}
         </div>
     `;
-}
 
-function renderMiniChart(history) {
-    if (history.length === 0) return '';
+    // Render chart after DOM is ready
+    setTimeout(renderChart, 100);
 
-    const values = history.map(h => h.reps);
-    const max = Math.max(...values);
-    const min = Math.min(...values);
-    const range = max - min || 1;
-
-    return `
-        <div class="mini-chart">
-            ${values.map((value, index) => {
-        const height = ((value - min) / range) * 80 + 20;
-        return `<div class="chart-bar" style="height: ${height}%" title="${value} reps - ${new Date(history[index].date).toLocaleDateString('es-ES')}"></div>`;
-    }).join('')}
-        </div>
-    `;
+    // Re-render chart on window resize
+    window.addEventListener('resize', renderChart);
 }
 
 document.addEventListener('DOMContentLoaded', loadData);

@@ -290,12 +290,15 @@ function sortResults(results) {
 function displayPodium(results) {
     const sorted = sortResults(results);
     const podiumPlaces = document.querySelectorAll('.podium-place');
-    const positions = [1, 0, 2];
+    const positions = [1, 0, 2]; // Maps to: second (index 1), first (index 0), third (index 2)
 
     positions.forEach((index, i) => {
         const place = podiumPlaces[i];
+
         if (sorted[index]) {
+            // Show the podium place
             const result = sorted[index];
+            place.style.display = '';
             place.querySelector('.person-name').textContent = result.person;
 
             if (viewMode === 'single') {
@@ -308,16 +311,30 @@ function displayPodium(results) {
                 `;
             }
 
+            // Reset and trigger animation
             place.style.animation = 'none';
             setTimeout(() => place.style.animation = `slideUp 0.8s ease ${i * 0.2}s both`, 10);
+        } else {
+            // Hide the podium place if no data
+            place.style.display = 'none';
         }
     });
 }
-
 function displayLeaderboard(results) {
     const sorted = sortResults(results);
     const leaderboardList = document.querySelector('.leaderboard-list');
     leaderboardList.innerHTML = '';
+
+    // Show message if no results
+    if (sorted.length === 0) {
+        leaderboardList.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: rgba(255, 255, 255, 0.6);">
+                <p style="font-size: 1.2em;">No hay resultados para mostrar</p>
+                <p>Selecciona un ejercicio o ajusta los filtros</p>
+            </div>
+        `;
+        return;
+    }
 
     sorted.forEach((result, index) => {
         const item = document.createElement('div');

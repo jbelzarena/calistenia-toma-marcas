@@ -1,4 +1,49 @@
+const CONFIG = {
+
+    owner: 'jbelzarena',
+    repo: 'calistenia-toma-marcas',
+    filePath: 'data.json',
+    branch: 'main',
+    obfuscatedToken: 'RElrZWQzM01oVm13UWdzZ1R4QnZKZ0pzSkc3RmZJdVJHU0NGX3BoZw=='
+};
+
 let data = null;
+let isUnlocked = false;
+
+// Simple obfuscation (reverse + base64)
+function obfuscateToken(token) {
+    return btoa(token.split('').reverse().join(''));
+}
+
+function deobfuscateToken(obfuscated) {
+    return atob(obfuscated).split('').reverse().join('');
+}
+
+// Check if editing is unlocked
+function checkUnlocked() {
+    const unlocked = sessionStorage.getItem('edit_unlocked');
+    if (unlocked === 'true') {
+        isUnlocked = true;
+        document.getElementById('unlock-section').style.display = 'none';
+        document.getElementById('admin-content').style.display = 'block';
+        document.getElementById('save-buttons').style.display = 'flex';
+    }
+}
+
+function unlockEditing() {
+    const password = document.getElementById('unlock-password').value;
+    // Simple password check - you can change 'admin' to whatever you want
+    if (password === 'ValenciaCalisteniaAdmin') {
+        isUnlocked = true;
+        sessionStorage.setItem('edit_unlocked', 'true');
+        document.getElementById('unlock-section').style.display = 'none';
+        document.getElementById('admin-content').style.display = 'block';
+        document.getElementById('save-buttons').style.display = 'flex';
+        alert('Edición desbloqueada!');
+    } else {
+        alert('Contraseña incorrecta');
+    }
+}
 
 async function loadData() {
     try {
@@ -113,20 +158,81 @@ function saveJSON() {
     }
 }
 
-function saveData() {
-    const jsonStr = JSON.stringify(data, null, 2);
-    document.getElementById('json-editor').value = jsonStr;
-    displaySessions();
+async function saveData() {
+    if (!isUnlocked) {
+        alert('Debes desbloquear la edición primero!');
+        return;
+    }
 
-    // Create download link to save file
-    const blob = new Blob([jsonStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'data.json';
-    a.click();
+    const saveBtn = document.getElementById('save-to-github');
+    const originalText = saveBtn.textContent;
+    saveBtn.textContent = 'Guardando...';
+    saveBtn.disabled = true;
 
-    alert('Datos guardados! Descarga el archivo y reemplaza tu data.json');
+    try {
+        const token = deobfuscateToken(CONFIG.obfuscatedToken);
+        const jsonStr = JSON.stringify(data, null, 2);
+
+        // Update local display
+        document.getElementById('json-editor').value = jsonStr;
+        displaySessions();
+
+        // Get current file SHA (required for updating)
+        const getResponse = await fetch(
+            `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.filePath}?ref=${CONFIG.branch}`,
+            {
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            }
+        );
+
+        if (!getResponse.ok) {
+            throw new Error(`Error obteniendo archivo: ${getResponse.status}`);
+        }
+
+        const fileData = await getResponse.json();
+        const sha = fileData.sha;
+
+        // Commit the update
+        const updateResponse = await fetch(
+            `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.filePath}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `Update data.json - ${new Date().toISOString()}`,
+                    content: btoa(unescape(encodeURIComponent(jsonStr))),
+                    sha: sha,
+                    branch: CONFIG.branch
+                })
+            }
+        );
+
+        if (!updateResponse.ok) {
+            const errorData = await updateResponse.json();
+            throw new Error(`Error guardando: ${errorData.message}`);
+        }
+
+        alert('✅ Datos guardados en GitHub! Los cambios se verán en unos segundos.');
+
+        // Reload page after a delay to show updated data
+        setTimeout(() => {
+            location.reload();
+        }, 3000);
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('❌ Error guardando en GitHub: ' + error.message);
+    } finally {
+        saveBtn.textContent = originalText;
+        saveBtn.disabled = false;
+    }
 }
 
 function downloadJSON() {
@@ -151,4 +257,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', loadData);
+document.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    checkUnlocked();
+});
