@@ -3,94 +3,97 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Admin - Calistenia Valencia</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="admin-styles.css">
+    <!-- Main Unified CSS: link this to your new admin.css -->
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Panel de Administración</h1>
+        <header>
+            <h1><span class="brand-calistenia">Panel de Administración</span></h1>
+        </header>
 
-        <!-- Unlock Section -->
-        <div id="unlock-section" class="unlock-panel">
+        <!-- Nav Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="sessions">Ver Sesiones</button>
+            <button class="tab-btn" data-tab="new">Nueva Sesión</button>
+            <button class="tab-btn" data-tab="json">Editar JSON</button>
+        </nav>
+
+        <!-- UNLOCK SECTION -->
+        <section id="unlock-section" class="unlock-panel">
             <div class="unlock-card">
                 <h3>🔒 Edición Bloqueada</h3>
                 <p>Introduce la contraseña para desbloquear la edición</p>
-                <input type="password" id="unlock-password" placeholder="Contraseña" class="unlock-input">
-                <button onclick="unlockEditing()" class="btn-unlock">Desbloquear</button>
+                <input type="password" id="unlock-password" class="unlock-input" placeholder="Contraseña">
+                <button onclick="unlockEditing()" class="btn-primary">Desbloquear</button>
             </div>
-        </div>
+        </section>
 
-        <!-- Main Content (Hidden by default) -->
-        <div id="admin-content" style="display: none;">
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="sessions">Ver Sesiones</button>
-                <button class="tab-btn" data-tab="new">Nueva Sesión</button>
-                <button class="tab-btn" data-tab="json">Editar JSON</button>
-            </div>
+        <!-- MAIN ADMIN CONTENT -->
+        <main id="admin-content" style="display:none;">
 
-            <!-- Tab: Ver Sesiones -->
-            <div id="sessions-tab" class="tab-content">
+            <!-- TAB: Ver Sesiones -->
+            <section id="sessions-tab" class="tab-content">
                 <h2>Sesiones Registradas</h2>
-                <div id="sessions-list" class="sessions-list"></div>
-            </div>
+                <div id="sessions-list"></div>
+            </section>
 
-            <!-- Tab: Nueva Sesión -->
-            <div id="new-tab" class="tab-content hidden">
+            <!-- TAB: Nueva Sesión -->
+            <section id="new-tab" class="tab-content hidden">
                 <h2>Agregar Nueva Sesión</h2>
-                <form id="new-session-form" class="session-form">
+                <form id="new-session-form">
                     <div class="form-row">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Fecha:</label>
-                                <input type="date" id="session-date" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Hora:</label>
-                                <input type="time" id="session-time" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Categoría:</label>
-                                <input type="text" id="category" list="category-list" required>
-                                <datalist id="category-list"></datalist>
-                            </div>
-                            <div class="form-group">
-                                <label>Tipo de actividad:</label>
-                                <input type="text" id="activity-type" list="activity-type-list" required>
-                                <datalist id="activity-type-list"></datalist>
-                            </div>
+                        <div class="form-group">
+                            <label for="session-date">Fecha</label>
+                            <input type="date" id="session-date" required>
                         </div>
+                        <div class="form-group">
+                            <label for="session-time">Hora</label>
+                            <input type="time" id="session-time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Categoría</label>
+                            <input type="text" id="category" list="category-list" required>
+                            <datalist id="category-list"></datalist>
+                        </div>
+                        <div class="form-group">
+                            <label for="activity-type">Tipo de actividad</label>
+                            <input type="text" id="activity-type" list="activity-type-list" required>
+                            <datalist id="activity-type-list"></datalist>
+                        </div>
+                    </div>
+                    <section id="exercises-container" class="exercises-container">
                         <h3>Ejercicios</h3>
-                        <div id="exercises-container" class="exercises-container"></div>
+                    </section>
+                    <div class="form-actions">
                         <button type="button" class="btn-secondary" onclick="addExerciseForm()">+ Agregar
                             Ejercicio</button>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn-primary">Guardar Sesión</button>
-                        </div>
+                        <button type="submit" class="btn-primary">Guardar Sesión</button>
+                    </div>
                 </form>
-            </div>
+            </section>
 
-            <!-- Tab: Editar JSON -->
-            <div id="json-tab" class="tab-content hidden">
+            <!-- TAB: Editar JSON -->
+            <section id="json-tab" class="tab-content hidden">
                 <h2>Editar JSON Directamente</h2>
-                <textarea id="json-editor" class="json-editor"></textarea>
+                <textarea id="json-editor" class="json-editor" spellcheck="false"></textarea>
                 <div class="form-actions">
                     <button onclick="saveJSON()" class="btn-primary">Aplicar Cambios JSON</button>
                 </div>
-            </div>
+            </section>
 
-            <!-- Save Buttons (shown after unlock) -->
+            <!-- SAVE BUTTONS UNDER TABS -->
             <div id="save-buttons" class="save-actions" style="display: none;">
-                <button id="save-to-github" onclick="saveData()" class="btn-success">💾 Guardar en GitHub</button>
-                <button onclick="downloadJSON()" class="btn-secondary">⬇️ Descargar JSON (Backup)</button>
+                <button id="save-to-github" onclick="saveData()" class="btn-success"><span class="icon">💾</span>
+                    Guardar en GitHub</button>
+                <button onclick="downloadJSON()" class="btn-secondary"><span class="icon">⬇️</span> Descargar JSON
+                    (Backup)</button>
             </div>
-        </div>
+        </main>
     </div>
-
     <script src="admin.js"></script>
 </body>
 

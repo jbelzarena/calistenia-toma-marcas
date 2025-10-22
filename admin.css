@@ -1,0 +1,644 @@
+/* ==== ROOT + RESET ==== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+select {
+    background: #1a2940;
+    /* Example: Dark background */
+    color: #fff;
+    /* Text color for contrast */
+    border: 2px solid #1abc9c;
+}
+
+option {
+    background: #1a2940;
+    color: #fff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2940 100%);
+    min-height: 100vh;
+    padding: 18px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="30" fill="rgba(26, 188, 156, 0.04)"/></svg>');
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+
+/* ==== HEADER ==== */
+header {
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.brand-calistenia {
+    color: #1abc9c;
+    font-weight: 800;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+
+/* ==== NAV TABS ==== */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    background: rgba(26, 188, 156, 0.09);
+    border: 2px solid #1abc9c;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .25s, color .2s;
+}
+
+.tab-btn.active,
+.tab-btn:focus {
+    background: #1abc9c;
+    color: #0a1628;
+    outline: none;
+}
+
+.tab-btn:hover {
+    background: rgba(26, 188, 156, 0.18);
+}
+
+
+/* ==== PANELS & CARDS ==== */
+.tab-content {
+    background: rgba(26, 188, 156, 0.07);
+    border: 2px solid rgba(26, 188, 156, 0.22);
+    border-radius: 10px;
+    padding: 28px 26px;
+    margin-bottom: 26px;
+    min-height: 500px;
+}
+
+.tab-content.hidden {
+    display: none;
+}
+
+h2,
+h3 {
+    color: #1abc9c;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+
+/* ==== FORM STRUCTURE ==== */
+.form-row {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1 1 200px;
+    min-width: 150px;
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-size: 1em;
+    color: #1abc9c;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(26, 188, 156, 0.18);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 1em;
+    color: #fff;
+    margin-bottom: 6px;
+    transition: border-color 0.22s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #1abc9c;
+    outline: none;
+}
+
+textarea.json-editor {
+    min-height: 180px;
+    height: 400px;
+    max-width: 100%;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 1em;
+    background: rgba(26, 188, 156, 0.055);
+    color: #fff;
+    margin-top: 12px;
+}
+
+/* ==== UNLOCK PANEL ==== */
+.unlock-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    padding: 2rem 1rem 1rem 1rem;
+}
+
+.unlock-card {
+    background: #fff;
+    color: #222;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(26, 188, 156, 0.12);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.unlock-card h3 {
+    color: #1abc9c;
+}
+
+.unlock-input {
+    margin-bottom: 1.2rem;
+}
+
+
+/* ==== ADMIN BUTTONS ==== */
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-remove {
+    min-width: 160px;
+    height: 46px;
+    font-size: 1em;
+    padding: 0 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    margin-right: 9px;
+    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .20s, color .16s, box-shadow .2s;
+}
+
+.btn-primary {
+    background: #1abc9c;
+    color: #0a1628;
+}
+
+.btn-primary:hover {
+    background: #16a085;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: rgba(26, 188, 156, 0.13);
+    color: #fff;
+    border: 2px solid #1abc9c;
+}
+
+.btn-secondary:hover {
+    background: rgba(26, 188, 156, 0.21);
+}
+
+.btn-success {
+    background: #27ae60;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #229954;
+}
+
+.btn-remove {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.btn-remove:hover {
+    background: #c0392b;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.btn-sm {
+    min-width: unset;
+    height: 36px;
+    font-size: 0.92em;
+    padding: 0 13px;
+}
+
+.form-actions,
+.save-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* ==== SESSION CARDS ==== */
+.session-card {
+    background: rgba(26, 188, 156, 0.05);
+    padding: 20px 18px;
+    border-radius: 9px;
+    margin-bottom: 22px;
+    border-left: 4px solid #1abc9c;
+}
+
+.edit-row {
+    margin-bottom: 9px;
+}
+
+.session-exercises {
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.exercises-list,
+.results-list {
+    margin-bottom: 8px;
+}
+
+.card-btns {
+    display: grid;
+    width: -webkit-fill-available;
+}
+
+.expand-btn {
+    width: 25px;
+}
+
+.password {
+    color: black
+}
+
+.exercise-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+    margin-bottom: 9px;
+    padding: 8px 3px;
+    background: rgba(26, 188, 156, 0.05);
+    border-radius: 5px;
+    flex-direction: row-reverse;
+}
+
+.exercise-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+
+/* ==== EXERCISE/RESULT ENTRY ==== */
+.exercise-form {
+    background: rgba(26, 188, 156, 0.042);
+    padding: 18px 15px;
+    border-radius: 9px;
+    margin-bottom: 18px;
+    border-left: 4px solid #1abc9c;
+}
+
+.results-section,
+.results-list,
+.result-row {
+    margin-bottom: 9px;
+}
+
+.result-row {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.result-row input,
+.result-row select {
+    padding: 8px 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 2px solid rgba(26, 188, 156, 0.18);
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+}
+
+.result-row .btn-remove {
+    margin-left: 2px;
+    min-width: unset;
+    background: #e74c3c;
+    color: #fff;
+}
+
+.result-row .btn-remove:hover {
+    background: #c0392b;
+}
+
+/* ==== EDITABLE INLINE FIELDS ==== */
+.editable-field {
+    background: rgba(26, 188, 156, 0.12);
+    border-radius: 5px;
+    padding: 3px 9px;
+    margin-left: 6px;
+    min-width: 70px;
+    transition: border .18s;
+    outline: none;
+    width: -webkit-fill-available;
+    display: block;
+}
+
+.editable-field:focus {
+    border: 2px solid #16a085;
+    background: rgba(26, 188, 156, 0.19);
+}
+
+
+/* ==== MODALS/POPUPS ==== */
+.modal {
+    position: fixed;
+    top: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a2940;
+    padding: 28px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 48px rgba(26, 188, 156, 0.19);
+    z-index: 10000;
+    color: #fff;
+    max-width: 90vw;
+    width: 420px;
+}
+
+::-webkit-input-placeholder {
+    color: #bbb !important;
+}
+
+::-moz-placeholder {
+    color: #bbb !important;
+}
+
+:-ms-input-placeholder {
+    color: #bbb !important;
+}
+
+::placeholder {
+    color: #bbb !important;
+}
+
+.session-meta-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.meta-field {
+    flex: 1 1 150px;
+    min-width: 140px;
+    font-size: 1em;
+    color: #eee;
+}
+
+.session-card {
+    overflow-x: auto;
+    word-break: break-word;
+}
+
+.exercise-item,
+.exercise-actions {
+    flex-wrap: wrap;
+}
+
+/* ==== MOBILE DESIGN & OVERRIDES ==== */
+@media (max-width: 800px) {
+    .tabs {
+        display: flex;
+        gap: 1px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+    }
+
+    .modal {
+        position: fixed;
+        top: 1vh;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1a2940;
+        padding: 28px 20px;
+        border-radius: 16px;
+        box-shadow: 0 8px 48px rgba(26, 188, 156, 0.19);
+        z-index: 10000;
+        color: #fff;
+        max-width: 90vw;
+        width: 100%;
+        max-height: 98vh;
+    }
+
+    .container {
+        max-width: 99vw;
+        padding: 6px;
+    }
+
+    .tab-content,
+    .session-card,
+    .exercise-form {
+        padding: 12px 4px;
+        font-size: 1em;
+    }
+
+    .form-row,
+    .session-meta-row,
+    .exercise-item,
+    .result-row {
+        gap: 7px;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+    }
+
+    .form-group,
+    .meta-field {
+        min-width: 80px;
+        font-size: 0.98em;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 1.16em;
+        margin-bottom: 6px;
+    }
+
+    label {
+        font-size: 0.98em;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 0.95em;
+        padding: 9px 8px;
+        margin-bottom: 6px;
+    }
+
+
+    /* Buttons shrink and stack */
+    .btn-primary,
+    .btn-secondary,
+    .btn-success,
+    .btn-remove,
+    .btn-sm {
+        width: 125px;
+        min-width: unset;
+        height: 38px;
+        font-size: 0.94em;
+        margin-right: 0;
+        margin-bottom: 8px;
+        padding: 0 8px;
+    }
+
+    .result-row {
+        gap: 7px;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+
+    .form-actions,
+    .save-actions {
+
+        flex-direction: row;
+        gap: 7px;
+        align-items: stretch;
+    }
+
+    .exercise-actions {
+        flex-direction: row;
+        gap: 7px;
+        align-items: stretch;
+    }
+
+    .card-btns {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .editable-field {
+        font-size: 0.93em;
+        padding: 3px 7px;
+        margin-left: 2px;
+        min-width: 50px;
+        width: 100%;
+        display: block;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .session-meta-row,
+    .form-row,
+    .result-row,
+    .exercise-item {
+
+        gap: 2px;
+    }
+
+    .meta-field {
+        margin-bottom: 1px;
+        font-size: 0.90em;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 500px) {
+
+    body,
+    .container {
+        font-size: 0.87em;
+        padding: 2px;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 1em;
+    }
+
+    .tab-content,
+    .session-card,
+    .exercise-form {
+        padding: 6px 1px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-success,
+    .btn-remove,
+    .btn-sm {
+        height: 34px;
+        font-size: 0.87em;
+        margin-bottom: 7px;
+        padding: 0 4px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 0.87em;
+        padding: 6px 5px;
+    }
+
+    .editable-field {
+        font-size: 0.87em;
+        padding: 2px 5px;
+    }
+}
+
+/* Prevent overflow on small screens */
+.session-card,
+.tab-content,
+.modal,
+.exercise-item {
+    max-width: 100vw;
+    overflow-x: auto;
+    word-break: break-word;
+}
