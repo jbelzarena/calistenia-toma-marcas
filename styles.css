@@ -191,6 +191,7 @@ header h1 {
     margin-bottom: 10px;
     text-align: center;
     color: #1abc9c;
+    max-width: 120px;
 }
 
 .reps {
