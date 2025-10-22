@@ -1400,8 +1400,16 @@
           ]
         },
         {
-          "exercise": "Fo",
-          "results": []
+          "exercise": "Fondos tríceps (SBD)",
+          "results": [ {
+              "person": "Carlos Madrid",
+              "reps": "11"
+            },
+            {
+              "person": "Santi",
+              "reps": "20"
+            }
+          ]
         }
       ]
     }
