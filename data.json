@@ -11,7 +11,7 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Carlos",
+                            "person": "Carlos Madrid",
                             "reps": 15
                         },
                         {
@@ -36,7 +36,7 @@
                             "reps": 6
                         },
                         {
-                            "person": "Jefferson",
+                            "person": "Jeferson Rosa",
                             "reps": 12
                         },
                         {
@@ -45,7 +45,7 @@
                             "goma": "N"
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 21
                         },
                         {
@@ -53,7 +53,7 @@
                             "reps": 9
                         },
                         {
-                            "person": "Helena",
+                            "person": "Helena Jiménez",
                             "reps": "12",
                             "goma": "V"
                         }
@@ -63,7 +63,7 @@
                     "exercise": "Dominada supino",
                     "results": [
                         {
-                            "person": "Carlos",
+                            "person": "Carlos Madrid",
                             "reps": 14
                         },
                         {
@@ -88,7 +88,7 @@
                             "reps": 8
                         },
                         {
-                            "person": "Jefferson",
+                            "person": "Jeferson Rosa",
                             "reps": 10
                         },
                         {
@@ -97,7 +97,7 @@
                             "goma": "N"
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 12
                         },
                         {
@@ -105,7 +105,7 @@
                             "reps": 9
                         },
                         {
-                            "person": "Helena",
+                            "person": "Helena Jiménez",
                             "reps": "11",
                             "goma": "V"
                         }
@@ -115,7 +115,7 @@
                     "exercise": "Remo austriaco",
                     "results": [
                         {
-                            "person": "Carlos",
+                            "person": "Carlos Madrid",
                             "reps": 24
                         },
                         {
@@ -139,7 +139,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Jefferson",
+                            "person": "Jeferson Rosa",
                             "reps": 8
                         },
                         {
@@ -147,7 +147,7 @@
                             "reps": 12
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 40
                         },
                         {
@@ -155,7 +155,7 @@
                             "reps": 21
                         },
                         {
-                            "person": "Helena",
+                            "person": "Helena Jiménez",
                             "reps": 19
                         }
                     ]
@@ -164,7 +164,7 @@
                     "exercise": "Remo neutro",
                     "results": [
                         {
-                            "person": "Carlos",
+                            "person": "Carlos Madrid",
                             "reps": 17
                         },
                         {
@@ -188,7 +188,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Jefferson",
+                            "person": "Jeferson Rosa",
                             "reps": 9
                         },
                         {
@@ -196,7 +196,7 @@
                             "reps": 7
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 23
                         },
                         {
@@ -204,7 +204,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Helena",
+                            "person": "Helena Jiménez",
                             "reps": 9
                         }
                     ]
@@ -212,8 +212,8 @@
             ]
         },
         {
-            "date": "2025-10-18",
-            "time": "10:30",
+            "date": "2025-10-20",
+            "time": "10:00",
             "activity_type": "Toma de marcas",
             "category": "Empuje",
             "exercises": [
@@ -233,7 +233,7 @@
                             "reps": 48
                         },
                         {
-                            "person": "Paula",
+                            "person": "Paula Ricart Bellver",
                             "reps": 27
                         },
                         {
@@ -241,11 +241,11 @@
                             "reps": 13
                         },
                         {
-                            "person": "Roa",
+                            "person": "Rox",
                             "reps": 17
                         },
                         {
-                            "person": "Amparo",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "12",
                             "goma": "R"
                         }
@@ -267,7 +267,7 @@
                             "reps": 25
                         },
                         {
-                            "person": "Paula",
+                            "person": "Paula Ricart Bellver",
                             "reps": 10
                         },
                         {
@@ -276,11 +276,11 @@
                             "goma": "R"
                         },
                         {
-                            "person": "Roa",
+                            "person": "Rox",
                             "reps": 12
                         },
                         {
-                            "person": "Amparo",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "12",
                             "goma": "N"
                         }
@@ -302,7 +302,7 @@
                             "reps": "26"
                         },
                         {
-                            "person": "Paula",
+                            "person": "Paula Ricart Bellver",
                             "reps": "4"
                         },
                         {
@@ -310,11 +310,11 @@
                             "reps": "8"
                         },
                         {
-                            "person": "Roa",
+                            "person": "Rox",
                             "reps": "7"
                         },
                         {
-                            "person": "Amparo",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "3",
                             "goma": "N"
                         }
@@ -336,7 +336,7 @@
                             "reps": "13"
                         },
                         {
-                            "person": "Paula",
+                            "person": "Paula Ricart Bellver",
                             "reps": "4"
                         },
                         {
@@ -344,11 +344,11 @@
                             "reps": "4"
                         },
                         {
-                            "person": "Roa",
+                            "person": "Rox",
                             "reps": "7"
                         },
                         {
-                            "person": "Amparo",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "2",
                             "goma": "N"
                         }
@@ -366,7 +366,7 @@
                     "exercise": "Flexiones militares",
                     "results": [
                         {
-                            "person": "Emi",
+                            "person": "Emiliano",
                             "reps": 38
                         },
                         {
@@ -394,11 +394,11 @@
                             "reps": 39
                         },
                         {
-                            "person": "Alberto",
+                            "person": "Alberto Del  Carpio",
                             "reps": 38
                         },
                         {
-                            "person": "Ado",
+                            "person": "Adri Gabriel",
                             "reps": 13
                         },
                         {
@@ -410,7 +410,7 @@
                             "reps": 32
                         },
                         {
-                            "person": "Iván",
+                            "person": "Iván Sastre Moyá",
                             "reps": 60
                         }
                     ]
@@ -419,7 +419,7 @@
                     "exercise": "Flexiones diamante",
                     "results": [
                         {
-                            "person": "Emi",
+                            "person": "Emiliano",
                             "reps": 33
                         },
                         {
@@ -447,11 +447,11 @@
                             "reps": 26
                         },
                         {
-                            "person": "Alberto",
+                            "person": "Alberto Del  Carpio",
                             "reps": 28
                         },
                         {
-                            "person": "Ado",
+                            "person": "Adri Gabriel",
                             "reps": 7
                         },
                         {
@@ -463,7 +463,7 @@
                             "reps": 30
                         },
                         {
-                            "person": "Iván",
+                            "person": "Iván Sastre Moyá",
                             "reps": 35
                         }
                     ]
@@ -472,7 +472,7 @@
                     "exercise": "Fondos",
                     "results": [
                         {
-                            "person": "Emi",
+                            "person": "Emiliano",
                             "reps": 22
                         },
                         {
@@ -500,11 +500,11 @@
                             "reps": 19
                         },
                         {
-                            "person": "Alberto",
+                            "person": "Alberto Del  Carpio",
                             "reps": 30
                         },
                         {
-                            "person": "Ado",
+                            "person": "Adri Gabriel",
                             "reps": 6
                         },
                         {
@@ -516,7 +516,7 @@
                             "reps": 16
                         },
                         {
-                            "person": "Iván",
+                            "person": "Iván Sastre Moyá",
                             "reps": 20
                         }
                     ]
@@ -525,7 +525,7 @@
                     "exercise": "Fondos tríceps (SBD)",
                     "results": [
                         {
-                            "person": "Emi",
+                            "person": "Emiliano",
                             "reps": 21
                         },
                         {
@@ -553,11 +553,11 @@
                             "reps": 28
                         },
                         {
-                            "person": "Alberto",
+                            "person": "Alberto Del  Carpio",
                             "reps": 24
                         },
                         {
-                            "person": "Ado",
+                            "person": "Adri Gabriel",
                             "reps": 11
                         },
                         {
@@ -569,7 +569,7 @@
                             "reps": 22
                         },
                         {
-                            "person": "Iván",
+                            "person": "Iván Sastre Moyá",
                             "reps": 24
                         }
                     ]
@@ -664,16 +664,16 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Anna",
+                            "person": "Ana Herrador",
                             "reps": 4,
                             "goma": "V"
                         },
                         {
-                            "person": "Luisjo",
+                            "person": "Luiso",
                             "reps": 12
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri Gabriel",
                             "reps": "4",
                             "goma": "RN"
                         },
@@ -683,7 +683,7 @@
                             "goma": "V"
                         },
                         {
-                            "person": "Adolfo",
+                            "person": "Adolfo López Perez",
                             "reps": "4",
                             "goma": "V"
                         },
@@ -693,7 +693,7 @@
                             "goma": "RN"
                         },
                         {
-                            "person": "Laurita",
+                            "person": "Laura Pastor",
                             "reps": "4",
                             "goma": "VR"
                         },
@@ -703,7 +703,7 @@
                             "goma": "V"
                         },
                         {
-                            "person": "Quiquei",
+                            "person": "Quique",
                             "reps": "9",
                             "goma": "VN"
                         },
@@ -716,7 +716,7 @@
                             "reps": "11"
                         },
                         {
-                            "person": "Paco",
+                            "person": "Paco Montoro",
                             "reps": "12",
                             "goma": "NR"
                         },
@@ -736,16 +736,16 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Anna",
+                            "person": "Ana Herrador",
                             "reps": 2,
                             "goma": "V"
                         },
                         {
-                            "person": "Luisjo",
+                            "person": "Luiso",
                             "reps": 12
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri Gabriel",
                             "reps": "4",
                             "goma": "RN"
                         },
@@ -755,7 +755,7 @@
                             "goma": "V"
                         },
                         {
-                            "person": "Adolfo",
+                            "person": "Adolfo López Perez",
                             "reps": "4",
                             "goma": "V"
                         },
@@ -765,7 +765,7 @@
                             "goma": "RN"
                         },
                         {
-                            "person": "Laurita",
+                            "person": "Laura Pastor",
                             "reps": "3"
                         },
                         {
@@ -774,7 +774,7 @@
                             "goma": "V"
                         },
                         {
-                            "person": "Quiquei",
+                            "person": "Quique",
                             "reps": "8",
                             "goma": "VN"
                         },
@@ -787,7 +787,7 @@
                             "reps": "14"
                         },
                         {
-                            "person": "Paco",
+                            "person": "Paco Montoro",
                             "reps": "10",
                             "goma": "NR"
                         },
@@ -807,15 +807,15 @@
                     "exercise": "Remo neutro",
                     "results": [
                         {
-                            "person": "Luisjo",
+                            "person": "Ana Herrador",
                             "reps": 7
                         },
                         {
-                            "person": "Luisjo",
+                            "person": "Luiso",
                             "reps": 10
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri Gabriel",
                             "reps": 5
                         },
                         {
@@ -823,7 +823,7 @@
                             "reps": 6
                         },
                         {
-                            "person": "Adolfo",
+                            "person": "Adolfo López Perez",
                             "reps": 6
                         },
                         {
@@ -831,7 +831,7 @@
                             "reps": 10
                         },
                         {
-                            "person": "Laurita",
+                            "person": "Laura Pastor",
                             "reps": 1
                         },
                         {
@@ -839,7 +839,7 @@
                             "reps": 10
                         },
                         {
-                            "person": "Quiquei",
+                            "person": "Quique",
                             "reps": 5
                         },
                         {
@@ -851,7 +851,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Paco",
+                            "person": "Paco Montoro",
                             "reps": 10
                         },
                         {
@@ -868,7 +868,7 @@
                     "exercise": "Remo austriaco",
                     "results": [
                         {
-                            "person": "Luisjo",
+                            "person": "Ana Herrador",
                             "reps": 10
                         },
                         {
@@ -876,7 +876,7 @@
                             "reps": 28
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri Gabriel",
                             "reps": 11
                         },
                         {
@@ -884,7 +884,7 @@
                             "reps": 17
                         },
                         {
-                            "person": "Adolfo",
+                            "person": "Adolfo López Perez",
                             "reps": 11
                         },
                         {
@@ -892,7 +892,7 @@
                             "reps": 23
                         },
                         {
-                            "person": "Laurita",
+                            "person": "Laura Pastor",
                             "reps": 8
                         },
                         {
@@ -900,7 +900,7 @@
                             "reps": 27
                         },
                         {
-                            "person": "Quiquei",
+                            "person": "Quique",
                             "reps": 7
                         },
                         {
@@ -912,7 +912,7 @@
                             "reps": 35
                         },
                         {
-                            "person": "Paco",
+                            "person": "Paco Montoro",
                             "reps": 15
                         },
                         {
@@ -945,16 +945,16 @@
                             "reps": 34
                         },
                         {
-                            "person": "Flor",
+                            "person": "Florencia Koelln",
                             "reps": 40,
                             "goma": "V"
                         },
                         {
-                            "person": "Diogo",
+                            "person": "Diogo Santos",
                             "reps": 47
                         },
                         {
-                            "person": "Gonza",
+                            "person": "Gonzalo",
                             "reps": 40
                         },
                         {
@@ -970,7 +970,7 @@
                             "reps": 67
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 49
                         },
                         {
@@ -991,16 +991,16 @@
                             "reps": 25
                         },
                         {
-                            "person": "Flor",
+                            "person": "Florencia Koelln",
                             "reps": 35,
                             "goma": "R"
                         },
                         {
-                            "person": "Diogo",
+                            "person": "Diogo Santos",
                             "reps": 35
                         },
                         {
-                            "person": "Gonza",
+                            "person": "Gonzalo",
                             "reps": 28
                         },
                         {
@@ -1016,7 +1016,7 @@
                             "reps": 29
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 35
                         },
                         {
@@ -1037,16 +1037,16 @@
                             "reps": 18
                         },
                         {
-                            "person": "Flor",
+                            "person": "Florencia Koelln",
                             "reps": 16,
                             "goma": "N"
                         },
                         {
-                            "person": "Diogo",
+                            "person": "Diogo Santos",
                             "reps": 21
                         },
                         {
-                            "person": "Gonza",
+                            "person": "Gonzalo",
                             "reps": 25
                         },
                         {
@@ -1062,7 +1062,7 @@
                             "reps": 22
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 28
                         },
                         {
@@ -1083,15 +1083,15 @@
                             "reps": 19
                         },
                         {
-                            "person": "Flor",
+                            "person": "Florencia Koelln",
                             "reps": 6
                         },
                         {
-                            "person": "Diogo",
+                            "person": "Diogo Santos",
                             "reps": 15
                         },
                         {
-                            "person": "Gonza",
+                            "person": "Gonzalo",
                             "reps": 20
                         },
                         {
@@ -1107,7 +1107,7 @@
                             "reps": 24
                         },
                         {
-                            "person": "Álvaro",
+                            "person": "Álvaro Saez",
                             "reps": 26
                         },
                         {
@@ -1128,7 +1128,7 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Alba",
+                            "person": "Alba Martinez Agulló",
                             "reps": "14",
                             "goma": "N"
                         },
@@ -1141,7 +1141,7 @@
                             "reps": "11"
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri",
                             "reps": "12",
                             "goma": "MN"
                         },
@@ -1155,17 +1155,17 @@
                             "reps": "10"
                         },
                         {
-                            "person": "Flo",
+                            "person": "Florencia Dupont",
                             "reps": "4",
                             "goma": "V"
                         },
                         {
-                            "person": "Claudia",
+                            "person": "Claudia Pdrn",
                             "reps": "4",
                             "goma": "V"
                         },
                         {
-                            "person": "Sergio",
+                            "person": "Sergio Santos Sanchez",
                             "reps": "10"
                         },
                         {
@@ -1189,7 +1189,7 @@
                     "exercise": "Dominada supino",
                     "results": [
                         {
-                            "person": "Alba",
+                            "person": "Alba Martinez Agulló",
                             "reps": 9
                         },
                         {
@@ -1201,7 +1201,7 @@
                             "reps": 8
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri",
                             "reps": "5",
                             "goma": "MN"
                         },
@@ -1215,17 +1215,17 @@
                             "reps": "7"
                         },
                         {
-                            "person": "Flo",
+                            "person": "Florencia Dupont",
                             "reps": "9",
                             "goma": "V"
                         },
                         {
-                            "person": "Claudia",
+                            "person": "Claudia Pdrn",
                             "reps": "5",
                             "goma": "V"
                         },
                         {
-                            "person": "Sergio",
+                            "person": "Sergio Santos Sanchez",
                             "reps": "9"
                         },
                         {
@@ -1249,7 +1249,7 @@
                     "exercise": "Remo neutro",
                     "results": [
                         {
-                            "person": "Alba",
+                            "person": "Alba Martinez Agulló",
                             "reps": 14
                         },
                         {
@@ -1261,7 +1261,7 @@
                             "reps": 17
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri",
                             "reps": 12
                         },
                         {
@@ -1273,16 +1273,16 @@
                             "reps": 20
                         },
                         {
-                            "person": "Flo",
+                            "person": "Florencia Dupont",
                             "reps": 8
                         },
                         {
-                            "person": "Claudia",
+                            "person": "Claudia Pdrn",
                             "reps": 17,
                             "goma": "R"
                         },
                         {
-                            "person": "Sergio",
+                            "person": "Sergio Santos Sanchez",
                             "reps": 22
                         },
                         {
@@ -1303,7 +1303,7 @@
                     "exercise": "Remo austriaco",
                     "results": [
                         {
-                            "person": "Alba",
+                            "person": "Alba Martinez Agull",
                             "reps": 31
                         },
                         {
@@ -1315,7 +1315,7 @@
                             "reps": 20
                         },
                         {
-                            "person": "Adrii",
+                            "person": "Adri",
                             "reps": 9
                         },
                         {
@@ -1327,15 +1327,15 @@
                             "reps": 26
                         },
                         {
-                            "person": "Flo",
+                            "person": "Florencia Dupont",
                             "reps": 17
                         },
                         {
-                            "person": "Claudia",
+                            "person": "Claudia Pdrn",
                             "reps": 20
                         },
                         {
-                            "person": "Sergio",
+                            "person": "Sergio Santos Sanchez",
                             "reps": 25
                         },
                         {
