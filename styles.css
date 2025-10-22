@@ -27,7 +27,7 @@ body::before {
 
 .header-flex {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -50,7 +50,7 @@ header {
 }
 
 .logo {
-    max-width: 120px;
+    max-width: 135px;
     height: auto;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
