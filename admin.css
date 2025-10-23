@@ -9,6 +9,10 @@ html {
     scroll-behavior: smooth;
 }
 
+.unlock-input {
+    color: black;
+}
+
 select {
     background: #1a2940;
     /* Example: Dark background */
