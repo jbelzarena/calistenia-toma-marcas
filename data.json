@@ -1919,6 +1919,135 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2025-10-23",
+            "time": "14:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 45,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": "24"
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": "59"
+                        },
+                        {
+                            "person": "Alba1430",
+                            "reps": "12",
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": "37"
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": "54"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": "5",
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": "18"
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": "32"
+                        },
+                        {
+                            "person": "Alba1430",
+                            "reps": "14",
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": "17"
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": "33"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": "9"
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": "9"
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": "26"
+                        },
+                        {
+                            "person": "Alba1430",
+                            "reps": "7",
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": "7"
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": "22"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 4
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": "10"
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": "24"
+                        },
+                        {
+                            "person": "Alba1430",
+                            "reps": "0"
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": "20"
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": "24"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
