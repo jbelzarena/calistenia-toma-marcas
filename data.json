@@ -1663,6 +1663,262 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2025-10-23",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Ezequiel Agramunt",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Reina",
+                            "reps": "36"
+                        },
+                        {
+                            "person": "Sergio Santos Sanchez",
+                            "reps": "27"
+                        },
+                        {
+                            "person": "Mike",
+                            "reps": "40"
+                        },
+                        {
+                            "person": "Estefania Morales",
+                            "reps": "12",
+                            "goma": "R"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Ezequiel Agramunt",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Reina",
+                            "reps": "30"
+                        },
+                        {
+                            "person": "Sergio Santos Sanchez",
+                            "reps": "23"
+                        },
+                        {
+                            "person": "Mike",
+                            "reps": "25"
+                        },
+                        {
+                            "person": "Estefania Morales",
+                            "reps": "13",
+                            "goma": "R"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Ezequiel Agramunt",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Reina",
+                            "reps": "14"
+                        },
+                        {
+                            "person": "Sergio Santos Sanchez",
+                            "reps": "25"
+                        },
+                        {
+                            "person": "Mike",
+                            "reps": "13"
+                        },
+                        {
+                            "person": "Estefania Morales",
+                            "reps": "8",
+                            "goma": "N"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Ezequiel Agramunt",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Reina",
+                            "reps": "16"
+                        },
+                        {
+                            "person": "Sergio Santos Sanchez",
+                            "reps": "24"
+                        },
+                        {
+                            "person": "Mike",
+                            "reps": "17"
+                        },
+                        {
+                            "person": "Estefania Morales",
+                            "reps": "0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-10-23",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Mike",
+                            "reps": "22"
+                        },
+                        {
+                            "person": "Jorge U",
+                            "reps": "5",
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Alvaro",
+                            "reps": "8"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": "10"
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": "9",
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": "12",
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Paula Ricart Bellver",
+                            "reps": "13",
+                            "goma": "NR"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Mike",
+                            "reps": "15"
+                        },
+                        {
+                            "person": "Jorge U",
+                            "reps": "6",
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Alvaro",
+                            "reps": "7"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": "8"
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": "7",
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": "9",
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Paula Ricart Bellver",
+                            "reps": "12",
+                            "goma": "NR"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Mike",
+                            "reps": "18"
+                        },
+                        {
+                            "person": "Jorge U",
+                            "reps": "12"
+                        },
+                        {
+                            "person": "Alvaro",
+                            "reps": "14"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": "15"
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": "15",
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": "6"
+                        },
+                        {
+                            "person": "Paula Ricart Bellver",
+                            "reps": "9"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo austriaco",
+                    "results": [
+                        {
+                            "person": "Jorge U",
+                            "reps": "10"
+                        },
+                        {
+                            "person": "Alvaro",
+                            "reps": "20"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": "16"
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": "17"
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": "19"
+                        },
+                        {
+                            "person": "Paula Ricart Bellver",
+                            "reps": "20"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
