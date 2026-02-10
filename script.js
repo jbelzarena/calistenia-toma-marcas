@@ -17,6 +17,10 @@ const GOMA_COLORS = {
     'VN': { name: 'Verde-Negra', color: 'linear-gradient(135deg, #00FF00 50%, #000000 50%)', emoji: '🟢⚫' }
 };
 
+let currentExerciseData = null; // Store current leaderboard data
+let currentExerciseId = null;
+let currentSortMode = 'reps'; // 'reps' or 'name'
+
 const GOMA_PENALTY = {
     '': 1,        // No goma, no penalty
     'A': 0.95,
@@ -71,6 +75,14 @@ function initializeApp() {
         </div>
     </div>
 </header>
+        
+        <div class="search-container">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Buscar atleta por nombre..." autocomplete="off">
+            </div>
+            <div id="search-results" class="search-results hidden"></div>
+        </div>
 
         <div class="filter-section ">
             <div class="filter-group">
@@ -85,6 +97,14 @@ function initializeApp() {
                 <label for="exercise-filter">Ejercicio:</label>
                 <select id="exercise-filter" class="filter-select" disabled>
                     <option value="">Todos los ejercicios</option>
+                </select>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="time-filter">Hora Clase:</label>
+                <select id="time-filter" class="filter-select" disabled>
+                    <option value="">Todas las horas</option>
                 </select>
             </div>
 
@@ -151,6 +171,11 @@ function initializeApp() {
 
                 <div class="leaderboard">
                     <h2>Ranking Completo</h2>
+                    <div class="sort-controls">
+                        <span>Ordenar por:</span>
+                        <button class="sort-btn active" data-sort="reps">Reps</button>
+                        <button class="sort-btn" data-sort="name">Nombre</button>
+                    </div>
                     <div class="leaderboard-list"></div>
                 </div>
             </div>
@@ -204,12 +229,34 @@ function initializeApp() {
         window.detailsToggleCssInjected = true;
     }
     setupEventListeners();
+    setupSearch();
+    setupSortControls(); // Initialize sort controls
     showWelcomeMessage();
+}
+
+function setupSortControls() {
+    const buttons = document.querySelectorAll('.sort-btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active state
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update sort mode
+            currentSortMode = btn.dataset.sort;
+
+            // Re-render if we have data
+            if (currentExerciseData) {
+                displayLeaderboard(currentExerciseData);
+            }
+        });
+    });
 }
 
 function setupEventListeners() {
     const categoryFilter = document.getElementById('category-filter');
     const exerciseFilter = document.getElementById('exercise-filter');
+    const timeFilter = document.getElementById('time-filter');
     const sessionFilter = document.getElementById('session-filter');
     const globalBtn = document.getElementById('global-leaderboard-btn');
     const applyBtn = document.getElementById('apply-range');
@@ -221,17 +268,20 @@ function setupEventListeners() {
             showWelcomeMessage();
 
             exerciseFilter.disabled = true;
+            timeFilter.disabled = true;
             sessionFilter.disabled = true;
             globalBtn.disabled = true;
             return;
         }
 
         exerciseFilter.disabled = false;
+        timeFilter.disabled = false;
         sessionFilter.disabled = false;
         globalBtn.disabled = false;
 
         populateExerciseFilter(category);
-        populateSessionFilter(category, exerciseFilter.value);
+        populateTimeFilter(category);
+        populateSessionFilter(category, exerciseFilter.value, timeFilter.value);
 
         showGlobalLeaderboard = false;
         updateView();
@@ -239,7 +289,14 @@ function setupEventListeners() {
 
     exerciseFilter.addEventListener('change', () => {
         const category = categoryFilter.value;
-        populateSessionFilter(category, exerciseFilter.value);
+        populateSessionFilter(category, exerciseFilter.value, timeFilter.value);
+        showGlobalLeaderboard = false;
+        updateView();
+    });
+
+    timeFilter.addEventListener('change', () => {
+        const category = categoryFilter.value;
+        populateSessionFilter(category, exerciseFilter.value, timeFilter.value);
         showGlobalLeaderboard = false;
         updateView();
     });
@@ -359,11 +416,31 @@ function populateExerciseFilter(selectedCategory) {
     `;
 }
 
-function populateSessionFilter(selectedCategory, selectedExercise = '') {
+function populateTimeFilter(selectedCategory) {
+    const timeFilter = document.getElementById('time-filter');
+    const times = new Set();
+
+    data.sessions.forEach(session => {
+        if (session.category === selectedCategory) {
+            times.add(session.time);
+        }
+    });
+
+    // Sort times
+    const sortedTimes = [...times].sort();
+
+    timeFilter.innerHTML = `
+        <option value="">Todas las horas</option>
+        ${sortedTimes.map(t => `<option value="${t}">${t}</option>`).join('')}
+    `;
+}
+
+function populateSessionFilter(selectedCategory, selectedExercise = '', selectedTime = '') {
     const sessionFilter = document.getElementById('session-filter');
 
     const filteredSessions = data.sessions.filter(s => {
         if (s.category !== selectedCategory) return false;
+        if (selectedTime && s.time !== selectedTime) return false;
         if (selectedExercise && !s.exercises.some(ex => ex.exercise === selectedExercise)) return false;
         return true;
     });
@@ -400,6 +477,7 @@ function getGomaBadge(gomaCode) {
 function getFilteredSessions() {
     const category = document.getElementById('category-filter').value;
     const exercise = document.getElementById('exercise-filter').value;
+    const time = document.getElementById('time-filter').value;
     const sessionValue = document.getElementById('session-filter').value;
 
     if (!category) return [];
@@ -422,6 +500,10 @@ function getFilteredSessions() {
 
     if (exercise) {
         sessions = sessions.filter(s => s.exercises.some(ex => ex.exercise === exercise));
+    }
+
+    if (time) {
+        sessions = sessions.filter(s => s.time === time);
     }
 
     return sessions;
@@ -557,7 +639,17 @@ function displayPodium(results) {
 }
 
 function displayLeaderboard(results) {
-    const sorted = sortResults(results);
+    // Store current data for re-sorting
+    currentExerciseData = results;
+
+    let sorted = [...results];
+
+    if (currentSortMode === 'reps') {
+        sorted.sort((a, b) => b.reps - a.reps);
+    } else if (currentSortMode === 'name') {
+        sorted.sort((a, b) => a.person.localeCompare(b.person));
+    }
+
     const leaderboardList = document.querySelector('#exercise-view .leaderboard-list');
 
     if (!leaderboardList) return;
@@ -587,6 +679,7 @@ function displayLeaderboard(results) {
             const gomaBadge = getGomaBadge(result.goma);
             item.innerHTML = `<div class="rank">${rankEmoji}</div>
                 <div class="name">${result.person}</div>
+                <div class="profile-link">👉 Ver perfil</div>
                 <div class="score" style="display: flex; align-items: center; justify-content: flex-end;">
                     ${gomaBadge ? `<span class="goma-badge-container">${gomaBadge}</span>` : ""}
                     <span class="score-number" style="min-width: 40px; text-align: right;">${parsed.value}<span class="modifier">${parsed.modifier}</span></span>
@@ -594,12 +687,66 @@ function displayLeaderboard(results) {
         } else {
             item.innerHTML = `<div class="rank">${rankEmoji}</div>
                 <div class="name">${result.person}</div>
+                <div class="profile-link">👉 Ver perfil</div>
                 <div class="score-multi" style="text-align: right;">
                     <div>${result.average} <span class="label">promedio</span></div>
                     <div class="max-score">${result.max} <span class="label">máx</span></div>
                 </div>`;
         }
         leaderboardList.appendChild(item);
+    });
+}
+
+function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+
+    if (!searchInput || !searchResults) return;
+
+    // Get all unique names
+    const allNames = new Set();
+    data.sessions.forEach(session => {
+        session.exercises.forEach(ex => {
+            ex.results.forEach(r => allNames.add(r.person));
+        });
+    });
+    const namesList = [...allNames].sort();
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        searchResults.innerHTML = '';
+
+        if (query.length < 2) {
+            searchResults.classList.add('hidden');
+            return;
+        }
+
+        const matches = namesList.filter(name =>
+            name.toLowerCase().includes(query)
+        );
+
+        if (matches.length > 0) {
+            searchResults.classList.remove('hidden');
+            matches.forEach(name => {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.innerHTML = `
+                    <span class="search-match-name">${name}</span>
+                    <span class="search-match-icon">👤</span>
+                `;
+                div.onclick = () => openUserProfile(name);
+                searchResults.appendChild(div);
+            });
+        } else {
+            searchResults.classList.add('hidden');
+        }
+    });
+
+    // Close search when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+            searchResults.classList.add('hidden');
+        }
     });
 }
 

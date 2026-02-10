@@ -13,9 +13,7 @@ body {
     position: relative;
 }
 
-.password {
-    color: black;
-}
+
 
 body::before {
     content: '';
@@ -37,7 +35,7 @@ body::before {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -94,6 +92,11 @@ header h1 {
     border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.goma-badge:hover {
+    transform: scale(1.2);
 }
 
 .leaderboard-item .score {
@@ -255,6 +258,40 @@ header h1 {
     letter-spacing: 2px;
 }
 
+.sort-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.sort-btn {
+    background: transparent;
+    border: 1px solid rgba(26, 188, 156, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 5px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.sort-btn:hover {
+    background: rgba(26, 188, 156, 0.1);
+    border-color: #1abc9c;
+    color: #fff;
+}
+
+.sort-btn.active {
+    background: #1abc9c;
+    border-color: #1abc9c;
+    color: #0a1628;
+    font-weight: bold;
+}
+
 .leaderboard-list {
     display: flex;
     flex-direction: column;
@@ -270,12 +307,39 @@ header h1 {
     transition: all 0.3s ease;
     animation: slideInLeft 0.5s ease;
     border-left: 3px solid #1abc9c;
+    position: relative;
+    overflow: hidden;
 }
 
 .leaderboard-item:hover {
-    background: rgba(26, 188, 156, 0.2);
-    transform: translateX(10px);
-    box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+    background: rgba(26, 188, 156, 0.25);
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 5px 20px rgba(26, 188, 156, 0.4);
+    border-left-width: 6px;
+    cursor: pointer;
+}
+
+/* Updated Profile Link Styling */
+.profile-link {
+    font-size: 0.8em;
+    color: #1abc9c;
+    margin: 0 15px;
+    opacity: 0.7;
+    white-space: nowrap;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover .profile-link {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .profile-link {
+        display: none;
+        /* Hide on small screens to save space */
+    }
 }
 
 .rank {
@@ -634,4 +698,104 @@ header h1 {
 
     }
 
+
+}
+
+/* Search Bar Styles */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    z-index: 100;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    font-size: 1.2em;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#search-input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid rgba(26, 188, 156, 0.3);
+    border-radius: 30px;
+    background: rgba(26, 188, 156, 0.1);
+    color: white;
+    font-size: 1.1em;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+#search-input:focus {
+    border-color: #1abc9c;
+    background: rgba(26, 188, 156, 0.15);
+    box-shadow: 0 0 15px rgba(26, 188, 156, 0.3);
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-results {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #1a2940;
+    border: 1px solid rgba(26, 188, 156, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.search-result-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: rgba(26, 188, 156, 0.2);
+}
+
+.search-match-name {
+    font-weight: bold;
+    color: #1abc9c;
+}
+
+/* Scrollbar for search results */
+.search-results::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: rgba(26, 188, 156, 0.5);
+    border-radius: 4px;
 }

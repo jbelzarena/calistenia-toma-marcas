@@ -20,6 +20,81 @@ function getGomaBadge(gomaCode) {
     return `<span class="goma-badge" style="background-color:${goma.color}" title="Goma ${goma.name}">${goma.emoji}</span>`;
 }
 
+
+
+const ACHIEVEMENTS = [
+    // CONSTANCY
+    {
+        id: 'constancy_1',
+        title: 'Primeros Pasos',
+        description: 'Completar 1 sesión de entrenamiento',
+        icon: '🌱',
+        condition: (data) => data.totalSessions >= 1,
+        tier: 'bronze'
+    },
+    {
+        id: 'constancy_5',
+        title: 'Constancia',
+        description: 'Completar 5 sesiones de entrenamiento',
+        icon: '🔥',
+        condition: (data) => data.totalSessions >= 5,
+        tier: 'silver'
+    },
+    {
+        id: 'constancy_10',
+        title: 'Veterano',
+        description: 'Completar 10 sesiones de entrenamiento',
+        icon: '👑',
+        condition: (data) => data.totalSessions >= 10,
+        tier: 'gold'
+    },
+    // STRENGTH (Assuming Pull-ups/Dips context usually)
+    // We check max reps across ANY exercise for simplicity or specific ones if needed.
+    // Here we check if *any* exercise has max >= X
+    {
+        id: 'strength_15',
+        title: 'Fuerte',
+        description: 'Realizar 15 repeticiones en un ejercicio',
+        icon: '💪',
+        condition: (data) => Math.max(...Object.values(data.exercises).map(e => e.max)) >= 15,
+        tier: 'bronze'
+    },
+    {
+        id: 'strength_25',
+        title: 'Bestia',
+        description: 'Realizar 25 repeticiones en un ejercicio',
+        icon: '🦍',
+        condition: (data) => Math.max(...Object.values(data.exercises).map(e => e.max)) >= 25,
+        tier: 'silver'
+    },
+    {
+        id: 'strength_40',
+        title: 'Leyenda',
+        description: 'Realizar 40 repeticiones en un ejercicio',
+        icon: '⚡',
+        condition: (data) => Math.max(...Object.values(data.exercises).map(e => e.max)) >= 40,
+        tier: 'gold'
+    },
+    // PURITY (No elastic bands)
+    {
+        id: 'purist',
+        title: 'Purista',
+        description: 'Entrenar sin gomas elástica en una sesión completa',
+        icon: '🛡️',
+        condition: (data) => {
+            // Check if there is at least one session where all exercises have NO goma
+            return data.sessions.some(session =>
+                session.exercises.every(ex => !ex.goma)
+            );
+        },
+        tier: 'gold'
+    }
+];
+
+function getAchievements(userData) {
+    return ACHIEVEMENTS.filter(achievement => achievement.condition(userData));
+}
+
 async function loadData() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
@@ -38,7 +113,15 @@ async function loadData() {
         displayUserProfile();
     } catch (error) {
         console.error('Error loading data:', error);
-        showError();
+        const container = document.getElementById('user-container');
+        container.innerHTML = `
+            <div class="error-screen">
+                <h2>Error cargando los datos</h2>
+                <p>No se pudo cargar el archivo de datos.</p>
+                <p style="font-size: 0.8em; color: #e74c3c;">${error.message}</p>
+                <a href="index.html" class="btn-reload">Volver al inicio</a>
+            </div>
+        `;
     }
 }
 
@@ -163,159 +246,161 @@ function updateFilterButtons() {
     });
 }
 
-function getChartData() {
-    const userData = getUserData();
-    const exerciseNames = selectedExercises.length > 0
-        ? selectedExercises
-        : Object.keys(userData.exercises).slice(0, 3);
-
-    const dateMap = new Map();
-
-    exerciseNames.forEach(exerciseName => {
-        const exercise = userData.exercises[exerciseName];
-        if (exercise) {
-            exercise.history.forEach(entry => {
-                if (!dateMap.has(entry.date)) {
-                    dateMap.set(entry.date, { date: entry.date });
-                }
-                dateMap.get(entry.date)[exerciseName] = entry.reps;
-            });
-        }
-    });
-
-    return Array.from(dateMap.values()).sort((a, b) =>
-        new Date(a.date) - new Date(b.date)
-    );
-}
+let chartInstance = null;
 
 function renderChart() {
-    const chartData = getChartData();
     const userData = getUserData();
-    const exerciseNames = selectedExercises.length > 0
-        ? selectedExercises
-        : Object.keys(userData.exercises).slice(0, 3);
+    // Default to ALL exercises if none selected
+    if (selectedExercises.length === 0 && userData && userData.exercises) {
+        selectedExercises = Object.keys(userData.exercises);
+    }
 
     const canvas = document.getElementById('progressChart');
     const ctx = canvas.getContext('2d');
 
-    // Set canvas size - responsive
-    const container = canvas.parentElement;
-    const isMobile = window.innerWidth <= 480;
-    const isTablet = window.innerWidth <= 768;
+    // Define exerciseNames for use in loop
+    const exerciseNames = selectedExercises;
 
-    // Use device pixel ratio for sharp rendering
-    const dpr = window.devicePixelRatio || 1;
-    const rect = container.getBoundingClientRect();
+    // Prepare datasets
+    const allDates = new Set();
+    const exerciseDataMap = {};
 
-    canvas.width = rect.width * dpr;
-    canvas.height = (isMobile ? 250 : isTablet ? 300 : 400) * dpr;
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = (isMobile ? 250 : isTablet ? 300 : 400) + 'px';
-
-    ctx.scale(dpr, dpr);
-
-    const padding = isMobile
-        ? { top: 30, right: 15, bottom: 50, left: 45 }
-        : isTablet
-            ? { top: 35, right: 25, bottom: 55, left: 50 }
-            : { top: 40, right: 40, bottom: 60, left: 60 };
-    const chartWidth = canvas.width - padding.left - padding.right;
-    const chartHeight = canvas.height - padding.top - padding.bottom;
-
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    if (chartData.length === 0) return;
-
-    // Find max value
-    const allValues = chartData.flatMap(d =>
-        exerciseNames.map(ex => d[ex]).filter(v => v !== undefined)
-    );
-    const maxValue = Math.max(...allValues);
-    const minValue = Math.min(...allValues);
-    const range = maxValue - minValue || 1;
-
-    // Colors for lines
-    const colors = ['#1abc9c', '#3498db', '#e74c3c', '#f39c12', '#9b59b6', '#1abc9c'];
-
-    // Draw grid
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 5; i++) {
-        const y = padding.top + (chartHeight / 5) * i;
-        ctx.beginPath();
-        ctx.moveTo(padding.left, y);
-        ctx.lineTo(padding.left + chartWidth, y);
-        ctx.stroke();
-
-        // Y-axis labels
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-        ctx.font = '12px Arial';
-        ctx.textAlign = 'right';
-        const value = Math.round(maxValue - (range / 5) * i);
-        ctx.fillText(value, padding.left - 10, y + 4);
-    }
-
-    // Draw X-axis labels
-    const xStep = chartWidth / (chartData.length - 1 || 1);
-    chartData.forEach((point, index) => {
-        const x = padding.left + xStep * index;
-        const date = new Date(point.date);
-        const label = `${date.getDate()}/${date.getMonth() + 1}`;
-
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-        ctx.font = '11px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText(label, x, canvas.height - padding.bottom + 20);
-    });
-
-    // Draw lines for each exercise
-    exerciseNames.forEach((exerciseName, exIndex) => {
-        ctx.strokeStyle = colors[exIndex % colors.length];
-        ctx.fillStyle = colors[exIndex % colors.length];
-        ctx.lineWidth = 3;
-
-        const points = [];
-        chartData.forEach((point, index) => {
-            if (point[exerciseName] !== undefined) {
-                const x = padding.left + xStep * index;
-                const normalizedValue = (point[exerciseName] - minValue) / range;
-                const y = padding.top + chartHeight - (normalizedValue * chartHeight);
-                points.push({ x, y, value: point[exerciseName], date: point.date });
-            }
-        });
-
-        if (points.length > 0) {
-            // Draw line
-            ctx.beginPath();
-            ctx.moveTo(points[0].x, points[0].y);
-            for (let i = 1; i < points.length; i++) {
-                ctx.lineTo(points[i].x, points[i].y);
-            }
-            ctx.stroke();
-
-            // Draw points
-            points.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
-                ctx.fill();
-            });
+    exerciseNames.forEach(name => {
+        const exercise = userData.exercises[name];
+        if (exercise) {
+            exercise.history.forEach(entry => allDates.add(entry.date));
+            exerciseDataMap[name] = new Map(exercise.history.map(h => [h.date, h.reps]));
         }
     });
 
-    // Draw legend
-    let legendX = padding.left;
-    const legendY = 20;
-    exerciseNames.forEach((exerciseName, index) => {
-        ctx.fillStyle = colors[index % colors.length];
-        ctx.fillRect(legendX, legendY - 8, 15, 15);
+    const sortedDates = Array.from(allDates).sort((a, b) => new Date(a) - new Date(b));
 
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.font = '13px Arial';
-        ctx.textAlign = 'left';
-        ctx.fillText(exerciseName, legendX + 20, legendY + 4);
+    // Chart colors
+    const colors = [
+        '#1abc9c', '#3498db', '#e74c3c', '#f39c12', '#9b59b6',
+        '#2ecc71', '#e67e22', '#16a085', '#2980b9', '#8e44ad'
+    ];
 
-        legendX += ctx.measureText(exerciseName).width + 40;
+    const datasets = exerciseNames.map((name, index) => {
+        const data = sortedDates.map(date => {
+            const val = exerciseDataMap[name]?.get(date);
+            return val !== undefined ? val : null;
+        });
+
+        const color = colors[index % colors.length];
+
+        return {
+            label: name,
+            data: data,
+            borderColor: color,
+            backgroundColor: color,
+            borderWidth: 3,
+            pointBackgroundColor: '#0a1628',
+            pointBorderColor: color,
+            pointBorderWidth: 2,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            tension: 0.3, // Smooth lines
+            spanGaps: true
+        };
+    });
+
+    // Destroy previous chart if exists
+    if (chartInstance) {
+        chartInstance.destroy();
+    }
+
+    // Register the plugin if available
+    if (typeof ChartDataLabels !== 'undefined') {
+        Chart.register(ChartDataLabels);
+    }
+
+    // configure Chart
+    chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: sortedDates.map(d => {
+                const date = new Date(d);
+                return `${date.getDate()}/${date.getMonth() + 1}`;
+            }),
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                datalabels: {
+                    color: 'white',
+                    align: 'top',
+                    offset: 4,
+                    font: {
+                        weight: 'bold',
+                        size: 11
+                    },
+                    formatter: function (value) {
+                        return value;
+                    },
+                    display: function (context) {
+                        // Only show if not null
+                        return context.dataset.data[context.dataIndex] !== null;
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        font: { size: 12, family: "'Segoe UI', sans-serif" },
+                        usePointStyle: true,
+                        boxWidth: 8
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(10, 22, 40, 0.9)',
+                    titleColor: '#1abc9c',
+                    bodyColor: '#fff',
+                    borderColor: 'rgba(26, 188, 156, 0.3)',
+                    borderWidth: 1,
+                    padding: 10,
+                    displayColors: true,
+                    callbacks: {
+                        title: (items) => {
+                            const index = items[0].dataIndex;
+                            const dateStr = sortedDates[index];
+                            const date = new Date(dateStr);
+                            return date.toLocaleDateString('es-ES', {
+                                day: 'numeric', month: 'long', year: 'numeric'
+                            });
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.05)',
+                        borderColor: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.6)',
+                        font: { size: 11 }
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.05)',
+                        borderColor: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.6)',
+                        font: { size: 11 }
+                    },
+                    beginAtZero: true
+                }
+            }
+        }
     });
 }
 
@@ -358,7 +443,29 @@ function displayUserProfile() {
                     <div class="stat-label">Mejor Marca</div>
                 </div>
             </div>
+                <div class="stat-card">
+                    <div class="stat-value">${maxMark}</div>
+                    <div class="stat-label">Mejor Marca</div>
+                </div>
+            </div>
         </header>
+
+        <!-- Achievements Section -->
+        <div class="achievements-section">
+            <h2>🏆 Logros Desbloqueados</h2>
+            <div class="achievements-grid">
+                ${getAchievements(userData).map(achievement => `
+                    <div class="achievement-card ${achievement.tier}">
+                        <div class="achievement-icon">${achievement.icon}</div>
+                        <div class="achievement-info">
+                            <h3>${achievement.title}</h3>
+                            <p>${achievement.description}</p>
+                        </div>
+                    </div>
+                `).join('')}
+                ${getAchievements(userData).length === 0 ? '<p style="text-align:center; width:100%; opacity:0.6;">Aún no has desbloqueado logros. ¡Sigue entrenando!</p>' : ''}
+            </div>
+        </div>
 
         <!-- Progress Chart Section -->
         <div class="chart-section">
@@ -387,49 +494,66 @@ function displayUserProfile() {
             <h2>Estadísticas por Ejercicio</h2>
             <div class="exercises-grid">
                 ${Object.values(userData.exercises).map(exercise => {
-        const progressPercent = Math.round((exercise.average / exercise.max) * 100);
+        const exerciseName = exercise.name; // Assuming exercise object has a 'name' property
+        const bestReps = Math.max(...exercise.history.map(h => h.reps));
+        const maxRecord = exercise.history.find(h => h.reps === bestReps);
+        const maxDate = maxRecord ? new Date(maxRecord.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' }) : '';
+
+        const firstReps = exercise.history[0].reps;
+        const lastReps = exercise.history[exercise.history.length - 1].reps;
+        const progress = lastReps - firstReps;
+        const progressClass = progress >= 0 ? 'text-success' : 'text-danger';
+        const progressSign = progress >= 0 ? '+' : '';
+
+        const progressPercent = bestReps > 0 ? Math.round((lastReps / bestReps) * 100) : 0;
+
         return `
-                        <div class="exercise-card">
-                            <h3>${exercise.name}</h3>
-                            <div class="exercise-stats">
-                        <div class="stat-row">
+                    <div class="exercise-card">
+                        <h3>${exerciseName}</h3>
+                        <div class="exercise-stats">
+                            <div class="stat-row">
                                 <span>Máximo:</span>
-                                <span class="stat-highlight">
-                                    ${exercise.maxGoma ? getGomaBadge(exercise.maxGoma) : ''}
-                                    <span class="score-number">${exercise.max} reps</span>
+                                <span class="stat-highlight">${bestReps} reps <small style="font-size: 0.7em; opacity: 0.7">(${maxDate})</small></span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Última sesión:</span>
+                                <span>${lastReps} reps</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Progreso:</span>
+                                <span style="color: ${progress >= 0 ? '#2ecc71' : '#e74c3c'}">${progressSign}${progress} reps</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Total sesiones:</span>
+                                <span>${exercise.history.length}</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Promedio:</span>
+                                <span>
+                                    ${exercise.averageGoma ? getGomaBadge(exercise.averageGoma) : ''}
+                                    <span class="score-number">${exercise.average} reps</span>
                                 </span>
                             </div>
-            
-                        <div class="stat-row">
-                            <span>Promedio:</span>
-                            <span>
-                                ${exercise.averageGoma ? getGomaBadge(exercise.averageGoma) : ''}
-                                <span class="score-number">${exercise.average} reps</span>
-                            </span>
-                        </div>
-                        <div class="stat-row">
-                            <span>Mínimo:</span>
-                            <span>
-                                ${exercise.minGoma ? getGomaBadge(exercise.minGoma) : ''}
-                                <span class="score-number">${exercise.min} reps</span>
-                            </span>
-                        </div>
-                                <div class="stat-row">
-                                    <span>Sesiones:</span>
-                                    <span>${exercise.count}</span>
-                                </div>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-label">
-                                    <span>Progreso</span>
-                                    <span>${progressPercent}%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-bar-fill" style="width: ${progressPercent}%"></div>
-                                </div>
+                            <div class="stat-row">
+                                <span>Mínimo:</span>
+                                <span>
+                                    ${exercise.minGoma ? getGomaBadge(exercise.minGoma) : ''}
+                                    <span class="score-number">${exercise.min} reps</span>
+                                </span>
                             </div>
                         </div>
-                    `;
+                        
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-label">
+                                <span>Intensidad (vs Máx)</span>
+                                <span>${progressPercent}%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" style="width: ${progressPercent}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
     }).join('')}
             </div>
         </div>

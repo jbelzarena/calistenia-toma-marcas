@@ -36,7 +36,7 @@
                             "reps": 6
                         },
                         {
-                            "person": "Jeferson Rosa",
+                            "person": "Jeferson Rosa Belzarena",
                             "reps": 12
                         },
                         {
@@ -88,7 +88,7 @@
                             "reps": 8
                         },
                         {
-                            "person": "Jeferson Rosa",
+                            "person": "Jeferson Rosa Belzarena",
                             "reps": 10
                         },
                         {
@@ -112,7 +112,7 @@
                     ]
                 },
                 {
-                    "exercise": "Remo Australiano",
+                    "exercise": "Remo australiano",
                     "results": [
                         {
                             "person": "Carlos Madrid",
@@ -139,7 +139,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Jeferson Rosa",
+                            "person": "Jeferson Rosa Belzarena",
                             "reps": 8
                         },
                         {
@@ -188,7 +188,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Jeferson Rosa",
+                            "person": "Jeferson Rosa Belzarena",
                             "reps": 9
                         },
                         {
@@ -577,84 +577,6 @@
             ]
         },
         {
-            "date": "2022-10-01",
-            "time": "18:00",
-            "activity_type": "Toma de marcas",
-            "category": "Salva-Professional",
-            "exercises": [
-                {
-                    "exercise": "Dominada prona",
-                    "results": [
-                        {
-                            "person": "Salva",
-                            "reps": 10
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Dominada Supino",
-                    "results": [
-                        {
-                            "person": "Salva",
-                            "reps": 15
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "date": "2024-10-01",
-            "time": "18:00",
-            "activity_type": "Toma de marcas",
-            "category": "Salva-Professional",
-            "exercises": [
-                {
-                    "exercise": "Dominada prona",
-                    "results": [
-                        {
-                            "person": "Salva",
-                            "reps": 30
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Dominada Supino",
-                    "results": [
-                        {
-                            "person": "Salva",
-                            "reps": 20
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "date": "2025-10-01",
-            "time": "18:00",
-            "activity_type": "Toma de marcas",
-            "category": "Salva-Professional",
-            "exercises": [
-                {
-                    "exercise": "Dominada prona",
-                    "results": [
-                        {
-                            "person": "Salva",
-                            "reps": 60
-                        }
-                    ]
-                },
-                {
-                    "exercise": "Dominada Supino",
-                    "results": [
-                        {
-                            "person": "Salva",
-                            "reps": 45
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "date": "2025-10-21",
             "time": "14:30",
             "activity_type": "Toma de marcas",
@@ -865,7 +787,7 @@
                     ]
                 },
                 {
-                    "exercise": "Remo Australiano",
+                    "exercise": "Remo australiano",
                     "results": [
                         {
                             "person": "Ana Herrador",
@@ -1300,7 +1222,7 @@
                     ]
                 },
                 {
-                    "exercise": "Remo Australiano",
+                    "exercise": "Remo australiano",
                     "results": [
                         {
                             "person": "Alba Martinez Agull",
@@ -1618,7 +1540,7 @@
                     ]
                 },
                 {
-                    "exercise": "Remo Australiano",
+                    "exercise": "Remo australiano",
                     "results": [
                         {
                             "person": "Iñaki",
@@ -1890,7 +1812,7 @@
                     ]
                 },
                 {
-                    "exercise": "Remo Australiano",
+                    "exercise": "Remo australiano",
                     "results": [
                         {
                             "person": "Jorge U",
@@ -2044,6 +1966,896 @@
                         {
                             "person": "Luiso",
                             "reps": "24"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-09",
+            "time": "19:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Emiliano",
+                            "reps": 41
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 30
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 28
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 38
+                        },
+                        {
+                            "person": "Chema",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Pascu",
+                            "reps": 55
+                        },
+                        {
+                            "person": "Luis David Latan Hidalgo",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 29
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 64
+                        },
+                        {
+                            "person": "Pablo",
+                            "reps": 95
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 69
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones Diamante",
+                    "results": [
+                        {
+                            "person": "Emiliano",
+                            "reps": 29
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 30
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 34
+                        },
+                        {
+                            "person": "Chema",
+                            "reps": 27
+                        },
+                        {
+                            "person": "Pascu",
+                            "reps": 50
+                        },
+                        {
+                            "person": "Luis David Latan Hidalgo",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 23
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 45
+                        },
+                        {
+                            "person": "Pablo",
+                            "reps": 59
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 52
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Emiliano",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Chema",
+                            "reps": 17
+                        },
+                        {
+                            "person": "Pascu",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Luis David Latan Hidalgo",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 33
+                        },
+                        {
+                            "person": "Pablo",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 40
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Emiliano",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Chema",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Pascu",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Luis David Latan Hidalgo",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 27
+                        },
+                        {
+                            "person": "Pablo",
+                            "reps": 33
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 30
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-09",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Damian",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Rafa",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Carlos Madrid",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 9
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Pipe",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Vladyslav",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Helena Jiménez",
+                            "reps": 11,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 4,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "hynma",
+                            "reps": 11,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Regina",
+                            "reps": 10
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Damian",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Rafa",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Carlos Madrid",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 9
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Pipe",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Vladyslav",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Helena Jiménez",
+                            "reps": 9,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 4,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "hynma",
+                            "reps": 15,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Regina",
+                            "reps": 9
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Damian",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Rafa",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Carlos Madrid",
+                            "reps": 17
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 15
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 26
+                        },
+                        {
+                            "person": "Pipe",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Vladyslav",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Helena Jiménez",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 9
+                        },
+                        {
+                            "person": "hynma",
+                            "reps": 16,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Regina",
+                            "reps": 19
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Damian",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Rafa",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 49
+                        },
+                        {
+                            "person": "Carlos Madrid",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 15
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 33
+                        },
+                        {
+                            "person": "Pipe",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Vladyslav",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Helena Jiménez",
+                            "reps": 29
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 12
+                        },
+                        {
+                            "person": "hynma",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Regina",
+                            "reps": 30
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-09",
+            "time": "16:30",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Maria",
+                            "reps": 8,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Carlos Galán",
+                            "reps": 9,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Iván S.",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Aimé Paz",
+                            "reps": 7,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 8,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 15,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Alix",
+                            "reps": 11,
+                            "goma": "R"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Maria",
+                            "reps": 9,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Carlos Galán",
+                            "reps": 10,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Iván S.",
+                            "reps": 5
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Aimé Paz",
+                            "reps": 6,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 4,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 17,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Alix",
+                            "reps": 9,
+                            "goma": "R"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Maria",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Carlos Galán",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Iván S.",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Aimé Paz",
+                            "reps": 11
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 6
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Alix",
+                            "reps": 15
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Maria",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Carlos Galán",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Iván S.",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Aimé Paz",
+                            "reps": 10
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 30
+                        },
+                        {
+                            "person": "Alix",
+                            "reps": 24
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-09",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Rox",
+                            "reps": 11,
+                            "goma": "RN"
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 9,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Amparo Martínez Rodríguez",
+                            "reps": 2,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 5,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 11,
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Juas M",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 18,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": 14,
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Javier Pérez pont",
+                            "reps": 11,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 10,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Toni",
+                            "reps": 9,
+                            "goma": "V"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Rox",
+                            "reps": 8,
+                            "goma": "RN"
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 6,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Amparo Martínez Rodríguez",
+                            "reps": 0,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 5,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 12,
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Juas M",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 12,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": 8,
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Javier Pérez pont",
+                            "reps": 13,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 11,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Toni",
+                            "reps": 8,
+                            "goma": "V"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Rox",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 8,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Amparo Martínez Rodríguez",
+                            "reps": 0
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 17
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Juas M",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Javier Pérez pont",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Toni",
+                            "reps": 8
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Rox",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 16,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Amparo Martínez Rodríguez",
+                            "reps": 14,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 30
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Juas M",
+                            "reps": 31
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 28
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": 29
+                        },
+                        {
+                            "person": "Javier Pérez pont",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 4
+                        },
+                        {
+                            "person": "Toni",
+                            "reps": 16
                         }
                     ]
                 }
