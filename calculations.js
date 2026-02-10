@@ -27,14 +27,14 @@ const GOMA_PENALTY = {
 };
 
 const EXERCISE_CATEGORIES = {
-    'Dominada prona': 'Tracción',
-    'Dominada supino': 'Tracción',
-    'Remo australiano': 'Tracción',
-    'Remo neutro': 'Tracción',
-    'Flexiones diamante': 'Empuje',
-    'Flexiones militares': 'Empuje',
-    'Fondos': 'Empuje',
-    'Fondos tríceps (sbd)': 'Empuje'
+    'dominada prona': 'Tracción',
+    'dominada supino': 'Tracción',
+    'remo australiano': 'Tracción',
+    'remo neutro': 'Tracción',
+    'flexiones diamante': 'Empuje',
+    'flexiones militares': 'Empuje',
+    'fondos': 'Empuje',
+    'fondos tríceps (sbd)': 'Empuje'
 };
 
 // Parse reps string/number to object

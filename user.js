@@ -1,14 +1,14 @@
 let data = null;
 let userName = '';
 let selectedExercises = [];
+let currentChartCategory = 'Todos';
 
-
-// GOMA_COLORS and getGomaBadge moved to calculations.js
-
-
+// Register ChartDataLabels plugin globally
+if (typeof ChartDataLabels !== 'undefined') {
+    Chart.register(ChartDataLabels);
+}
 
 const ACHIEVEMENTS = [
-    // CONSTANCY
     {
         id: 'constancy_1',
         title: 'Primeros Pasos',
@@ -33,7 +33,6 @@ const ACHIEVEMENTS = [
         condition: (data) => data.totalSessions >= 10,
         tier: 'gold'
     },
-    // STRENGTH (Clean - No assistance)
     {
         id: 'strength_15',
         title: 'Fuerte',
@@ -58,7 +57,46 @@ const ACHIEVEMENTS = [
         condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 40 && !h.goma && !h.rodillas)),
         tier: 'gold'
     },
-    // ASSISTED STRENGTH
+    {
+        id: 'strength_60',
+        title: 'Titán',
+        description: 'Realizar 60 repeticiones sin asistencia',
+        icon: '🔱',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 60 && !h.goma && !h.rodillas)),
+        tier: 'platinum'
+    },
+    {
+        id: 'strength_80',
+        title: 'Inmortal',
+        description: 'Realizar 80 repeticiones sin asistencia',
+        icon: '🌌',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 80 && !h.goma && !h.rodillas)),
+        tier: 'platinum'
+    },
+    {
+        id: 'strength_100',
+        title: 'Semidiós',
+        description: 'Realizar 100 repeticiones sin asistencia',
+        icon: '🪐',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 100 && !h.goma && !h.rodillas)),
+        tier: 'diamond'
+    },
+    {
+        id: 'strength_150',
+        title: 'Vanguardia',
+        description: 'Realizar 150 repeticiones sin asistencia',
+        icon: '💠',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 150 && !h.goma && !h.rodillas)),
+        tier: 'diamond'
+    },
+    {
+        id: 'strength_200',
+        title: 'SALVA mode',
+        description: 'Realizar 200 repeticiones sin asistencia',
+        icon: '💎',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 200 && !h.goma && !h.rodillas)),
+        tier: 'salva-mode'
+    },
     {
         id: 'assisted_15',
         title: 'Impulso',
@@ -83,24 +121,96 @@ const ACHIEVEMENTS = [
         condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 40 && (h.goma || h.rodillas))),
         tier: 'gold'
     },
-    // PURITY (No elastic bands)
     {
         id: 'purist',
         title: 'Purista',
         description: 'Entrenar sin gomas elástica en una sesión completa',
         icon: '🛡️',
-        condition: (data) => {
-            // Check if there is at least one session where all exercises have NO goma AND NO rodillas
-            return data.sessions.some(session =>
-                session.exercises.every(ex => !ex.goma && !ex.rodillas)
-            );
-        },
+        condition: (data) => data.sessions.some(session => session.exercises.every(ex => !ex.goma && !ex.rodillas)),
         tier: 'gold'
     }
 ];
 
 function getAchievements(userData) {
     return ACHIEVEMENTS.filter(achievement => achievement.condition(userData));
+}
+
+function getNextChallenges(userData) {
+    const challenges = [];
+    const unlocked = getAchievements(userData).map(a => a.id);
+
+    // Constancia
+    const sessionLevels = [
+        { id: 'constancy_1', goal: 1 },
+        { id: 'constancy_5', goal: 5 },
+        { id: 'constancy_10', goal: 10 }
+    ];
+    const nextSession = sessionLevels.find(l => !unlocked.includes(l.id));
+    if (nextSession) {
+        challenges.push({
+            title: 'Hábito y Constancia',
+            subtitle: `Siguiente: ${nextSession.goal} sesiones`,
+            progress: (userData.totalSessions / nextSession.goal) * 100,
+            current: userData.totalSessions,
+            goal: nextSession.goal,
+            icon: '📅'
+        });
+    }
+
+    // Fuerza (Máximo clean)
+    const strengthLevels = [
+        { id: 'strength_15', goal: 15 },
+        { id: 'strength_25', goal: 25 },
+        { id: 'strength_40', goal: 40 },
+        { id: 'strength_60', goal: 60 },
+        { id: 'strength_80', goal: 80 },
+        { id: 'strength_100', goal: 100 },
+        { id: 'strength_150', goal: 150 },
+        { id: 'strength_200', goal: 200 }
+    ];
+    const nextStrength = strengthLevels.find(l => !unlocked.includes(l.id));
+    const maxClean = Math.max(...Object.values(userData.exercises).map(e => {
+        const cleanHistory = e.history.filter(h => !h.goma && !h.rodillas);
+        return cleanHistory.length > 0 ? Math.max(...cleanHistory.map(h => h.reps)) : 0;
+    }), 0);
+
+    if (nextStrength) {
+        challenges.push({
+            title: 'Fuerza Pura',
+            subtitle: `Siguiente: ${nextStrength.goal} reps sin asistencia`,
+            progress: (maxClean / nextStrength.goal) * 100,
+            current: maxClean,
+            goal: nextStrength.goal,
+            icon: '💪'
+        });
+    }
+
+    // Fuerza Asistida (solo si no es purista)
+    const isCleanAthlete = Object.values(userData.exercises).every(e =>
+        e.history.every(h => !h.goma && !h.rodillas)
+    );
+
+    if (!isCleanAthlete) {
+        const assistedLevels = [
+            { id: 'assisted_15', goal: 15 },
+            { id: 'assisted_25', goal: 25 },
+            { id: 'assisted_40', goal: 40 }
+        ];
+        const nextAssisted = assistedLevels.find(l => !unlocked.includes(l.id));
+        const maxAssisted = Math.max(...Object.values(userData.exercises).map(e => e.max), 0);
+        if (nextAssisted) {
+            challenges.push({
+                title: 'Fuerza Asistida',
+                subtitle: `Siguiente: ${nextAssisted.goal} reps con asistencia`,
+                progress: (maxAssisted / nextAssisted.goal) * 100,
+                current: maxAssisted,
+                goal: nextAssisted.goal,
+                icon: '🚀'
+            });
+        }
+    }
+
+    return challenges;
 }
 
 async function loadData() {
@@ -114,37 +224,14 @@ async function loadData() {
         }
 
         const response = await fetch('data.json');
-        if (!response.ok) {
-            throw new Error('Failed to load data');
-        }
+        if (!response.ok) throw new Error('Failed to load data');
         data = await response.json();
         displayUserProfile();
     } catch (error) {
         console.error('Error loading data:', error);
-        const container = document.getElementById('user-container');
-        container.innerHTML = `
-            <div class="error-screen">
-                <h2>Error cargando los datos</h2>
-                <p>No se pudo cargar el archivo de datos.</p>
-                <p style="font-size: 0.8em; color: #e74c3c;">${error.message}</p>
-                <a href="index.html" class="btn-reload">Volver al inicio</a>
-            </div>
-        `;
+        document.getElementById('user-container').innerHTML = `<div class="error-screen"><h2>Error</h2><p>${error.message}</p></div>`;
     }
 }
-
-function showError() {
-    const container = document.getElementById('user-container');
-    container.innerHTML = `
-        <div class="error-screen">
-            <h2>Error cargando los datos</h2>
-            <p>Por favor, verifica que el archivo data.json existe.</p>
-            <a href="index.html" class="btn-reload">Volver al inicio</a>
-        </div>
-    `;
-}
-
-// parseReps moved to calculations.js
 
 function getUserData() {
     const userData = {
@@ -152,7 +239,9 @@ function getUserData() {
         sessions: [],
         exercises: {},
         totalSessions: 0,
-        totalReps: 0
+        totalReps: 0,
+        maxRecord: 0,
+        minRecord: Infinity
     };
 
     data.sessions.forEach(session => {
@@ -169,12 +258,10 @@ function getUserData() {
 
             if (userResult) {
                 const parsed = parseReps(userResult.reps);
-
                 sessionData.exercises.push({
                     name: normalizedExerciseName,
                     reps: parsed.value,
                     modifier: parsed.modifier,
-                    raw: userResult.reps,
                     goma: userResult.goma || null,
                     rodillas: userResult.rodillas || null
                 });
@@ -196,8 +283,6 @@ function getUserData() {
                 exerciseData.history.push({
                     date: session.date,
                     reps: parsed.value,
-                    modifier: parsed.modifier,
-                    raw: userResult.reps,
                     goma: userResult.goma || null,
                     rodillas: userResult.rodillas || null
                 });
@@ -210,14 +295,6 @@ function getUserData() {
                     exerciseData.maxGoma = userResult.goma || null;
                     exerciseData.maxRodillas = userResult.rodillas || null;
                     exerciseData.maxDate = session.date;
-                } else if (parsed.value === exerciseData.max) {
-                    const currentLevel = getAssistanceLevel(exerciseData.maxGoma, exerciseData.maxRodillas);
-                    const newLevel = getAssistanceLevel(userResult.goma, userResult.rodillas);
-                    if (newLevel < currentLevel) {
-                        exerciseData.maxGoma = userResult.goma || null;
-                        exerciseData.maxRodillas = userResult.rodillas || null;
-                        exerciseData.maxDate = session.date;
-                    }
                 }
 
                 if (parsed.value < exerciseData.min) {
@@ -234,6 +311,14 @@ function getUserData() {
         }
     });
 
+    const maxes = Object.values(userData.exercises).map(e => e.max);
+    if (maxes.length > 0) {
+        userData.maxRecord = Math.max(...maxes);
+        userData.minRecord = Math.min(...maxes);
+    } else {
+        userData.minRecord = 0;
+    }
+
     Object.values(userData.exercises).forEach(exercise => {
         exercise.average = Math.round(exercise.total / exercise.count);
     });
@@ -241,101 +326,186 @@ function getUserData() {
     return userData;
 }
 
-function toggleExercise(exerciseName) {
-    const index = selectedExercises.indexOf(exerciseName);
-    if (index > -1) {
-        selectedExercises.splice(index, 1);
-    } else {
-        selectedExercises.push(exerciseName);
-    }
-    renderChart();
-    updateFilterButtons();
+function filterChartByCategory(category) {
+    currentChartCategory = category;
+    displayUserProfile();
 }
 
-function updateFilterButtons() {
-    const buttons = document.querySelectorAll('.exercise-filter-btn');
-    buttons.forEach(btn => {
-        const exerciseName = btn.dataset.exercise;
-        if (selectedExercises.includes(exerciseName)) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
+function displayUserProfile() {
+    const rawUserData = getUserData();
+    const achievements = getAchievements(rawUserData);
+    const challenges = getNextChallenges(rawUserData);
+
+    const filteredExercises = Object.values(rawUserData.exercises).filter(e =>
+        currentChartCategory === 'Todos' ||
+        EXERCISE_CATEGORIES[e.name.toLowerCase()] === currentChartCategory
+    );
+
+    const filteredExerciseNames = filteredExercises.map(e => e.name);
+    const filteredSessions = rawUserData.sessions.map(s => ({
+        ...s,
+        exercises: s.exercises.filter(ex => filteredExerciseNames.includes(ex.name))
+    })).filter(s => s.exercises.length > 0);
+
+    const container = document.getElementById('user-container');
+    container.innerHTML = `
+        <header>
+            <div class="logo-container"><img src="logo.jpg" alt="Logo" class="logo" onerror="this.style.display='none'"></div>
+            <a href="index.html" class="back-link">← Volver al ranking</a>
+            <div class="user-header">
+                <div class="user-avatar">${userName.charAt(0).toUpperCase()}</div>
+                <h1 class="user-name">${userName}</h1>
+            </div>
+            <div class="user-stats">
+                <div class="stat-card"><div class="stat-value">${rawUserData.totalSessions}</div><div class="stat-label">Sesiones</div></div>
+                <div class="stat-card"><div class="stat-value">${rawUserData.totalReps}</div><div class="stat-label">Total Reps</div></div>
+                <div class="stat-card"><div class="stat-value">${rawUserData.maxRecord}</div><div class="stat-label">Récord Máx</div></div>
+                <div class="stat-card"><div class="stat-value">${rawUserData.minRecord !== Infinity ? rawUserData.minRecord : 0}</div><div class="stat-label">Récord Mín</div></div>
+            </div>
+        </header>
+
+        <div class="category-filters-container" style="margin: 30px 0; text-align: center;">
+            <div class="category-filters">
+                <button class="category-filter-btn ${currentChartCategory === 'Todos' ? 'active' : ''}" onclick="filterChartByCategory('Todos')">Todos</button>
+                <button class="category-filter-btn ${currentChartCategory === 'Empuje' ? 'active' : ''}" onclick="filterChartByCategory('Empuje')">Empuje</button>
+                <button class="category-filter-btn ${currentChartCategory === 'Tracción' ? 'active' : ''}" onclick="filterChartByCategory('Tracción')">Tracción</button>
+            </div>
+        </div>
+
+        <div class="achievements-section">
+            <h2>Logros Desbloqueados</h2>
+            <div class="achievements-grid">
+                ${achievements.map(a => `<div class="achievement-card ${a.tier}"><div class="achievement-icon">${a.icon}</div><div class="achievement-info"><h3>${a.title}</h3><p>${a.description}</p></div></div>`).join('')}
+            </div>
+        </div>
+
+        <div class="next-challenges-section" style="margin: 40px 0;">
+            <h2 style="color: #1abc9c; text-align: center; margin-bottom: 25px;">Próximos Retos</h2>
+            <div class="challenges-grid-new" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                ${challenges.map(c => `
+                    <div class="challenge-card-new" style="background: rgba(26, 188, 156, 0.05); border: 2px solid rgba(26, 188, 156, 0.2); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px;">
+                        <div class="challenge-icon-new" style="background: rgba(26, 188, 156, 0.2); width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.8em;">${c.icon}</div>
+                        <div style="flex: 1;">
+                            <h3 style="margin: 0; color: #fff; font-size: 1.1em;">${c.title}</h3>
+                            <p style="margin: 3px 0 10px 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.7);">${c.subtitle}</p>
+                            <div class="challenge-progress-bar" style="height: 8px; background: rgba(0,0,0,0.3); border-radius: 4px; overflow: hidden; position: relative;">
+                                <div class="challenge-progress-fill" style="width: ${Math.min(c.progress, 100)}%; height: 100%; background: linear-gradient(90deg, #1abc9c, #16a085); border-radius: 4px; box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.8em; font-weight: bold; color: #1abc9c;">
+                                <span>${c.current}</span>
+                                <span>${c.goal}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+
+        <div class="chart-section card">
+            <h2>Progresión en el Tiempo</h2>
+            <p class="chart-subtitle">Resumen de avance por ejercicio</p>
+            <div class="chart-container" style="height: 350px;"><canvas id="progressChart"></canvas></div>
+        </div>
+
+        <div class="chart-section card">
+            <h2>Equilibrio del Atleta</h2>
+            <p class="chart-subtitle">Comparativa de máximos obtenidos</p>
+            <div class="radar-container" style="height: 350px;"><canvas id="radarChart"></canvas></div>
+        </div>
+
+        <div class="exercises-section">
+            <h2>Estadísticas por Ejercicio</h2>
+            <div class="exercises-grid">
+                ${filteredExercises.sort((a, b) => b.max - a.max).map(ex => {
+        const first = ex.history[0].reps;
+        const last = ex.history[ex.history.length - 1].reps;
+        const diff = last - first;
+        const progressClass = diff > 0 ? 'positive' : diff < 0 ? 'negative' : 'neutral';
+        return `
+                        <div class="exercise-card">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                                <h3>${ex.name}</h3>
+                                <span style="font-size: 0.8em; opacity: 0.6;">${EXERCISE_CATEGORIES[ex.name.toLowerCase()] || ''}</span>
+                            </div>
+                            <div class="exercise-stats">
+                                <div class="stat-row"><span>Récord</span><span class="stat-highlight">${ex.max}</span></div>
+                                <div class="stat-row"><span>Mínimo Hist.</span><span>${ex.min !== Infinity ? ex.min : 0}</span></div>
+                                <div class="stat-row"><span>Promedio</span><span>${ex.average}</span></div>
+                                <div class="stat-row"><span>Total Reps</span><span>${ex.total}</span></div>
+                                <div class="stat-row"><span>Progreso</span><span class="${progressClass}">${diff > 0 ? '+' : ''}${diff} reps</span></div>
+                            </div>
+                            <div class="mini-chart">
+                                ${ex.history.slice(-10).map(h => `<div class="chart-bar" style="height: ${(h.reps / ex.max) * 100}%" title="${h.date}: ${h.reps}"></div>`).join('')}
+                            </div>
+                        </div>
+                    `;
+    }).join('')}
+            </div>
+        </div>
+
+        <div class="session-history">
+            <h2>Historial de Sesiones</h2>
+            <div class="session-history-container">
+                ${filteredSessions.slice().reverse().map(s => `
+                    <div class="session-card-user">
+                        <div class="session-header-user">
+                            <p class="session-date-user">${new Date(s.date).toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' })}</p>
+                            <span class="session-category-user">${s.category}</span>
+                        </div>
+                        <div class="session-exercises-list">
+                            ${s.exercises.map(ex => `
+                                <div class="history-exercise-item">
+                                    <span>${ex.name}</span>
+                                    <span class="history-exercise-reps">${ex.reps}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+    setTimeout(() => {
+        renderChart(rawUserData, filteredExerciseNames);
+        renderRadarChart(rawUserData, filteredExerciseNames);
+    }, 100);
 }
 
 let chartInstance = null;
-
-function renderChart() {
-    const userData = getUserData();
-    // Default to ALL exercises if none selected
-    if (selectedExercises.length === 0 && userData && userData.exercises) {
-        selectedExercises = Object.keys(userData.exercises);
+function renderChart(userData, exerciseNames) {
+    if (!userData || !exerciseNames || exerciseNames.length === 0) {
+        if (chartInstance) chartInstance.destroy();
+        return;
     }
 
-    const canvas = document.getElementById('progressChart');
-    const ctx = canvas.getContext('2d');
-
-    // Define exerciseNames for use in loop
-    const exerciseNames = selectedExercises;
-
-    // Prepare datasets
+    const ctx = document.getElementById('progressChart').getContext('2d');
     const allDates = new Set();
-    const exerciseDataMap = {};
-
     exerciseNames.forEach(name => {
-        const exercise = userData.exercises[name];
-        if (exercise) {
-            exercise.history.forEach(entry => allDates.add(entry.date));
-            exerciseDataMap[name] = new Map(exercise.history.map(h => [h.date, h.reps]));
-        }
+        userData.exercises[name].history.forEach(h => allDates.add(h.date));
     });
-
     const sortedDates = Array.from(allDates).sort((a, b) => new Date(a) - new Date(b));
 
-    // Chart colors
-    const colors = [
-        '#1abc9c', '#3498db', '#e74c3c', '#f39c12', '#9b59b6',
-        '#2ecc71', '#e67e22', '#16a085', '#2980b9', '#8e44ad'
-    ];
+    const colors = ['#1abc9c', '#3498db', '#e74c3c', '#f39c12', '#9b59b6', '#2ecc71', '#e67e22'];
+    const datasets = exerciseNames.slice(0, 7).map((name, i) => ({
+        label: name,
+        data: sortedDates.map(d => {
+            const h = userData.exercises[name].history.find(entry => entry.date === d);
+            return h ? h.reps : null;
+        }),
+        borderColor: colors[i % colors.length],
+        backgroundColor: colors[i % colors.length],
+        pointBackgroundColor: 'white',
+        borderWidth: 2,
+        tension: 0.3,
+        spanGaps: true
+    }));
 
-    const datasets = exerciseNames.map((name, index) => {
-        const data = sortedDates.map(date => {
-            const val = exerciseDataMap[name]?.get(date);
-            return val !== undefined ? val : null;
-        });
+    if (chartInstance) chartInstance.destroy();
 
-        const color = colors[index % colors.length];
-
-        return {
-            label: name,
-            data: data,
-            borderColor: color,
-            backgroundColor: color,
-            borderWidth: 3,
-            pointBackgroundColor: '#0a1628',
-            pointBorderColor: color,
-            pointBorderWidth: 2,
-            pointRadius: 4,
-            pointHoverRadius: 6,
-            tension: 0.3, // Smooth lines
-            spanGaps: true
-        };
-    });
-
-    // Destroy previous chart if exists
-    if (chartInstance) {
-        chartInstance.destroy();
-    }
-
-    // Register the plugin if available
-    if (typeof ChartDataLabels !== 'undefined') {
-        Chart.register(ChartDataLabels);
-    }
-
-    // configure Chart
     chartInstance = new Chart(ctx, {
         type: 'line',
+        plugins: [ChartDataLabels],
         data: {
             labels: sortedDates.map(d => {
                 const date = new Date(d);
@@ -346,378 +516,76 @@ function renderChart() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            interaction: {
-                mode: 'index',
-                intersect: false,
-            },
-            plugins: {
-                datalabels: {
-                    color: 'white',
-                    align: 'top',
-                    offset: 4,
-                    font: {
-                        weight: 'bold',
-                        size: 11
-                    },
-                    formatter: function (value) {
-                        return value;
-                    },
-                    display: function (context) {
-                        // Only show if not null
-                        return context.dataset.data[context.dataIndex] !== null;
-                    }
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { color: 'rgba(255,255,255,0.6)' }
                 },
-                legend: {
-                    labels: {
-                        color: 'rgba(255, 255, 255, 0.8)',
-                        font: { size: 12, family: "'Segoe UI', sans-serif" },
-                        usePointStyle: true,
-                        boxWidth: 8
-                    }
-                },
-                tooltip: {
-                    backgroundColor: 'rgba(10, 22, 40, 0.9)',
-                    titleColor: '#1abc9c',
-                    bodyColor: '#fff',
-                    borderColor: 'rgba(26, 188, 156, 0.3)',
-                    borderWidth: 1,
-                    padding: 10,
-                    displayColors: true,
-                    callbacks: {
-                        title: (items) => {
-                            const index = items[0].dataIndex;
-                            const dateStr = sortedDates[index];
-                            const date = new Date(dateStr);
-                            return date.toLocaleDateString('es-ES', {
-                                day: 'numeric', month: 'long', year: 'numeric'
-                            });
-                        }
-                    }
+                x: {
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { color: 'rgba(255,255,255,0.6)' }
                 }
             },
-            scales: {
-                x: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.05)',
-                        borderColor: 'rgba(255, 255, 255, 0.1)'
-                    },
-                    ticks: {
-                        color: 'rgba(255, 255, 255, 0.6)',
-                        font: { size: 11 }
-                    }
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: 'white', padding: 20, usePointStyle: true }
                 },
-                y: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.05)',
-                        borderColor: 'rgba(255, 255, 255, 0.1)'
+                datalabels: {
+                    display: (context) => context.dataset.data[context.dataIndex] !== null,
+                    color: '#fff',
+                    backgroundColor: (ctx) => ctx.dataset.borderColor,
+                    borderRadius: 4,
+                    font: { weight: 'bold', size: 10 },
+                    padding: 4,
+                    formatter: (value, context) => {
+                        const date = sortedDates[context.dataIndex];
+                        const d = new Date(date);
+                        const shortDate = `${d.getDate()}/${d.getMonth() + 1}`;
+                        return `${value}\n(${shortDate})`;
                     },
-                    ticks: {
-                        color: 'rgba(255, 255, 255, 0.6)',
-                        font: { size: 11 }
-                    },
-                    beginAtZero: true
+                    align: 'top',
+                    offset: 8,
+                    textAlign: 'center',
+                    anchor: 'end',
+                    opacity: 1,
+                    clip: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (context) => {
+                            const date = sortedDates[context.dataIndex];
+                            return `${context.dataset.label}: ${context.raw} reps (${date})`;
+                        }
+                    }
                 }
             }
         }
     });
 }
 
-function getNextChallenges(userData) {
-    const challenges = [];
-
-    // 1. Constancy
-    const constancyLevels = [
-        { goal: 1, id: 'constancy_1', title: 'Primeros Pasos' },
-        { goal: 5, id: 'constancy_5', title: 'Constancia' },
-        { goal: 10, id: 'constancy_10', title: 'Veterano' }
-    ];
-    const nextConstancy = constancyLevels.find(l => userData.totalSessions < l.goal);
-    if (nextConstancy) {
-        challenges.push({
-            category: 'Constancia',
-            icon: '🔥',
-            current: userData.totalSessions,
-            goal: nextConstancy.goal,
-            title: nextConstancy.title,
-            unit: 'sesiones'
-        });
+function renderRadarChart(userData, exerciseNames) {
+    if (!userData || !exerciseNames || exerciseNames.length === 0) {
+        if (window.radarInstance) window.radarInstance.destroy();
+        return;
     }
-
-    // 2. Strength (Clean)
-    const strengthLevels = [
-        { goal: 15, id: 'strength_15', title: 'Fuerte' },
-        { goal: 25, id: 'strength_25', title: 'Bestia' },
-        { goal: 40, id: 'strength_40', title: 'Leyenda' }
-    ];
-    const maxCleanReps = Math.max(0, ...Object.values(userData.exercises).map(e =>
-        Math.max(0, ...e.history.filter(h => !h.goma && !h.rodillas).map(h => h.reps))
-    ));
-    const nextStrength = strengthLevels.find(l => maxCleanReps < l.goal);
-    if (nextStrength) {
-        challenges.push({
-            category: 'Fuerza Limpia',
-            icon: '💪',
-            current: maxCleanReps,
-            goal: nextStrength.goal,
-            title: nextStrength.title,
-            unit: 'reps'
-        });
-    }
-
-    // 3. Assisted
-    const assistedLevels = [
-        { goal: 15, id: 'assisted_15', title: 'Impulso' },
-        { goal: 25, id: 'assisted_25', title: 'Propulsión' },
-        { goal: 40, id: 'assisted_40', title: 'Gravedad Zero' }
-    ];
-    const maxAssistedReps = Math.max(0, ...Object.values(userData.exercises).map(e =>
-        Math.max(0, ...e.history.filter(h => h.goma || h.rodillas).map(h => h.reps))
-    ));
-    const nextAssisted = assistedLevels.find(l => maxAssistedReps < l.goal);
-    if (nextAssisted) {
-        challenges.push({
-            category: 'Fuerza Asistida',
-            icon: '🚀',
-            current: maxAssistedReps,
-            goal: nextAssisted.goal,
-            title: nextAssisted.title,
-            unit: 'reps'
-        });
-    }
-
-    return challenges;
-}
-
-function displayUserProfile() {
-    const userData = getUserData();
-    const container = document.getElementById('user-container');
-    const achievements = getAchievements(userData);
-    const challenges = getNextChallenges(userData);
-    const exerciseList = Object.keys(userData.exercises);
-
-    // Initialize selected exercises with first 3
-    if (selectedExercises.length === 0) {
-        selectedExercises = exerciseList.slice(0, 3);
-    }
-    container.innerHTML = `
-        <header>
-            <div class="logo-container">
-                <img src="logo.jpg" alt="Calistenia Valencia Logo" class="logo" onerror="this.style.display='none'">
-            </div>
-            <a href="index.html" class="back-link">← Volver al ranking</a>
-            <div class="user-header">
-                <div class="user-avatar">${userName.charAt(0).toUpperCase()}</div>
-                <h1 class="user-name">${userName}</h1>
-            </div>
-            <div class="user-stats">
-                <div class="stat-card">
-                    <div class="stat-value">${userData.totalSessions}</div>
-                    <div class="stat-label">Sesiones</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${userData.totalReps}</div>
-                    <div class="stat-label">Repeticiones</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${achievements.length}</div>
-                    <div class="stat-label">Logros</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${exerciseList.length}</div>
-                    <div class="stat-label">Ejercicios</div>
-                </div>
-            </div>
-        </header>
-
-        <div class="achievements-section">
-            <h2>Logros Desbloqueados</h2>
-            <div class="achievements-grid">
-                ${achievements.length > 0 ? achievements.map(achievement => `
-                    <div class="achievement-card ${achievement.tier}">
-                        <div class="achievement-icon">${achievement.icon}</div>
-                        <div class="achievement-info">
-                            <h3>${achievement.title}</h3>
-                            <p>${achievement.description}</p>
-                        </div>
-                    </div>
-                `).join('') : '<p class="no-achievements">¡Empieza a entrenar para desbloquear logros!</p>'}
-            </div>
-
-            <!-- NEW: Next Challenges Section -->
-            ${challenges.length > 0 ? `
-                <h2 style="margin-top: 50px; color: #1abc9c;">Próximos Retos</h2>
-                <div class="achievements-grid challenges-grid-new">
-                    ${challenges.map(challenge => {
-        const progress = Math.min(100, Math.round((challenge.current / challenge.goal) * 100));
-        return `
-                            <div class="achievement-card challenge-card-new">
-                                <div class="achievement-icon challenge-icon-new">${challenge.icon}</div>
-                                <div class="achievement-info" style="flex: 1;">
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px;">
-                                        <h3 style="margin: 0; font-size: 1.1em;">${challenge.title}</h3>
-                                        <span style="font-size: 0.8em; color: rgba(255,255,255,0.6);">${challenge.category}</span>
-                                    </div>
-                                    <div class="challenge-progress-info" style="display: flex; justify-content: space-between; font-size: 0.9em; margin: 10px 0 5px;">
-                                        <span>${challenge.current} / ${challenge.goal} ${challenge.unit}</span>
-                                        <span style="color: #1abc9c; font-weight: bold;">${progress}%</span>
-                                    </div>
-                                    <div class="challenge-progress-bar" style="height: 6px; background: rgba(0,0,0,0.3); border-radius: 3px; overflow: hidden;">
-                                        <div class="challenge-progress-fill" style="width: ${progress}%; height: 100%; background: linear-gradient(90deg, #1abc9c 0%, #16a085 100%); transition: width 1s ease-out;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-    }).join('')}
-                </div>
-            ` : ''}
-        </div>
-
-        <div class="chart-section card">
-            <h2>Progresión en el Tiempo</h2>
-            <p class="chart-subtitle">Selecciona ejercicios para comparar tu progreso</p>
-            <div class="exercise-filters">
-                ${exerciseList.sort().map(ex => `
-                    <button class="exercise-filter-btn ${selectedExercises.includes(ex) ? 'active' : ''}" 
-                            onclick="toggleExercise('${ex}')"
-                            data-exercise="${ex}">
-                        ${ex}
-                    </button>
-                `).join('')}
-            </div>
-            <div class="chart-container">
-                <canvas id="progressChart"></canvas>
-            </div>
-        </div>
-
-        <div class="chart-section card">
-            <h2>Equilibrio del Atleta</h2>
-            <p class="chart-subtitle">Tu balance entre Empuje y Tracción</p>
-            <div class="radar-container" style="height: 350px;">
-                <canvas id="radarChart"></canvas>
-            </div>
-        </div>
-
-        <div class="exercises-section">
-            <h2>Estadísticas por Ejercicio</h2>
-            <div class="exercises-grid">
-                ${Object.values(userData.exercises).sort((a, b) => b.max - a.max).map(exercise => {
-        const firstSession = exercise.history[0].reps;
-        const lastSession = exercise.history[exercise.history.length - 1].reps;
-        const progress = lastSession - firstSession;
-        const progressClass = progress > 0 ? 'positive' : progress < 0 ? 'negative' : 'neutral';
-        const progressText = progress > 0 ? `+${progress}` : progress;
-        const progressPercent = exercise.max > 0 ? Math.round((lastSession / exercise.max) * 100) : 0;
-
-        return `
-                        <div class="exercise-card">
-                            <h3>${exercise.name}</h3>
-                            <div class="exercise-stats">
-                                <div class="stat-row">
-                                    <span>Máximo:</span>
-                                    <span class="stat-highlight">
-                                        ${getAssistanceBadge(exercise.maxGoma, exercise.maxRodillas)}
-                                        ${exercise.max} reps
-                                        ${exercise.maxDate ? `<small style="opacity:0.7; font-weight:normal;">(${new Date(exercise.maxDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' })})</small>` : ''}
-                                    </span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Progreso:</span>
-                                    <span class="exercise-progress ${progressClass}">${progressText} reps</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Sesiones:</span>
-                                    <span>${exercise.history.length}</span>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Promedio:</span>
-                                    <span>${exercise.average} reps</span>
-                                </div>
-                            </div>
-
-                            <div class="progress-bar-container">
-                                <div class="progress-bar-label">
-                                    <span>Intensidad (vs Máx)</span>
-                                    <span>${progressPercent}%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-bar-fill" style="width: ${progressPercent}%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-    }).join('')}
-            </div>
-        </div>
-
-        <div class="session-history">
-            <h2>Historial Completo</h2>
-            ${userData.sessions.slice().sort((a, b) => new Date(b.date) - new Date(a.date)).map(session => `
-                <div class="session-card-user">
-                    <div class="session-header">
-                        <h3>${new Date(session.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</h3>
-                        <span class="session-time">${session.time}</span>
-                    </div>
-                    <div class="session-exercises">
-                        ${session.exercises.map(ex => `
-                            <div class="exercise-result">
-                                <span class="exercise-name">${ex.name}</span>
-                                <span class="exercise-reps">
-                                    ${getAssistanceBadge(ex.goma, ex.rodillas)}
-                                    ${ex.reps}${ex.modifier ? ' ' + ex.modifier : ''}
-                                </span>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-    `;
-
-    // Render charts after DOM is ready
-    setTimeout(() => {
-        renderChart();
-        renderRadarChart(userData);
-    }, 100);
-
-    // Re-render charts on window resize
-    window.addEventListener('resize', () => {
-        renderChart();
-        renderRadarChart(userData);
-    });
-}
-
-function renderRadarChart(userData) {
     const ctx = document.getElementById('radarChart').getContext('2d');
-
-    // Define all exercises to show in the radar chart (fixed order)
-    const exerciseList = Object.keys(EXERCISE_CATEGORIES);
-
-    const labels = exerciseList.map(name => {
-        const category = EXERCISE_CATEGORIES[name];
-        return [`${category}:`, name]; // Two lines label
-    });
-
-    const dataValues = exerciseList.map(name => {
-        const exercise = userData.exercises[name];
-        return exercise ? exercise.max : 0;
-    });
+    const labels = exerciseNames.map(name => name);
+    const dataValues = exerciseNames.map(name => userData.exercises[name].max);
 
     if (window.radarInstance) window.radarInstance.destroy();
-
     window.radarInstance = new Chart(ctx, {
         type: 'radar',
         data: {
             labels: labels,
             datasets: [{
-                label: 'Máximo por Ejercicio',
+                label: 'Máximo',
                 data: dataValues,
-                fill: true,
                 backgroundColor: 'rgba(26, 188, 156, 0.2)',
                 borderColor: '#1abc9c',
-                pointBackgroundColor: '#1abc9c',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: '#1abc9c'
+                borderWidth: 2,
+                pointBackgroundColor: '#1abc9c'
             }]
         },
         options: {
@@ -725,16 +593,13 @@ function renderRadarChart(userData) {
             maintainAspectRatio: false,
             scales: {
                 r: {
-                    angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                    pointLabels: { color: 'rgba(255, 255, 255, 0.8)', font: { size: 14 } },
-                    ticks: { display: false, backdropColor: 'transparent' },
-                    suggestedMin: 0
+                    grid: { color: 'rgba(255,255,255,0.1)' },
+                    angleLines: { color: 'rgba(255,255,255,0.1)' },
+                    pointLabels: { color: 'white', font: { size: 12 } },
+                    ticks: { display: false, count: 5 }
                 }
             },
-            plugins: {
-                legend: { display: false }
-            }
+            plugins: { legend: { display: false } }
         }
     });
 }
