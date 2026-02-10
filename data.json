@@ -245,7 +245,7 @@
                             "reps": 17
                         },
                         {
-                            "person": "Amparo Martínez Rodríguez",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "12"
                         }
                     ]
@@ -279,7 +279,7 @@
                             "reps": 12
                         },
                         {
-                            "person": "Amparo Martínez Rodríguez",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "12",
                             "goma": "N"
                         }
@@ -313,7 +313,7 @@
                             "reps": "7"
                         },
                         {
-                            "person": "Amparo Martínez Rodríguez",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "3",
                             "goma": "N"
                         }
@@ -347,7 +347,7 @@
                             "reps": "7"
                         },
                         {
-                            "person": "Amparo Martínez Rodríguez",
+                            "person": "Amparo Martinez Rodriguez",
                             "reps": "2",
                             "goma": "N"
                         }
@@ -866,7 +866,7 @@
                             "reps": 34
                         },
                         {
-                            "person": "Floreline Koelln",
+                            "person": "Florencia Koelln",
                             "reps": 40,
                             "rodillas": "Y"
                         },
@@ -912,7 +912,7 @@
                             "reps": 25
                         },
                         {
-                            "person": "Floreline Koelln",
+                            "person": "Florencia Koelln",
                             "reps": 35,
                             "rodillas": "Y"
                         },
@@ -958,7 +958,7 @@
                             "reps": 18
                         },
                         {
-                            "person": "Floreline Koelln",
+                            "person": "Florencia Koelln",
                             "reps": 16,
                             "goma": "N"
                         },
@@ -1004,7 +1004,7 @@
                             "reps": 19
                         },
                         {
-                            "person": "Floreline Koelln",
+                            "person": "Florencia Koelln",
                             "reps": 6
                         },
                         {
@@ -3129,6 +3129,453 @@
                             "person": "Adolfo López Perez",
                             "reps": 10,
                             "rodillas": "Y"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-10",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 95
+                        },
+                        {
+                            "person": "Damián",
+                            "reps": 60
+                        },
+                        {
+                            "person": "Mandy",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Claudia",
+                            "reps": 17
+                        },
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Tomás",
+                            "reps": 68
+                        },
+                        {
+                            "person": "Arturo",
+                            "reps": 42
+                        },
+                        {
+                            "person": "Adrián Guillén",
+                            "reps": 31
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 70
+                        },
+                        {
+                            "person": "David",
+                            "reps": 30
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 59
+                        },
+                        {
+                            "person": "Damián",
+                            "reps": 46
+                        },
+                        {
+                            "person": "Mandy",
+                            "reps": 42,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Claudia",
+                            "reps": 76,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 68,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Tomás",
+                            "reps": 36
+                        },
+                        {
+                            "person": "Arturo",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Adrián Guillén",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 45
+                        },
+                        {
+                            "person": "David",
+                            "reps": 27
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Damián",
+                            "reps": 30
+                        },
+                        {
+                            "person": "Mandy",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Claudia",
+                            "reps": 20,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Tomás",
+                            "reps": 23
+                        },
+                        {
+                            "person": "Arturo",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Adrián Guillén",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 0
+                        },
+                        {
+                            "person": "David",
+                            "reps": 9
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Álvaro Saez",
+                            "reps": 40
+                        },
+                        {
+                            "person": "Damián",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Mandy",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Claudia",
+                            "reps": 6
+                        },
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 12
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-10",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Arturo",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Adrián Guillén",
+                            "reps": 15,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 14
+                        },
+                        {
+                            "person": "David",
+                            "reps": 10,
+                            "goma": "N"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Arturo",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Adrián Guillén",
+                            "reps": 5
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 11
+                        },
+                        {
+                            "person": "David",
+                            "reps": 7,
+                            "goma": "N"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-10",
+            "time": "19:30",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Pascu",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 15,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Alba Martínez Agulló",
+                            "reps": 12,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Pilar",
+                            "reps": 10,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Camila de la maza perez",
+                            "reps": 6,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 14,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Yakim",
+                            "reps": 12,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Joan",
+                            "reps": 16
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Pascu",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 14,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Alba Martínez Agulló",
+                            "reps": 11,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Pilar",
+                            "reps": 8,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Camila de la maza perez",
+                            "reps": 5,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 14,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Yakim",
+                            "reps": 10,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "Joan",
+                            "reps": 13
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Pascu",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Yakim",
+                            "reps": 10
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Pascu",
+                            "reps": 29
+                        },
+                        {
+                            "person": "Alonso",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Brown",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Alberto Del Carpio",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Yakim",
+                            "reps": 15
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-10",
+            "time": "19:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Alba Martínez Agulló",
+                            "reps": 30
+                        },
+                        {
+                            "person": "Pilar",
+                            "reps": 8,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Camila de la maza perez",
+                            "reps": 9,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Joan",
+                            "reps": 35
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Alba Martínez Agulló",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Pilar",
+                            "reps": 7,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Camila de la maza perez",
+                            "reps": 11,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Joan",
+                            "reps": 23
                         }
                     ]
                 }
