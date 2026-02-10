@@ -4,35 +4,11 @@ let viewMode = 'single';
 let dateRange = { start: null, end: null };
 let showGlobalLeaderboard = false;
 
-// Resistance band color mapping
-const GOMA_COLORS = {
-    'A': { name: 'Amarilla', color: '#FFD700', emoji: '🟡' },
-    'R': { name: 'Roja', color: '#FF0000', emoji: '🔴' },
-    'N': { name: 'Negra', color: '#000000', emoji: '⚫' },
-    'RN': { name: 'Roja-Negra', color: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', emoji: '🔴⚫' },
-    'M': { name: 'Morada', color: '#800080', emoji: '🟣' },
-    'MR': { name: 'Morada-Roja', color: 'linear-gradient(135deg, #800080 50%, #FF0000 50%)', emoji: '🟣🔴' },
-    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' },
-    'VRo': { name: 'Verde-Roja', color: 'linear-gradient(135deg, #00FF00 50%, #FF0000 50%)', emoji: '🟢🔴' },
-    'VN': { name: 'Verde-Negra', color: 'linear-gradient(135deg, #00FF00 50%, #000000 50%)', emoji: '🟢⚫' }
-};
+// GOMA_COLORS and GOMA_PENALTY move to calculations.js
 
 let currentExerciseData = null; // Store current leaderboard data
 let currentExerciseId = null;
 let currentSortMode = 'reps'; // 'reps' or 'name'
-
-const GOMA_PENALTY = {
-    '': 1,        // No goma, no penalty
-    'A': 0.95,
-    'R': 0.92,
-    'N': 0.90,
-    'RN': 0.86,
-    'M': 0.82,
-    'MR': 0.76,
-    'V': 0.7,
-    'VRo': 0.6,
-    'VN': 0.5     // Most supportive, biggest penalty
-};
 
 
 async function loadData() {
@@ -460,19 +436,7 @@ function formatDate(dateString) {
     return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-function parseReps(reps) {
-    if (typeof reps === 'number') return { value: reps, modifier: '' };
-    const match = reps.toString().match(/^(\d+)([A-Z]?)$/);
-    if (match) return { value: parseInt(match[1]), modifier: match[2] };
-    return { value: 0, modifier: '' };
-}
-
-// NEW: Format goma badge HTML
-function getGomaBadge(gomaCode) {
-    if (!gomaCode || !GOMA_COLORS[gomaCode]) return '';
-    const goma = GOMA_COLORS[gomaCode];
-    return `<span class="goma-badge" style="background-color: ${goma.color};" title="Goma ${goma.name}">${goma.emoji}</span>`;
-}
+// parseReps and getGomaBadge moved to calculations.js
 
 function getFilteredSessions() {
     const category = document.getElementById('category-filter').value;
@@ -562,23 +526,35 @@ function aggregateResultsByName(exerciseName) {
                             count: 0,
                             max: 0,
                             sessions: [],
-                            goma: result.goma || null // Store goma info
+                            goma: result.goma || null,
+                            rodillas: result.rodillas || null // Store rodillas info
                         };
                     }
                     aggregated[result.person].total += parsed.value;
                     aggregated[result.person].count += 1;
 
-                    // Update max and goma for the max rep
+                    // Update max. Logic: More reps is better.
+                    // If reps are equal, LESS assistance is better.
                     if (parsed.value > aggregated[result.person].max) {
                         aggregated[result.person].max = parsed.value;
                         aggregated[result.person].maxGoma = result.goma || null;
+                        aggregated[result.person].maxRodillas = result.rodillas || null;
+                    } else if (parsed.value === aggregated[result.person].max) {
+                        // Tie-breaker: Check assistance
+                        const currentLevel = getAssistanceLevel(aggregated[result.person].maxGoma, aggregated[result.person].maxRodillas);
+                        const newLevel = getAssistanceLevel(result.goma, result.rodillas);
+                        if (newLevel < currentLevel) {
+                            aggregated[result.person].maxGoma = result.goma || null;
+                            aggregated[result.person].maxRodillas = result.rodillas || null;
+                        }
                     }
 
                     aggregated[result.person].sessions.push({
                         date: session.date,
                         reps: result.reps,
                         parsed,
-                        goma: result.goma || null
+                        goma: result.goma || null,
+                        rodillas: result.rodillas || null
                     });
                 });
             });
@@ -590,7 +566,8 @@ function aggregateResultsByName(exerciseName) {
         max: person.max,
         average: Math.round(person.total / person.count),
         sessions: person.sessions,
-        goma: viewMode === 'single' ? person.maxGoma : null // Show goma for max rep in single view
+        goma: viewMode === 'single' ? person.maxGoma : null,
+        rodillas: viewMode === 'single' ? person.maxRodillas : null
     }));
 }
 
@@ -621,8 +598,8 @@ function displayPodium(results) {
 
             if (viewMode === 'single') {
                 const parsed = parseReps(result.reps);
-                const gomaBadge = getGomaBadge(result.goma);
-                place.querySelector('.reps').innerHTML = `${gomaBadge} ${parsed.value} reps${parsed.modifier ? ' ' + parsed.modifier : ''} `;
+                const assistanceBadge = getAssistanceBadge(result.goma, result.rodillas);
+                place.querySelector('.reps').innerHTML = `${assistanceBadge} ${parsed.value} reps${parsed.modifier ? ' ' + parsed.modifier : ''} `;
             } else {
                 place.querySelector('.reps').innerHTML = `
                     <div>${result.average} reps <span style="font-size: 0.6em; opacity: 0.8;">(promedio)</span></div>
@@ -676,12 +653,12 @@ function displayLeaderboard(results) {
 
         if (viewMode === 'single') {
             const parsed = parseReps(result.reps);
-            const gomaBadge = getGomaBadge(result.goma);
+            const assistanceBadge = getAssistanceBadge(result.goma, result.rodillas);
             item.innerHTML = `<div class="rank">${rankEmoji}</div>
                 <div class="name">${result.person}</div>
                 <div class="profile-link">👉 Ver perfil</div>
                 <div class="score" style="display: flex; align-items: center; justify-content: flex-end;">
-                    ${gomaBadge ? `<span class="goma-badge-container">${gomaBadge}</span>` : ""}
+                    ${assistanceBadge ? `<span class="goma-badge-container">${assistanceBadge}</span>` : ""}
                     <span class="score-number" style="min-width: 40px; text-align: right;">${parsed.value}<span class="modifier">${parsed.modifier}</span></span>
                 </div>`;
         } else {

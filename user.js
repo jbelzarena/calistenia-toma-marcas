@@ -3,22 +3,7 @@ let userName = '';
 let selectedExercises = [];
 
 
-const GOMA_COLORS = {
-    'A': { name: 'Amarilla', color: '#FFD700', emoji: '🟡' },
-    'R': { name: 'Roja', color: '#FF0000', emoji: '🔴' },
-    'N': { name: 'Negra', color: '#000000', emoji: '⚫' },
-    'RN': { name: 'Roja-Negra', color: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', emoji: '🔴⚫' },
-    'M': { name: 'Morada', color: '#800080', emoji: '🟣' },
-    'MR': { name: 'Morada-Roja', color: 'linear-gradient(135deg, #800080 50%, #FF0000 50%)', emoji: '🟣🔴' },
-    'V': { name: 'Verde', color: '#00FF00', emoji: '🟢' },
-    'VRo': { name: 'Verde-Roja', color: 'linear-gradient(135deg, #00FF00 50%, #FF0000 50%)', emoji: '🟢🔴' },
-    'VN': { name: 'Verde-Negra', color: 'linear-gradient(135deg, #00FF00 50%, #000000 50%)', emoji: '🟢⚫' }
-};
-function getGomaBadge(gomaCode) {
-    if (!gomaCode || !GOMA_COLORS[gomaCode]) return '';
-    const goma = GOMA_COLORS[gomaCode];
-    return `<span class="goma-badge" style="background-color:${goma.color}" title="Goma ${goma.name}">${goma.emoji}</span>`;
-}
+// GOMA_COLORS and getGomaBadge moved to calculations.js
 
 
 
@@ -82,9 +67,9 @@ const ACHIEVEMENTS = [
         description: 'Entrenar sin gomas elástica en una sesión completa',
         icon: '🛡️',
         condition: (data) => {
-            // Check if there is at least one session where all exercises have NO goma
+            // Check if there is at least one session where all exercises have NO goma AND NO rodillas
             return data.sessions.some(session =>
-                session.exercises.every(ex => !ex.goma)
+                session.exercises.every(ex => !ex.goma && !ex.rodillas)
             );
         },
         tier: 'gold'
@@ -136,16 +121,7 @@ function showError() {
     `;
 }
 
-function parseReps(reps) {
-    if (typeof reps === 'number') {
-        return { value: reps, modifier: '' };
-    }
-    const match = reps.toString().match(/^(\d+)([A-Z]?)$/);
-    if (match) {
-        return { value: parseInt(match[1]), modifier: match[2] };
-    }
-    return { value: 0, modifier: '' };
-}
+// parseReps moved to calculations.js
 
 function getUserData() {
     const userData = {
@@ -173,7 +149,8 @@ function getUserData() {
                     reps: parsed.value,
                     modifier: parsed.modifier,
                     raw: userResult.reps,
-                    goma: userResult.goma || null
+                    goma: userResult.goma || null,
+                    rodillas: userResult.rodillas || null
                 });
 
                 if (!userData.exercises[exercise.exercise]) {
@@ -183,7 +160,9 @@ function getUserData() {
                         max: 0,
                         min: Infinity,
                         total: 0,
-                        count: 0
+                        count: 0,
+                        maxGoma: null,
+                        maxRodillas: null
                     };
                 }
 
@@ -193,14 +172,26 @@ function getUserData() {
                     reps: parsed.value,
                     modifier: parsed.modifier,
                     raw: userResult.reps,
-                    goma: userResult.goma || null
+                    goma: userResult.goma || null,
+                    rodillas: userResult.rodillas || null
                 });
                 // Then, after calculating .max and .min, also store which goma was used.
                 if (parsed.value > exerciseData.max) {
                     exerciseData.maxGoma = userResult.goma || null;
+                    exerciseData.maxRodillas = userResult.rodillas || null;
+                } else if (parsed.value === exerciseData.max) {
+                    // Tie-breaker: Less assistance is better
+                    const currentLevel = getAssistanceLevel(exerciseData.maxGoma, exerciseData.maxRodillas);
+                    const newLevel = getAssistanceLevel(userResult.goma, userResult.rodillas);
+                    if (newLevel < currentLevel) {
+                        exerciseData.maxGoma = userResult.goma || null;
+                        exerciseData.maxRodillas = userResult.rodillas || null;
+                    }
                 }
+
                 if (parsed.value < exerciseData.min) {
                     exerciseData.minGoma = userResult.goma || null;
+                    exerciseData.minRodillas = userResult.rodillas || null;
                 }
                 exerciseData.max = Math.max(exerciseData.max, parsed.value);
                 exerciseData.min = Math.min(exerciseData.min, parsed.value);
@@ -513,11 +504,17 @@ function displayUserProfile() {
                         <div class="exercise-stats">
                             <div class="stat-row">
                                 <span>Máximo:</span>
-                                <span class="stat-highlight">${bestReps} reps <small style="font-size: 0.7em; opacity: 0.7">(${maxDate})</small></span>
+                                <span class="stat-highlight">
+                                    ${getAssistanceBadge(exercise.maxGoma, exercise.maxRodillas)}
+                                    ${bestReps} reps <small style="font-size: 0.7em; opacity: 0.7">(${maxDate})</small>
+                                </span>
                             </div>
                             <div class="stat-row">
                                 <span>Última sesión:</span>
-                                <span>${lastReps} reps</span>
+                                <span>
+                                    ${exercise.history[exercise.history.length - 1].goma ? getAssistanceBadge(exercise.history[exercise.history.length - 1].goma, exercise.history[exercise.history.length - 1].rodillas) : (exercise.history[exercise.history.length - 1].rodillas ? getAssistanceBadge(null, 'Y') : '')}
+                                    ${lastReps} reps
+                                </span>
                             </div>
                             <div class="stat-row">
                                 <span>Progreso:</span>
@@ -530,14 +527,13 @@ function displayUserProfile() {
                             <div class="stat-row">
                                 <span>Promedio:</span>
                                 <span>
-                                    ${exercise.averageGoma ? getGomaBadge(exercise.averageGoma) : ''}
                                     <span class="score-number">${exercise.average} reps</span>
                                 </span>
                             </div>
                             <div class="stat-row">
                                 <span>Mínimo:</span>
                                 <span>
-                                    ${exercise.minGoma ? getGomaBadge(exercise.minGoma) : ''}
+                                    ${getAssistanceBadge(exercise.minGoma, exercise.minRodillas)}
                                     <span class="score-number">${exercise.min} reps</span>
                                 </span>
                             </div>
@@ -582,7 +578,7 @@ function displayUserProfile() {
                             <div class="exercise-result">
                                 <span class="exercise-name">${exercise.name}</span>
                                 <span class="exercise-reps">
-    ${exercise.goma ? getGomaBadge(exercise.goma) : ''} 
+    ${getAssistanceBadge(exercise.goma, exercise.rodillas)} 
     <span class="score-number" style="min-width:36px;text-align:right;">
         ${exercise.reps}${exercise.modifier ? ' ' + exercise.modifier : ''} reps
     </span>

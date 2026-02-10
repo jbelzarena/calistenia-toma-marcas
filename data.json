@@ -246,8 +246,7 @@
                         },
                         {
                             "person": "Amparo Martinez Rodriguez",
-                            "reps": "12",
-                            "goma": "R"
+                            "reps": "12"
                         }
                     ]
                 },
@@ -394,7 +393,7 @@
                             "reps": 39
                         },
                         {
-                            "person": "Alberto Del  Carpio",
+                            "person": "Alberto Del Carpio",
                             "reps": 38
                         },
                         {
@@ -447,7 +446,7 @@
                             "reps": 26
                         },
                         {
-                            "person": "Alberto Del  Carpio",
+                            "person": "Alberto Del Carpio",
                             "reps": 28
                         },
                         {
@@ -500,7 +499,7 @@
                             "reps": 19
                         },
                         {
-                            "person": "Alberto Del  Carpio",
+                            "person": "Alberto Del Carpio",
                             "reps": 30
                         },
                         {
@@ -553,7 +552,7 @@
                             "reps": 28
                         },
                         {
-                            "person": "Alberto Del  Carpio",
+                            "person": "Alberto Del Carpio",
                             "reps": 24
                         },
                         {
@@ -869,7 +868,7 @@
                         {
                             "person": "Florencia Koelln",
                             "reps": 40,
-                            "goma": "V"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Diogo Santos",
@@ -915,7 +914,7 @@
                         {
                             "person": "Florencia Koelln",
                             "reps": 35,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Diogo Santos",
@@ -1225,7 +1224,7 @@
                     "exercise": "Remo australiano",
                     "results": [
                         {
-                            "person": "Alba Martinez Agull",
+                            "person": "Alba Martinez Agulló",
                             "reps": 31
                         },
                         {
@@ -1334,7 +1333,7 @@
                         {
                             "person": "Alonso",
                             "reps": 41,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Paula",
@@ -1347,12 +1346,12 @@
                         {
                             "person": "Alejandra",
                             "reps": 16,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Miriam",
                             "reps": 29,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Ruben Palmer",
@@ -1382,7 +1381,7 @@
                         {
                             "person": "Adolfo Hernandez",
                             "reps": 20,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Patrick",
@@ -1391,7 +1390,7 @@
                         {
                             "person": "Alonso",
                             "reps": 23,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Paula",
@@ -1404,12 +1403,12 @@
                         {
                             "person": "Alejandra",
                             "reps": 10,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Miriam",
                             "reps": 19,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Ruben Palmer",
@@ -1614,7 +1613,7 @@
                         {
                             "person": "Estefania Morales",
                             "reps": "12",
-                            "goma": "R"
+                            "rodillas": "Y"
                         }
                     ]
                 },
@@ -1854,7 +1853,7 @@
                         {
                             "person": "Javi Matiacci",
                             "reps": 45,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Ana Herrador",
@@ -1867,7 +1866,7 @@
                         {
                             "person": "Alba1430",
                             "reps": "12",
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Xiroi",
@@ -1885,7 +1884,7 @@
                         {
                             "person": "Javi Matiacci",
                             "reps": "5",
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Ana Herrador",
@@ -1898,7 +1897,7 @@
                         {
                             "person": "Alba1430",
                             "reps": "14",
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Xiroi",
@@ -2017,7 +2016,7 @@
                             "reps": 29
                         },
                         {
-                            "person": "Rubén Palmer",
+                            "person": "Ruben Palmer",
                             "reps": 64
                         },
                         {
@@ -2070,7 +2069,7 @@
                             "reps": 21
                         },
                         {
-                            "person": "Rubén Palmer",
+                            "person": "Ruben Palmer",
                             "reps": 45
                         },
                         {
@@ -2123,7 +2122,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Rubén Palmer",
+                            "person": "Ruben Palmer",
                             "reps": 33
                         },
                         {
@@ -2176,7 +2175,7 @@
                             "reps": 16
                         },
                         {
-                            "person": "Rubén Palmer",
+                            "person": "Ruben Palmer",
                             "reps": 27
                         },
                         {
@@ -2752,7 +2751,7 @@
                         {
                             "person": "Paula",
                             "reps": 8,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Amparo Martínez Rodríguez",
@@ -2810,12 +2809,12 @@
                         {
                             "person": "Paula",
                             "reps": 16,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Amparo Martínez Rodríguez",
                             "reps": 14,
-                            "goma": "R"
+                            "rodillas": "Y"
                         },
                         {
                             "person": "Adolfo López Perez",
