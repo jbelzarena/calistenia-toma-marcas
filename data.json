@@ -2859,6 +2859,280 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2026-02-10",
+            "time": "14:30",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Luiso",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Mateo",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 11,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 11,
+                            "goma": "MR"
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 12,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 9,
+                            "goma": "RN"
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 0
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 15,
+                            "goma": "RN"
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 6,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Camila P",
+                            "reps": 8
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Luiso",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Mateo",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 9,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 10,
+                            "goma": "MR"
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 12,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 10,
+                            "goma": "RN"
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 0
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 12,
+                            "goma": "RN"
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 7,
+                            "goma": "V"
+                        },
+                        {
+                            "person": "Camila P",
+                            "reps": 7
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Luiso",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Mateo",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Camila P",
+                            "reps": 26,
+                            "rodillas": "Y"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Luiso",
+                            "reps": 17
+                        },
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 23
+                        },
+                        {
+                            "person": "Mateo",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 16,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 31
+                        },
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 15,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 10,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Camila P",
+                            "reps": 42,
+                            "rodillas": "Y"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-10",
+            "time": "14:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 16,
+                            "rodillas": "Y"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Javi Matiacci",
+                            "reps": 36,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Adolfo López Perez",
+                            "reps": 10,
+                            "rodillas": "Y"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

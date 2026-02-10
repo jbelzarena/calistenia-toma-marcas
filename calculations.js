@@ -26,6 +26,17 @@ const GOMA_PENALTY = {
     'RODILLAS': 0.4 // High assistance
 };
 
+const EXERCISE_CATEGORIES = {
+    'Dominada prona': 'Tracción',
+    'Dominada supino': 'Tracción',
+    'Remo australiano': 'Tracción',
+    'Remo neutro': 'Tracción',
+    'Flexiones diamante': 'Empuje',
+    'Flexiones militares': 'Empuje',
+    'Fondos': 'Empuje',
+    'Fondos tríceps (sbd)': 'Empuje'
+};
+
 // Parse reps string/number to object
 function parseReps(reps) {
     if (typeof reps === 'number') return { value: reps, modifier: '' };
@@ -78,4 +89,78 @@ function getImprovementText(oldReps, oldGoma, oldRodillas, newReps, newGoma, new
     if (repDiff < 0) return { text: `${repDiff} reps`, class: 'decline' };
 
     return { text: '=', class: 'neutral' };
+}
+
+// Normalize exercise names to Sentence case
+function normalizeExerciseName(name) {
+    if (!name) return '';
+    const trimmed = name.trim();
+    // Special handling for acronyms like SBD
+    if (trimmed.includes('(SBD)')) return trimmed;
+
+    // Capitalize first letter, lowercase rest
+    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+}
+
+// Normalize person names (Trim and Title Case)
+function normalizePersonName(name) {
+    if (!name) return '';
+    return name.trim()
+        .toLowerCase()
+        .split(/\s+/)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+// Calculate normalized reps based on assistance
+function getNormalizedReps(reps, gomaCode, rodillas) {
+    const parsed = parseReps(reps);
+    let penalty = 1;
+    if (rodillas === 'Y') {
+        penalty = GOMA_PENALTY['RODILLAS'];
+    } else if (gomaCode && GOMA_PENALTY[gomaCode]) {
+        penalty = GOMA_PENALTY[gomaCode];
+    }
+    return parsed.value * penalty;
+}
+
+// Calculate improvement percentage for a user
+function calculateUserImprovement(userSessions, userName) {
+    const exerciseHistory = {};
+
+    userSessions.forEach(session => {
+        session.exercises.forEach(ex => {
+            const exName = normalizeExerciseName(ex.exercise);
+            const userResult = ex.results.find(r => normalizePersonName(r.person) === userName);
+
+            if (userResult) {
+                if (!exerciseHistory[exName]) exerciseHistory[exName] = [];
+                exerciseHistory[exName].push({
+                    date: session.date,
+                    normalized: getNormalizedReps(userResult.reps, userResult.goma, userResult.rodillas)
+                });
+            }
+        });
+    });
+
+    let totalImprovement = 0;
+    let exerciseCount = 0;
+
+    Object.entries(exerciseHistory).forEach(([name, history]) => {
+        if (history.length < 2) return;
+
+        // Sort by date to get earliest and latest
+        history.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        const first = history[0].normalized;
+        const last = history[history.length - 1].normalized;
+
+        if (first > 0) {
+            const imp = (last / first) - 1;
+            totalImprovement += imp;
+            exerciseCount++;
+        }
+    });
+
+    return exerciseCount > 0 ? (totalImprovement / exerciseCount) * 100 : 0;
 }

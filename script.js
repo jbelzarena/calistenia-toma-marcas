@@ -3,6 +3,7 @@ let currentExerciseName = '';
 let viewMode = 'single';
 let dateRange = { start: null, end: null };
 let showGlobalLeaderboard = false;
+let showImprovementRanking = false;
 
 // GOMA_COLORS and GOMA_PENALTY move to calculations.js
 
@@ -103,12 +104,19 @@ function initializeApp() {
                 </div>
             </div>
 
-        <div id="global-filter" class="filter-section hidden" style="margin-top: 0; padding-top: 0;">     
+        <div id="global-filter" class="filter-section hidden" style="margin-top: 0; padding-top: 0; display: flex; gap: 10px; flex-wrap: wrap;">     
             
             <div class="filter-group">
                 <br>      
                 <button id="global-leaderboard-btn" class="exercise-btn" disabled>
-                    Ver Clasificación Global
+                    🏆 Clasificación Global
+                </button>
+            </div>
+
+            <div class="filter-group">
+                <br>      
+                <button id="improvement-ranking-btn" class="exercise-btn" disabled>
+                    📈 Ranking de Mejora (%)
                 </button>
             </div>
         </div>
@@ -247,6 +255,7 @@ function setupEventListeners() {
             timeFilter.disabled = true;
             sessionFilter.disabled = true;
             globalBtn.disabled = true;
+            document.getElementById('improvement-ranking-btn').disabled = true;
             return;
         }
 
@@ -254,6 +263,7 @@ function setupEventListeners() {
         timeFilter.disabled = false;
         sessionFilter.disabled = false;
         globalBtn.disabled = false;
+        document.getElementById('improvement-ranking-btn').disabled = false;
 
         populateExerciseFilter(category);
         populateTimeFilter(category);
@@ -313,8 +323,29 @@ function setupEventListeners() {
 
     globalBtn.addEventListener('click', () => {
         showGlobalLeaderboard = !showGlobalLeaderboard;
-        globalBtn.textContent = showGlobalLeaderboard ? 'Ver Ejercicios Individuales' : 'Ver Clasificación Global';
+        showImprovementRanking = false;
+
+        globalBtn.textContent = showGlobalLeaderboard ? 'Ver Ejercicios Individuales' : '🏆 Clasificación Global';
         globalBtn.classList.toggle('active', showGlobalLeaderboard);
+
+        const impBtn = document.getElementById('improvement-ranking-btn');
+        impBtn.textContent = '📈 Ranking de Mejora (%)';
+        impBtn.classList.remove('active');
+
+        updateView();
+    });
+
+    const impBtn = document.getElementById('improvement-ranking-btn');
+    impBtn.addEventListener('click', () => {
+        showImprovementRanking = !showImprovementRanking;
+        showGlobalLeaderboard = false;
+
+        impBtn.textContent = showImprovementRanking ? 'Ver Ejercicios Individuales' : '📈 Ranking de Mejora (%)';
+        impBtn.classList.toggle('active', showImprovementRanking);
+
+        globalBtn.textContent = '🏆 Clasificación Global';
+        globalBtn.classList.remove('active');
+
         updateView();
     });
 }
@@ -355,6 +386,11 @@ function updateView() {
         document.getElementById('global-view').classList.remove('hidden');
         if (exerciseSelector) exerciseSelector.classList.add('hidden');
         displayGlobalLeaderboard();
+    } else if (showImprovementRanking) {
+        document.getElementById('exercise-view').classList.add('hidden');
+        document.getElementById('global-view').classList.remove('hidden');
+        if (exerciseSelector) exerciseSelector.classList.add('hidden');
+        displayImprovementRanking();
     } else {
         document.getElementById('exercise-view').classList.remove('hidden');
         document.getElementById('global-view').classList.add('hidden');
@@ -366,7 +402,7 @@ function updateView() {
         } else {
             const sessions = getFilteredSessions();
             const exercisesSet = new Set();
-            sessions.forEach(s => s.exercises.forEach(ex => exercisesSet.add(ex.exercise)));
+            sessions.forEach(s => s.exercises.forEach(ex => exercisesSet.add(normalizeExerciseName(ex.exercise))));
             const firstExercise = [...exercisesSet][0];
             if (firstExercise) {
                 currentExerciseName = firstExercise;
@@ -378,11 +414,16 @@ function updateView() {
 
 function populateExerciseFilter(selectedCategory) {
     const exerciseFilter = document.getElementById('exercise-filter');
+    // Get unique exercise names
     const exercisesSet = new Set();
-
     data.sessions.forEach(session => {
-        if (session.category === selectedCategory) {
-            session.exercises.forEach(ex => exercisesSet.add(ex.exercise));
+        if (session.category === selectedCategory) { // Keep category filter
+            session.exercises.forEach(ex => {
+                const normalized = normalizeExerciseName(ex.exercise);
+                exercisesSet.add(normalized);
+                // Also update the exercise name in the data object for consistency
+                ex.exercise = normalized;
+            });
         }
     });
 
@@ -512,44 +553,46 @@ function updateExerciseButtons() {
 function aggregateResultsByName(exerciseName) {
     const filteredSessions = getFilteredSessions();
     const aggregated = {};
+    const targetExercise = normalizeExerciseName(exerciseName);
 
     filteredSessions.forEach(session => {
-        session.exercises
-            .filter(ex => ex.exercise === exerciseName)
-            .forEach(exercise => {
+        session.exercises.forEach(exercise => {
+            if (normalizeExerciseName(exercise.exercise) === targetExercise) {
                 exercise.results.forEach(result => {
+                    const personName = normalizePersonName(result.person);
                     const parsed = parseReps(result.reps);
-                    if (!aggregated[result.person]) {
-                        aggregated[result.person] = {
-                            person: result.person,
+
+                    if (!aggregated[personName]) {
+                        aggregated[personName] = {
+                            person: personName,
                             total: 0,
                             count: 0,
                             max: 0,
                             sessions: [],
-                            goma: result.goma || null,
-                            rodillas: result.rodillas || null // Store rodillas info
+                            maxGoma: null,
+                            maxRodillas: null
                         };
                     }
-                    aggregated[result.person].total += parsed.value;
-                    aggregated[result.person].count += 1;
 
-                    // Update max. Logic: More reps is better.
-                    // If reps are equal, LESS assistance is better.
-                    if (parsed.value > aggregated[result.person].max) {
-                        aggregated[result.person].max = parsed.value;
-                        aggregated[result.person].maxGoma = result.goma || null;
-                        aggregated[result.person].maxRodillas = result.rodillas || null;
-                    } else if (parsed.value === aggregated[result.person].max) {
-                        // Tie-breaker: Check assistance
-                        const currentLevel = getAssistanceLevel(aggregated[result.person].maxGoma, aggregated[result.person].maxRodillas);
+                    const personData = aggregated[personName];
+                    personData.total += parsed.value;
+                    personData.count += 1;
+
+                    // Update max
+                    if (parsed.value > personData.max) {
+                        personData.max = parsed.value;
+                        personData.maxGoma = result.goma || null;
+                        personData.maxRodillas = result.rodillas || null;
+                    } else if (parsed.value === personData.max) {
+                        const currentLevel = getAssistanceLevel(personData.maxGoma, personData.maxRodillas);
                         const newLevel = getAssistanceLevel(result.goma, result.rodillas);
                         if (newLevel < currentLevel) {
-                            aggregated[result.person].maxGoma = result.goma || null;
-                            aggregated[result.person].maxRodillas = result.rodillas || null;
+                            personData.maxGoma = result.goma || null;
+                            personData.maxRodillas = result.rodillas || null;
                         }
                     }
 
-                    aggregated[result.person].sessions.push({
+                    personData.sessions.push({
                         date: session.date,
                         reps: result.reps,
                         parsed,
@@ -557,7 +600,8 @@ function aggregateResultsByName(exerciseName) {
                         rodillas: result.rodillas || null
                     });
                 });
-            });
+            }
+        });
     });
 
     return Object.values(aggregated).map(person => ({
@@ -576,8 +620,8 @@ function sortResults(results) {
 }
 
 function displayExercise(exerciseName) {
-    currentExerciseName = exerciseName;
-    const results = aggregateResultsByName(exerciseName);
+    currentExerciseName = normalizeExerciseName(exerciseName);
+    const results = aggregateResultsByName(currentExerciseName);
     displayPodium(results);
     displayLeaderboard(results);
 }
@@ -684,7 +728,7 @@ function setupSearch() {
     const allNames = new Set();
     data.sessions.forEach(session => {
         session.exercises.forEach(ex => {
-            ex.results.forEach(r => allNames.add(r.person));
+            ex.results.forEach(r => allNames.add(normalizePersonName(r.person)));
         });
     });
     const namesList = [...allNames].sort();
@@ -800,14 +844,15 @@ function calculateGlobalPoints() {
     let weeklyExerciseData = {};
     sessions.forEach(session => {
         session.exercises.forEach(exerciseObj => {
-            let exerciseName = exerciseObj.exercise;
+            let exerciseName = normalizeExerciseName(exerciseObj.exercise);
             exerciseObj.results.forEach(result => {
                 let week = getISOWeek(session.date);
+                let personName = normalizePersonName(result.person);
                 if (!weeklyExerciseData[exerciseName]) weeklyExerciseData[exerciseName] = {};
                 if (!weeklyExerciseData[exerciseName][week]) weeklyExerciseData[exerciseName][week] = {};
                 let reps = parseInt(result.reps) || 0;
-                if (!weeklyExerciseData[exerciseName][week][result.person] || weeklyExerciseData[exerciseName][week][result.person] < reps) {
-                    weeklyExerciseData[exerciseName][week][result.person] = reps;
+                if (!weeklyExerciseData[exerciseName][week][personName] || weeklyExerciseData[exerciseName][week][personName] < reps) {
+                    weeklyExerciseData[exerciseName][week][personName] = reps;
                 }
             });
         });
@@ -850,6 +895,70 @@ function calculateGlobalPoints() {
     return Object.values(globalScores).sort((a, b) => b.totalPoints - a.totalPoints);
 }
 
+
+function displayImprovementRanking() {
+    const category = document.getElementById('category-filter').value;
+    const globalCategory = document.getElementById('global-category');
+    const globalDetails = document.getElementById('global-details');
+    const globalDescription = document.querySelector('.global-description');
+
+    if (globalCategory) globalCategory.textContent = `Progreso en ${category}`;
+    if (globalDetails) globalDetails.classList.add('hidden');
+
+    // Update description for improvement ranking
+    if (globalDescription) {
+        globalDescription.innerHTML = `
+            <b>Resumen:</b> Este ranking premia a los atletas que más han mejorado proporcionalmente en <b>${category}</b>.
+            <br>Comparamos tu primera marca registrada con la última, aplicando penalización por ayuda (gomas/rodillas) para que sea justo para todos.
+            <br><span style="color:#1abc9c;font-weight:bold;">¡La constancia y el esfuerzo propio son la clave!</span>
+        `;
+    }
+
+    const filteredSessions = getFilteredSessions();
+    const personsSet = new Set();
+    filteredSessions.forEach(s => s.exercises.forEach(ex => {
+        ex.results.forEach(r => personsSet.add(normalizePersonName(r.person)));
+    }));
+
+    const improvements = Array.from(personsSet).map(person => {
+        const improvement = calculateUserImprovement(filteredSessions, person);
+        return { person, improvement };
+    }).filter(u => u.improvement > 0);
+
+    improvements.sort((a, b) => b.improvement - a.improvement);
+
+    const leaderboardList = document.getElementById('global-leaderboard-list');
+    leaderboardList.innerHTML = '';
+
+    if (improvements.length === 0) {
+        leaderboardList.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: rgba(255, 255, 255, 0.6);">
+                <p style="font-size: 1.2em;">No hay datos de mejora suficientes</p>
+                <p>Se necesitan al menos 2 sesiones de un ejercicio para calcular el progreso</p>
+            </div>
+        `;
+        return;
+    }
+
+    improvements.forEach((result, index) => {
+        const item = document.createElement('div');
+        item.className = 'leaderboard-item clickable';
+        item.style.animationDelay = `${index * 0.05}s`;
+        item.onclick = () => openUserProfile(result.person);
+
+        const rankEmoji = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : index + 1;
+
+        item.innerHTML = `
+            <div class="rank">${rankEmoji}</div>
+            <div class="name">${result.person}</div>
+            <div class="score" style="text-align: right; color: #2ecc71; font-weight: bold;">
+                +${result.improvement.toFixed(1)}%
+            </div>
+            <div class="profile-link">👉 Ver perfil</div>
+        `;
+        leaderboardList.appendChild(item);
+    });
+}
 
 function openUserProfile(personName) {
     window.location.href = `user.html?name=${encodeURIComponent(personName)}`;
