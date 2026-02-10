@@ -773,7 +773,21 @@ function setupSearch() {
 
 function displayGlobalLeaderboard() {
     const category = document.getElementById('category-filter').value;
-    document.getElementById('global-category').textContent = category;
+    const globalCategory = document.getElementById('global-category');
+    const globalDescription = document.querySelector('.global-description');
+
+    if (globalCategory) globalCategory.textContent = category;
+
+    if (globalDescription) {
+        globalDescription.innerHTML = `
+            <b>Resumen:</b> Cada semana se cuenta solo tu mejor marca en cada ejercicio. Si usas goma de asistencia, tu resultado tiene penalización según el nivel de ayuda. Sumas puntos y medallas (🥇🥈🥉) por quedar en el top 3. <br>
+            <span style="color:#7ac242;font-weight:bold;">¡Mejora tus marcas y usa menos goma para avanzar más!</span>
+            <button class="details-toggle"
+                onclick="document.getElementById('global-details').classList.toggle('hidden');
+                        this.textContent = this.textContent === '¿Cómo funciona?' ? 'Ocultar detalle' : '¿Cómo funciona?';"
+                style="margin-left:20px;">¿Cómo funciona?</button>
+        `;
+    }
 
     const globalScores = calculateGlobalPoints();
     const leaderboardList = document.getElementById('global-leaderboard-list');
