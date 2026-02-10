@@ -33,31 +33,54 @@ const ACHIEVEMENTS = [
         condition: (data) => data.totalSessions >= 10,
         tier: 'gold'
     },
-    // STRENGTH (Assuming Pull-ups/Dips context usually)
-    // We check max reps across ANY exercise for simplicity or specific ones if needed.
-    // Here we check if *any* exercise has max >= X
+    // STRENGTH (Clean - No assistance)
     {
         id: 'strength_15',
         title: 'Fuerte',
-        description: 'Realizar 15 repeticiones en un ejercicio',
+        description: 'Realizar 15 repeticiones sin asistencia',
         icon: '💪',
-        condition: (data) => Math.max(...Object.values(data.exercises).map(e => e.max)) >= 15,
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 15 && !h.goma && !h.rodillas)),
         tier: 'bronze'
     },
     {
         id: 'strength_25',
         title: 'Bestia',
-        description: 'Realizar 25 repeticiones en un ejercicio',
+        description: 'Realizar 25 repeticiones sin asistencia',
         icon: '🦍',
-        condition: (data) => Math.max(...Object.values(data.exercises).map(e => e.max)) >= 25,
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 25 && !h.goma && !h.rodillas)),
         tier: 'silver'
     },
     {
         id: 'strength_40',
         title: 'Leyenda',
-        description: 'Realizar 40 repeticiones en un ejercicio',
+        description: 'Realizar 40 repeticiones sin asistencia',
         icon: '⚡',
-        condition: (data) => Math.max(...Object.values(data.exercises).map(e => e.max)) >= 40,
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 40 && !h.goma && !h.rodillas)),
+        tier: 'gold'
+    },
+    // ASSISTED STRENGTH
+    {
+        id: 'assisted_15',
+        title: 'Impulso',
+        description: 'Realizar 15 repeticiones con asistencia',
+        icon: '🦘',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 15 && (h.goma || h.rodillas))),
+        tier: 'bronze'
+    },
+    {
+        id: 'assisted_25',
+        title: 'Propulsión',
+        description: 'Realizar 25 repeticiones con asistencia',
+        icon: '🚀',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 25 && (h.goma || h.rodillas))),
+        tier: 'silver'
+    },
+    {
+        id: 'assisted_40',
+        title: 'Gravedad Zero',
+        description: 'Realizar 40 repeticiones con asistencia',
+        icon: '👩‍🚀',
+        condition: (data) => Object.values(data.exercises).some(e => e.history.some(h => h.reps >= 40 && (h.goma || h.rodillas))),
         tier: 'gold'
     },
     // PURITY (No elastic bands)
