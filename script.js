@@ -130,6 +130,12 @@ function initializeApp() {
             <div class="exercise-selector"></div>
 
             <div id="exercise-view">
+                <div class="leaderboard-header">
+                    <p class="exercise-description">
+                        <!-- Content injected by JS -->
+                    </p>
+                </div>
+
                 <div class="podium-container">
                     <div class="podium-wrapper">
                         <div class="podium-place second">
@@ -549,7 +555,7 @@ function updateExerciseButtons() {
     }
 }
 
-// UPDATED: Aggregate results now includes goma information
+// UPDATED: Aggregate results now includes normalized reps for sorting
 function aggregateResultsByName(exerciseName) {
     const filteredSessions = getFilteredSessions();
     const aggregated = {};
@@ -561,13 +567,16 @@ function aggregateResultsByName(exerciseName) {
                 exercise.results.forEach(result => {
                     const personName = normalizePersonName(result.person);
                     const parsed = parseReps(result.reps);
+                    const normalized = getNormalizedReps(result.reps, result.goma, result.rodillas);
 
                     if (!aggregated[personName]) {
                         aggregated[personName] = {
                             person: personName,
                             total: 0,
+                            normalizedTotal: 0,
                             count: 0,
                             max: 0,
+                            normalizedMax: 0,
                             sessions: [],
                             maxGoma: null,
                             maxRodillas: null
@@ -576,17 +585,19 @@ function aggregateResultsByName(exerciseName) {
 
                     const personData = aggregated[personName];
                     personData.total += parsed.value;
+                    personData.normalizedTotal += normalized;
                     personData.count += 1;
 
-                    // Update max
-                    if (parsed.value > personData.max) {
+                    // Update max based on normalized value
+                    if (normalized > personData.normalizedMax) {
+                        personData.normalizedMax = normalized;
                         personData.max = parsed.value;
                         personData.maxGoma = result.goma || null;
                         personData.maxRodillas = result.rodillas || null;
-                    } else if (parsed.value === personData.max) {
-                        const currentLevel = getAssistanceLevel(personData.maxGoma, personData.maxRodillas);
-                        const newLevel = getAssistanceLevel(result.goma, result.rodillas);
-                        if (newLevel < currentLevel) {
+                    } else if (Math.abs(normalized - personData.normalizedMax) < 0.001) {
+                        // Tie-break with raw reps if normalized is same (unlikely but possible)
+                        if (parsed.value > personData.max) {
+                            personData.max = parsed.value;
                             personData.maxGoma = result.goma || null;
                             personData.maxRodillas = result.rodillas || null;
                         }
@@ -596,6 +607,7 @@ function aggregateResultsByName(exerciseName) {
                         date: session.date,
                         reps: result.reps,
                         parsed,
+                        normalized,
                         goma: result.goma || null,
                         rodillas: result.rodillas || null
                     });
@@ -604,24 +616,49 @@ function aggregateResultsByName(exerciseName) {
         });
     });
 
-    return Object.values(aggregated).map(person => ({
-        person: person.person,
-        reps: viewMode === 'single' ? person.max : Math.round(person.total / person.count),
-        max: person.max,
-        average: Math.round(person.total / person.count),
-        sessions: person.sessions,
-        goma: viewMode === 'single' ? person.maxGoma : null,
-        rodillas: viewMode === 'single' ? person.maxRodillas : null
-    }));
+    return Object.values(aggregated).map(person => {
+        const avg = Math.round(person.total / person.count);
+        const normalizedAvg = person.normalizedTotal / person.count;
+
+        return {
+            person: person.person,
+            // Display value (what users see)
+            reps: viewMode === 'single' ? person.max : avg,
+            // Sorting value (what the code uses)
+            sortingValue: viewMode === 'single' ? person.normalizedMax : normalizedAvg,
+            max: person.max,
+            normalizedMax: person.normalizedMax,
+            average: avg,
+            normalizedAverage: normalizedAvg,
+            sessions: person.sessions,
+            goma: viewMode === 'single' ? person.maxGoma : null,
+            rodillas: viewMode === 'single' ? person.maxRodillas : null
+        };
+    });
 }
 
 function sortResults(results) {
-    return [...results].sort((a, b) => b.reps - a.reps);
+    if (currentSortMode === 'name') {
+        return [...results].sort((a, b) => a.person.localeCompare(b.person));
+    }
+    // Default: Sort by normalized reps for fairness
+    return [...results].sort((a, b) => b.sortingValue - a.sortingValue);
 }
 
 function displayExercise(exerciseName) {
     currentExerciseName = normalizeExerciseName(exerciseName);
     const results = aggregateResultsByName(currentExerciseName);
+
+    // Update description for the specific exercise ranking
+    const description = document.querySelector('.exercise-description');
+    if (description) {
+        description.innerHTML = `
+            <b>Criterio de Ranking:</b> Este ranking premia la técnica y el esfuerzo real en <b>${currentExerciseName}</b>. 
+            <br>Se ordena por <span class="highlight">"Repeticiones Normalizadas"</span> (el número real con penalización según ayuda de gomas/rodillas). 
+            <span class="highlight">¡Las repeticiones limpias valen más!</span>
+        `;
+    }
+
     displayPodium(results);
     displayLeaderboard(results);
 }
@@ -666,7 +703,7 @@ function displayLeaderboard(results) {
     let sorted = [...results];
 
     if (currentSortMode === 'reps') {
-        sorted.sort((a, b) => b.reps - a.reps);
+        sorted.sort((a, b) => b.sortingValue - a.sortingValue);
     } else if (currentSortMode === 'name') {
         sorted.sort((a, b) => a.person.localeCompare(b.person));
     }
@@ -781,7 +818,7 @@ function displayGlobalLeaderboard() {
     if (globalDescription) {
         globalDescription.innerHTML = `
             <b>Resumen:</b> Cada semana se cuenta solo tu mejor marca en cada ejercicio. Si usas goma de asistencia, tu resultado tiene penalización según el nivel de ayuda. Sumas puntos y medallas (🥇🥈🥉) por quedar en el top 3. <br>
-            <span style="color:#7ac242;font-weight:bold;">¡Mejora tus marcas y usa menos goma para avanzar más!</span>
+            <span class="highlight">¡Mejora tus marcas y usa menos goma para avanzar más!</span>
             <button class="details-toggle"
                 onclick="document.getElementById('global-details').classList.toggle('hidden');
                         this.textContent = this.textContent === '¿Cómo funciona?' ? 'Ocultar detalle' : '¿Cómo funciona?';"
@@ -864,9 +901,10 @@ function calculateGlobalPoints() {
                 let personName = normalizePersonName(result.person);
                 if (!weeklyExerciseData[exerciseName]) weeklyExerciseData[exerciseName] = {};
                 if (!weeklyExerciseData[exerciseName][week]) weeklyExerciseData[exerciseName][week] = {};
-                let reps = parseInt(result.reps) || 0;
-                if (!weeklyExerciseData[exerciseName][week][personName] || weeklyExerciseData[exerciseName][week][personName] < reps) {
-                    weeklyExerciseData[exerciseName][week][personName] = reps;
+
+                let normalizedReps = getNormalizedReps(result.reps, result.goma, result.rodillas);
+                if (!weeklyExerciseData[exerciseName][week][personName] || weeklyExerciseData[exerciseName][week][personName] < normalizedReps) {
+                    weeklyExerciseData[exerciseName][week][personName] = normalizedReps;
                 }
             });
         });
@@ -924,7 +962,7 @@ function displayImprovementRanking() {
         globalDescription.innerHTML = `
             <b>Resumen:</b> Este ranking premia a los atletas que más han mejorado proporcionalmente en <b>${category}</b>.
             <br>Comparamos tu primera marca registrada con la última, aplicando penalización por ayuda (gomas/rodillas) para que sea justo para todos.
-            <br><span style="color:#1abc9c;font-weight:bold;">¡La constancia y el esfuerzo propio son la clave!</span>
+            <br><span class="highlight">¡La constancia y el esfuerzo propio son la clave!</span>
         `;
     }
 
