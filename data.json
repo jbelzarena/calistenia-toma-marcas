@@ -4114,256 +4114,256 @@
                             "reps": 13
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "date": "2026-02-11",
+            "time": "19:30",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
                 {
-                    "date": "2026-02-11",
-                    "time": "19:30",
-                    "activity_type": "Toma de marcas",
-                    "category": "Tracción",
-                    "exercises": [
+                    "exercise": "Dominada prona",
+                    "results": [
                         {
-                            "exercise": "Dominada prona",
-                            "results": [
-                                {
-                                    "person": "Pablo",
-                                    "reps": 16
-                                },
-                                {
-                                    "person": "Emiliano",
-                                    "reps": 11
-                                },
-                                {
-                                    "person": "Paula",
-                                    "reps": 9,
-                                    "goma": "N"
-                                },
-                                {
-                                    "person": "Alba",
-                                    "reps": 11,
-                                    "goma": "NR"
-                                },
-                                {
-                                    "person": "Rubén Palmer",
-                                    "reps": 19
-                                },
-                                {
-                                    "person": "Paloma",
-                                    "reps": 9,
-                                    "goma": "N"
-                                },
-                                {
-                                    "person": "Patrick",
-                                    "reps": 10
-                                },
-                                {
-                                    "person": "Carlos",
-                                    "reps": 7,
-                                    "goma": "M"
-                                },
-                                {
-                                    "person": "maricarbonell26",
-                                    "reps": 16,
-                                    "goma": "N"
-                                },
-                                {
-                                    "person": "Miriam",
-                                    "reps": 11,
-                                    "goma": "MR"
-                                },
-                                {
-                                    "person": "Jorge",
-                                    "reps": 11
-                                },
-                                {
-                                    "person": "Federico Ferreri",
-                                    "reps": 11
-                                }
-                            ]
+                            "person": "Pablo",
+                            "reps": 16
                         },
                         {
-                            "exercise": "Dominada supino",
-                            "results": [
-                                {
-                                    "person": "Pablo",
-                                    "reps": 14
-                                },
-                                {
-                                    "person": "Emiliano",
-                                    "reps": 10
-                                },
-                                {
-                                    "person": "Paula",
-                                    "reps": 8,
-                                    "goma": "N"
-                                },
-                                {
-                                    "person": "Alba",
-                                    "reps": 10,
-                                    "goma": "MR"
-                                },
-                                {
-                                    "person": "Rubén Palmer",
-                                    "reps": 19
-                                },
-                                {
-                                    "person": "Paloma",
-                                    "reps": 9,
-                                    "goma": "N"
-                                },
-                                {
-                                    "person": "Patrick",
-                                    "reps": 9
-                                },
-                                {
-                                    "person": "Carlos",
-                                    "reps": 7,
-                                    "goma": "M"
-                                },
-                                {
-                                    "person": "maricarbonell26",
-                                    "reps": 15,
-                                    "goma": "N"
-                                },
-                                {
-                                    "person": "Miriam",
-                                    "reps": 11,
-                                    "goma": "MR"
-                                },
-                                {
-                                    "person": "Jorge",
-                                    "reps": 11
-                                },
-                                {
-                                    "person": "Federico Ferreri",
-                                    "reps": 10
-                                }
-                            ]
+                            "person": "Emiliano",
+                            "reps": 11
                         },
                         {
-                            "exercise": "Remo neutro",
-                            "results": [
-                                {
-                                    "person": "Pablo",
-                                    "reps": 25
-                                },
-                                {
-                                    "person": "Emiliano",
-                                    "reps": 25
-                                },
-                                {
-                                    "person": "Paula",
-                                    "reps": 8
-                                },
-                                {
-                                    "person": "Alba",
-                                    "reps": 8
-                                },
-                                {
-                                    "person": "Rubén Palmer",
-                                    "reps": 21
-                                },
-                                {
-                                    "person": "Paloma",
-                                    "reps": 18
-                                }
-                            ]
+                            "person": "Paula",
+                            "reps": 9,
+                            "goma": "N"
                         },
                         {
-                            "exercise": "Remo australiano",
-                            "results": [
-                                {
-                                    "person": "Pablo",
-                                    "reps": 34
-                                },
-                                {
-                                    "person": "Emiliano",
-                                    "reps": 36
-                                },
-                                {
-                                    "person": "Paula",
-                                    "reps": 43
-                                },
-                                {
-                                    "person": "Alba",
-                                    "reps": 19
-                                },
-                                {
-                                    "person": "Rubén Palmer",
-                                    "reps": 60
-                                },
-                                {
-                                    "person": "Paloma",
-                                    "reps": 30
-                                }
-                            ]
+                            "person": "Alba",
+                            "reps": 11,
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 9,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Patrick",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Carlos",
+                            "reps": 7,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "maricarbonell26",
+                            "reps": 16,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Miriam",
+                            "reps": 11,
+                            "goma": "MR"
+                        },
+                        {
+                            "person": "Jorge",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Federico Ferreri",
+                            "reps": 11
                         }
                     ]
                 },
                 {
-                    "date": "2026-02-11",
-                    "time": "19:30",
-                    "activity_type": "Toma de marcas",
-                    "category": "Empuje",
-                    "exercises": [
+                    "exercise": "Dominada supino",
+                    "results": [
                         {
-                            "exercise": "Flexiones militares",
-                            "results": [
-                                {
-                                    "person": "Patrick",
-                                    "reps": 40
-                                },
-                                {
-                                    "person": "Carlos",
-                                    "reps": 31
-                                },
-                                {
-                                    "person": "maricarbonell26",
-                                    "reps": 38
-                                },
-                                {
-                                    "person": "Miriam",
-                                    "reps": 34,
-                                    "rodillas": "Y"
-                                },
-                                {
-                                    "person": "Jorge",
-                                    "reps": 35
-                                },
-                                {
-                                    "person": "Federico Ferreri",
-                                    "reps": 42
-                                }
-                            ]
+                            "person": "Pablo",
+                            "reps": 14
                         },
                         {
-                            "exercise": "Flexiones diamante",
-                            "results": [
-                                {
-                                    "person": "Patrick",
-                                    "reps": 31
-                                },
-                                {
-                                    "person": "Carlos",
-                                    "reps": 20
-                                },
-                                {
-                                    "person": "maricarbonell26",
-                                    "reps": 18
-                                },
-                                {
-                                    "person": "Miriam",
-                                    "reps": 23,
-                                    "rodillas": "Y"
-                                },
-                                {
-                                    "person": "Jorge",
-                                    "reps": 23
-                                },
-                                {
-                                    "person": "Federico Ferreri",
-                                    "reps": 22
-                                }
-                            ]
+                            "person": "Emiliano",
+                            "reps": 10
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 8,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 10,
+                            "goma": "MR"
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 9,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Patrick",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Carlos",
+                            "reps": 7,
+                            "goma": "M"
+                        },
+                        {
+                            "person": "maricarbonell26",
+                            "reps": 15,
+                            "goma": "N"
+                        },
+                        {
+                            "person": "Miriam",
+                            "reps": 11,
+                            "goma": "MR"
+                        },
+                        {
+                            "person": "Jorge",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Federico Ferreri",
+                            "reps": 10
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Pablo",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Emiliano",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 18
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Pablo",
+                            "reps": 34
+                        },
+                        {
+                            "person": "Emiliano",
+                            "reps": 36
+                        },
+                        {
+                            "person": "Paula",
+                            "reps": 43
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Rubén Palmer",
+                            "reps": 60
+                        },
+                        {
+                            "person": "Paloma",
+                            "reps": 30
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-11",
+            "time": "19:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Patrick",
+                            "reps": 40
+                        },
+                        {
+                            "person": "Carlos",
+                            "reps": 31
+                        },
+                        {
+                            "person": "maricarbonell26",
+                            "reps": 38
+                        },
+                        {
+                            "person": "Miriam",
+                            "reps": 34,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Jorge",
+                            "reps": 35
+                        },
+                        {
+                            "person": "Federico Ferreri",
+                            "reps": 42
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Patrick",
+                            "reps": 31
+                        },
+                        {
+                            "person": "Carlos",
+                            "reps": 20
+                        },
+                        {
+                            "person": "maricarbonell26",
+                            "reps": 18
+                        },
+                        {
+                            "person": "Miriam",
+                            "reps": 23,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Jorge",
+                            "reps": 23
+                        },
+                        {
+                            "person": "Federico Ferreri",
+                            "reps": 22
                         }
                     ]
                 }
