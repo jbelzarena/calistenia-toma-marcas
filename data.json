@@ -3772,6 +3772,198 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2026-02-11",
+            "time": "16:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Ana",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 70
+                        },
+                        {
+                            "person": "Kike Mañanes",
+                            "reps": 53
+                        },
+                        {
+                            "person": "Francisco",
+                            "reps": 27
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 50
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 24,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 65
+                        },
+                        {
+                            "person": "Adolfo Hernández",
+                            "reps": 19
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Ana",
+                            "reps": 50,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 39
+                        },
+                        {
+                            "person": "Kike Mañanes",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Francisco",
+                            "reps": 20
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 35
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 20,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 47
+                        },
+                        {
+                            "person": "Adolfo Hernández",
+                            "reps": 30,
+                            "rodillas": "Y"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Ana",
+                            "reps": 13,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Kike Mañanes",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Francisco",
+                            "reps": 13
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 13,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Adolfo Hernández",
+                            "reps": 13
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Ana",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Julia",
+                            "reps": 20,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Kike Mañanes",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Francisco",
+                            "reps": 15
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Gema",
+                            "reps": 5,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Álvaro",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Adolfo Hernández",
+                            "reps": 11
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-11",
+            "time": "16:30",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción / Empuje",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Adolfo Hernández",
+                            "reps": 12,
+                            "goma": "M"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Adolfo Hernández",
+                            "reps": 11,
+                            "goma": "M"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
