@@ -3581,6 +3581,197 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2026-02-11",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 40
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 70
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 35
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 50
+                        },
+                        {
+                            "person": "Nacho",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Miguel",
+                            "reps": 24
+                        },
+                        {
+                            "person": "gabriela.morales",
+                            "reps": 18
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 23
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 33
+                        },
+                        {
+                            "person": "Nacho",
+                            "reps": 30
+                        },
+                        {
+                            "person": "Miguel",
+                            "reps": 13
+                        },
+                        {
+                            "person": "gabriela.morales",
+                            "reps": 18
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": 4
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 25
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 4
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Rox",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 19
+                        },
+                        {
+                            "person": "camila",
+                            "reps": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-11",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción / Empuje",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Travis",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Nacho",
+                            "reps": 6
+                        },
+                        {
+                            "person": "Miguel",
+                            "reps": 7
+                        },
+                        {
+                            "person": "gabriela.morales",
+                            "reps": 5
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Travis",
+                            "reps": 12,
+                            "goma": "R"
+                        },
+                        {
+                            "person": "Nacho",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Miguel",
+                            "reps": 6
+                        },
+                        {
+                            "person": "gabriela.morales",
+                            "reps": 6
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
