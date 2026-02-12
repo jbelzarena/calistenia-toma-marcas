@@ -34,7 +34,7 @@ const EXERCISE_CATEGORIES = {
     'flexiones diamante': 'Empuje',
     'flexiones militares': 'Empuje',
     'fondos': 'Empuje',
-    'fondos tríceps (sbd)': 'Empuje'
+    'fondos triceps (sbd)': 'Empuje'
 };
 
 function stripDiacritics(text) {
