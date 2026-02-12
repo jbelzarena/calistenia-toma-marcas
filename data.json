@@ -4368,6 +4368,278 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2026-02-12",
+            "time": "14:30",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Migue",
+                            "reps": 21
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Migue",
+                            "reps": 20
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Migue",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 37
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Migue",
+                            "reps": 40
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 40
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-12",
+            "time": "14:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 70
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": 43
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 38
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 26
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 74
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 38
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 31
+                        },
+                        {
+                            "person": "Laura",
+                            "reps": 20,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 15,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Camila",
+                            "reps": 36
+                        },
+                        {
+                            "person": "Carlos Galan",
+                            "reps": 24
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 50
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": 32
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 24
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 37
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 29
+                        },
+                        {
+                            "person": "Laura",
+                            "reps": 20,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 13,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Camila",
+                            "reps": 23
+                        },
+                        {
+                            "person": "Carlos Galán",
+                            "reps": 18
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 27
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": 26
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 9
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 14
+                        },
+                        {
+                            "person": "Laura",
+                            "reps": 8,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 4,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 40
+                        },
+                        {
+                            "person": "Camila",
+                            "reps": 23
+                        },
+                        {
+                            "person": "Carlos Galán",
+                            "reps": 21
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Carlos Santa",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Luiso",
+                            "reps": 26
+                        },
+                        {
+                            "person": "Xiroi",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Quique",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Gines",
+                            "reps": 29
+                        },
+                        {
+                            "person": "Mario",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Ana Herrador",
+                            "reps": 13
+                        },
+                        {
+                            "person": "Laura",
+                            "reps": 25,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Alba",
+                            "reps": 15,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Manu",
+                            "reps": 35
+                        },
+                        {
+                            "person": "Camila",
+                            "reps": 25
+                        },
+                        {
+                            "person": "Carlos Galán",
+                            "reps": 12
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

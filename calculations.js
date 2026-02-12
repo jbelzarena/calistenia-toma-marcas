@@ -37,6 +37,12 @@ const EXERCISE_CATEGORIES = {
     'fondos tríceps (sbd)': 'Empuje'
 };
 
+function stripDiacritics(text) {
+    return (text || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+}
+
 // Parse reps string/number to object
 function parseReps(reps) {
     if (typeof reps === 'number') return { value: reps, modifier: '' };
@@ -113,7 +119,7 @@ function getImprovementText(oldReps, oldGoma, oldRodillas, newReps, newGoma, new
 // Normalize exercise names to Sentence case
 function normalizeExerciseName(name) {
     if (!name) return '';
-    const trimmed = name.trim();
+    const trimmed = stripDiacritics(name.trim());
     // Special handling for acronyms like SBD
     if (trimmed.includes('(SBD)')) return trimmed;
 
@@ -124,7 +130,9 @@ function normalizeExerciseName(name) {
 // Normalize person names (Trim and Title Case)
 function normalizePersonName(name) {
     if (!name) return '';
-    return name.trim()
+    const noAccents = stripDiacritics(name.trim());
+
+    return noAccents
         .toLowerCase()
         .split(/\s+/)
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
