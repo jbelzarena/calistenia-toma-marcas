@@ -23,7 +23,7 @@ const GOMA_PENALTY = {
     'V': 0.7,
     'VRo': 0.6,
     'VN': 0.5,
-    'RODILLAS': 0.4 // High assistance
+    'RODILLAS': 0.5 // 30 rodillas = 15 clean
 };
 
 const EXERCISE_CATEGORIES = {
@@ -47,12 +47,31 @@ function parseReps(reps) {
 
 // Get HTML badge for assistance
 function getAssistanceBadge(gomaCode, rodillas) {
+    let badgesHtml = '';
+
     if (rodillas === 'Y') {
-        return `<span class="goma-badge rodillas-badge" title="Rodillas">🦵</span>`;
+        badgesHtml += `<span class="goma-badge rodillas-badge" title="Rodillas">🦵</span>`;
     }
-    if (!gomaCode || !GOMA_COLORS[gomaCode]) return '';
-    const goma = GOMA_COLORS[gomaCode];
-    return `<span class="goma-badge" style="background-color: ${goma.color};" title="Goma ${goma.name}">${goma.emoji}</span>`;
+
+    if (gomaCode) {
+        // Split combo gomas into individual badges for side-by-side display
+        const partToCodes = {
+            'RN': ['R', 'N'],
+            'MR': ['M', 'R'],
+            'VRo': ['V', 'R'],
+            'VN': ['V', 'N']
+        };
+
+        const codes = partToCodes[gomaCode] || [gomaCode];
+        codes.forEach(code => {
+            const goma = GOMA_COLORS[code];
+            if (goma) {
+                badgesHtml += `<span class="goma-badge" style="background-color: ${goma.color};" title="Goma ${goma.name}">${goma.emoji}</span>`;
+            }
+        });
+    }
+
+    return badgesHtml ? `<span class="assistance-container">${badgesHtml}</span>` : '';
 }
 
 // Get numeric assistance level (Lower is better/harder)

@@ -275,7 +275,9 @@ function getUserData() {
                         total: 0,
                         count: 0,
                         maxGoma: null,
-                        maxRodillas: null
+                        maxRodillas: null,
+                        minGoma: null,
+                        minRodillas: null
                     };
                 }
 
@@ -299,6 +301,8 @@ function getUserData() {
 
                 if (parsed.value < exerciseData.min) {
                     exerciseData.min = parsed.value;
+                    exerciseData.minGoma = userResult.goma || null;
+                    exerciseData.minRodillas = userResult.rodillas || null;
                 }
 
                 userData.totalReps += parsed.value;
@@ -428,14 +432,24 @@ function displayUserProfile() {
                                 <span style="font-size: 0.8em; opacity: 0.6;">${EXERCISE_CATEGORIES[ex.name.toLowerCase()] || ''}</span>
                             </div>
                             <div class="exercise-stats">
-                                <div class="stat-row"><span>Récord</span><span class="stat-highlight">${ex.max}</span></div>
-                                <div class="stat-row"><span>Mínimo Hist.</span><span>${ex.min !== Infinity ? ex.min : 0}</span></div>
+                                <div class="stat-row">
+                                    <span>Récord</span>
+                                    <span class="stat-highlight">
+                                        ${ex.max} ${getAssistanceBadge(ex.maxGoma, ex.maxRodillas)}
+                                    </span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Mínimo Hist.</span>
+                                    <span>
+                                        ${ex.min !== Infinity ? ex.min : 0} ${getAssistanceBadge(ex.minGoma, ex.minRodillas)}
+                                    </span>
+                                </div>
                                 <div class="stat-row"><span>Promedio</span><span>${ex.average}</span></div>
                                 <div class="stat-row"><span>Total Reps</span><span>${ex.total}</span></div>
                                 <div class="stat-row"><span>Progreso</span><span class="${progressClass}">${diff > 0 ? '+' : ''}${diff} reps</span></div>
                             </div>
                             <div class="mini-chart">
-                                ${ex.history.slice(-10).map(h => `<div class="chart-bar" style="height: ${(h.reps / ex.max) * 100}%" title="${h.date}: ${h.reps}"></div>`).join('')}
+                                ${ex.history.slice(-10).map(h => `<div class="chart-bar" style="height: ${(h.reps / ex.max) * 100}%" title="${h.date}: ${h.reps} reps ${h.goma || h.rodillas === 'Y' ? '(' + (h.rodillas === 'Y' ? 'Rodillas' : 'Goma ' + h.goma) + ')' : ''}"></div>`).join('')}
                             </div>
                         </div>
                     `;
@@ -456,7 +470,9 @@ function displayUserProfile() {
                             ${s.exercises.map(ex => `
                                 <div class="history-exercise-item">
                                     <span>${ex.name}</span>
-                                    <span class="history-exercise-reps">${ex.reps}</span>
+                                    <span class="history-exercise-reps">
+                                        ${ex.reps} ${getAssistanceBadge(ex.goma, ex.rodillas)}
+                                    </span>
                                 </div>
                             `).join('')}
                         </div>
@@ -556,7 +572,14 @@ function renderChart(userData, exerciseNames) {
                     callbacks: {
                         label: (context) => {
                             const date = sortedDates[context.dataIndex];
-                            return `${context.dataset.label}: ${context.raw} reps (${date})`;
+                            const name = context.dataset.label;
+                            const h = userData.exercises[name].history.find(entry => entry.date === date);
+                            let assistance = '';
+                            if (h) {
+                                if (h.rodillas === 'Y') assistance = ' (Rodillas)';
+                                else if (h.goma) assistance = ` (Goma ${h.goma})`;
+                            }
+                            return `${name}: ${context.raw} reps${assistance} (${date})`;
                         }
                     }
                 }
