@@ -4760,6 +4760,298 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2026-02-13",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Alejandra Marmolejo",
+                            "reps": 12
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Alejandra Marmolejo",
+                            "reps": 13
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Travis",
+                            "reps": 18
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Travis",
+                            "reps": 19
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-13",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Rafa",
+                            "reps": 28
+                        },
+                        {
+                            "person": "Alejandra Marmolejo",
+                            "reps": 27
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 14
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Rafa",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Alejandra Marmolejo",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 10
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Rafa",
+                            "reps": 16
+                        },
+                        {
+                            "person": "Alma",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 29
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Rafa",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Alejandra Marmolejo",
+                            "reps": 11
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 14
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-13",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 13,
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Tomás",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Anael",
+                            "reps": 16,
+                            "goma": "MR"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 10,
+                            "goma": "NR"
+                        },
+                        {
+                            "person": "Tomás",
+                            "reps": 12
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Anael",
+                            "reps": 13,
+                            "goma": "MR"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Tomás",
+                            "reps": 21
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 40
+                        },
+                        {
+                            "person": "Anael",
+                            "reps": 16
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Florencia Koelln",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Tomás",
+                            "reps": 27
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 42
+                        },
+                        {
+                            "person": "Anael",
+                            "reps": 21
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-13",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Yakim",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 22
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 40
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Yakim",
+                            "reps": 15
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 19
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 23
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Yakim",
+                            "reps": 4
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 12
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Yakim",
+                            "reps": 7
+                        },
+                        {
+                            "person": "Alex",
+                            "reps": 6
+                        },
+                        {
+                            "person": "Jeferson Rosa Belzarena",
+                            "reps": 15
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
