@@ -5052,6 +5052,163 @@
                     ]
                 }
             ]
+        },
+        {
+            "date": "2026-02-14",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "davidsc",
+                            "reps": 14
+                        },
+                        {
+                            "person": "vicente",
+                            "reps": 6,
+                            "goma": "RN"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "davidsc",
+                            "reps": 8
+                        },
+                        {
+                            "person": "vicente",
+                            "reps": 3,
+                            "goma": "RN"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "vicente",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Carlos Vecino",
+                            "reps": 11
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "vicente",
+                            "reps": 8
+                        },
+                        {
+                            "person": "Carlos Vecino",
+                            "reps": 8
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-02-14",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "davidsc",
+                            "reps": 40
+                        },
+                        {
+                            "person": "Anael",
+                            "reps": 31,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "vicente",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 94
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "davidsc",
+                            "reps": 20
+                        },
+                        {
+                            "person": "Anael",
+                            "reps": 25,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "vicente",
+                            "reps": 23,
+                            "rodillas": "Y"
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 60
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Anael",
+                            "reps": 6
+                        },
+                        {
+                            "person": "Carlos Vecino",
+                            "reps": 11
+                        },
+                        {
+                            "person": "vicente",
+                            "reps": 3
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 25
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Anael",
+                            "reps": 6
+                        },
+                        {
+                            "person": "Carlos Vecino",
+                            "reps": 11
+                        },
+                        {
+                            "person": "vicente",
+                            "reps": 4
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 26
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
