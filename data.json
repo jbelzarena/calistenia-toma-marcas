@@ -5209,6 +5209,338 @@
                     ]
                 }
             ]
-        }
+        },
+        {
+  "date": "2026-06-15",
+  "time": "10:00",
+  "activity_type": "Toma de marcas",
+  "category": "Tracción",
+  "exercises": [
+    {
+      "exercise": "Dominada prona",
+      "results": [
+        { "person": "Alix",          "reps": 11},
+        { "person": "Travis",        "reps": 20 },
+        { "person": "Raul",          "reps": 7 },
+        { "person": "Dobro",         "reps": 9,  "goma": "M" },
+        { "person": "Iñigo",         "reps": 14 },
+        { "person": "Débora",        "reps": 6 },
+        { "person": "joana_penades", "reps": 7 },
+        { "person": "pere.baifer",   "reps": 8,  "goma": "M" }
+      ]
+    },
+    {
+      "exercise": "Dominada supino",
+      "results": [
+        { "person": "Alix",          "reps": 13},
+        { "person": "Travis",        "reps": 17},
+        { "person": "Raul",          "reps": 8},
+        { "person": "Dobro",         "reps": 10, "goma": "M" },
+        { "person": "Iñigo",         "reps": 13 },
+        { "person": "Débora",        "reps": 8 },
+        { "person": "joana_penades", "reps": 7 },
+        { "person": "pere.baifer",   "reps": 9,  "goma": "M" }
+      ]
+    },
+    {
+      "exercise": "Remo australiano",
+      "results": [
+        { "person": "Alix",          "reps": 42 },
+        { "person": "Travis",        "reps": 31 },
+        { "person": "Raul",          "reps": 30 },
+        { "person": "Dobro",         "reps": 23 },
+        { "person": "Iñigo",         "reps": 31 },
+        { "person": "Débora",        "reps": 40 },
+        { "person": "joana_penades", "reps": 35 },
+        { "person": "pere.baifer",   "reps": 25 }
+      ]
+    },
+    {
+      "exercise": "Remo neutro",
+      "results": [
+        { "person": "Alix",          "reps": 20 },
+        { "person": "Travis",        "reps": 19 },
+        { "person": "Raul",          "reps": 20 },
+        { "person": "Dobro",         "reps": 5 },
+        { "person": "Iñigo",         "reps": 28 },
+        { "person": "Débora",        "reps": 21 },
+        { "person": "joana_penades", "reps": 8 },
+        { "person": "pere.baifer",   "reps": 13 }
+      ]
+    }
+  ]
+},
+{
+  "date": "2026-06-15",
+  "time": "14:30",
+  "activity_type": "Toma de marcas",
+  "category": "Tracción",
+  "exercises": [
+    {
+      "exercise": "Dominada prona",
+      "results": [
+        { "person": "Francisco ", "reps": 10 },
+        { "person": "david.barbasalinas", "reps": 25 },
+        { "person": "Diego",     "reps": 16, "goma": "R" },
+        { "person": "Gema",      "reps": 8,  "goma": "V" },
+        { "person": "Mario",     "reps": 15, "goma": "N" },
+        { "person": "Gines",     "reps": 12, "goma": "N" },
+        { "person": "Alba",      "reps": 10, "goma": "V" },
+        { "person": "Carlos G",    "reps": 8,  "goma": "M" }
+      ]
+    },
+    {
+      "exercise": "Dominada supino",
+      "results": [
+        { "person": "Francisco ", "reps": 6 },
+        { "person": "david.barbasalinas", "reps": 17 },
+        { "person": "Diego",     "reps": 14, "goma": "R" },
+        { "person": "Gema",      "reps": 9,  "goma": "V" },
+        { "person": "Mario",     "reps": 13, "goma": "N" },
+        { "person": "Gines",     "reps": 12},
+        { "person": "Alba",      "reps": 9,  "goma": "V" },
+        { "person": "Carlos G",    "reps": 8,  "goma": "M" }
+      ]
+    },
+    {
+      "exercise": "Remo australiano",
+      "results": [
+        { "person": "Francisco ", "reps": 23 },
+        { "person": "david.barbasalinas", "reps": 32 },
+        { "person": "Diego",     "reps": 15 },
+        { "person": "Gema",      "reps": 22},
+        { "person": "Mario",     "reps": 27 },
+        { "person": "Gines",     "reps": 27},
+        { "person": "Alba",      "reps": 15 },
+        { "person": "Carlos G",    "reps": 8 }
+      ]
+    },
+    {
+      "exercise": "Remo neutro",
+      "results": [
+        { "person": "Francisco ", "reps": 20},
+        { "person": "david.barbasalinas", "reps": 25 },
+        { "person": "Diego",     "reps": 19 },
+        { "person": "Gema",      "reps": 16},
+        { "person": "Mario",     "reps": 15 },
+        { "person": "Gines",     "reps": 27},
+        { "person": "Alba",      "reps": 7 },
+        { "person": "Carlos G",    "reps": 9}
+      ]
+    }
+  ]
+},
+{
+  "date": "2026-06-15",
+  "time": "16:30",
+  "activity_type": "Toma de marcas",
+  "category": "Tracción",
+  "exercises": [
+    {
+      "exercise": "Dominada prona",
+      "results": [
+        { "person": "Sergio Santos Sánchez ", "reps": 17 },
+        { "person": "Manu",     "reps": 20 },
+        { "person": "Maria",    "reps": 10},
+        { "person": "santiagoremon3", "reps": 19 },
+        { "person": "sofiavicente1812", "reps": 14, "goma": "MN" },
+        { "person": "Ignacio",  "reps": 11, "goma": "M" }
+      ]
+    },
+    {
+      "exercise": "Dominada supino",
+      "results": [
+        { "person": "Sergio Santos Sánchez ", "reps": 15},
+        { "person": "Manu",     "reps": 19},
+        { "person": "Maria",    "reps": 11},
+        { "person": "santiagoremon3", "reps": 14 },
+        { "person": "sofiavicente1812", "reps": 12, "goma": "MN" },
+        { "person": "Ignacio",  "reps": 10, "goma": "M" }
+      ]
+    },
+    {
+      "exercise": "Remo australiano",
+      "results": [
+        { "person": "Sergio Santos Sánchez ", "reps": 25 },
+        { "person": "Manu",     "reps": 38},
+        { "person": "Maria",    "reps": 27},
+        { "person": "santiagoremon3", "reps": 30 },
+        { "person": "sofiavicente1812", "reps": 15 },
+        { "person": "Ignacio",  "reps": 21, "goma": "R" }
+      ]
+    },
+    {
+      "exercise": "Remo neutro",
+      "results": [
+        { "person": "Sergio Santos Sánchez ", "reps": 27},
+        { "person": "Manu",     "reps": 30 },
+        { "person": "Maria",    "reps": 21 },
+        { "person": "santiagoremon3", "reps": 22 },
+        { "person": "sofiavicente1812", "reps": 11, "goma": "R" },
+        { "person": "Ignacio",  "reps": 16, "goma": "R" }
+      ]
+    }
+  ]
+},
+{
+  "date": "2026-06-15",
+  "time": "18:00",
+  "activity_type": "Toma de marcas",
+  "category": "Tracción",
+  "exercises": [
+    {
+      "exercise": "Dominada prona",
+      "results": [
+        { "person": "alvaro.saez",      "reps": 27 },
+        { "person": "Gaston Claret",    "reps": 19 },
+        { "person": "Helena Jiménez ",  "reps": 13, "goma": "M" },
+        { "person": "Cindy Quezada ",   "reps": 11, "goma": "V" },
+        { "person": "Miriam",           "reps": 12, "goma": "N" },
+        { "person": "Arturo",           "reps": 12 },
+        { "person": "Patrick",          "reps": 11 },
+        { "person": "Cindy",            "reps": 10 },
+        { "person": "Josepe",           "reps": 6 },
+        { "person": "Miquel",           "reps": 13 },
+        { "person": "Damian ",          "reps": 21},
+        { "person": "David Manzano",    "reps": 13, "goma": "N" }
+      ]
+    },
+    {
+      "exercise": "Dominada supino",
+      "results": [
+        { "person": "alvaro.saez",      "reps": 21 },
+        { "person": "Gaston Claret",    "reps": 11 },
+        { "person": "Helena Jiménez ",  "reps": 13, "goma": "M" },
+        { "person": "Cindy Quezada ",   "reps": 8,  "goma": "V" },
+        { "person": "Miriam",           "reps": 10, "goma": "N" },
+        { "person": "Arturo",           "reps": 12 },
+        { "person": "Patrick",          "reps": 9 },
+        { "person": "Cindy",            "reps": 11 },
+        { "person": "Josepe",           "reps": 7 },
+        { "person": "Miquel",           "reps": 11 },
+        { "person": "Damian ",          "reps": 15 },
+        { "person": "David Manzano",    "reps": 10, "goma": "N" }
+      ]
+    },
+    {
+      "exercise": "Remo neutro",
+      "results": [
+        { "person": "alvaro.saez",      "reps": 35 },
+        { "person": "Gaston Claret",    "reps": 30 },
+        { "person": "Helena Jiménez ",  "reps": 16},
+        { "person": "Cindy Quezada ",   "reps": 6 },
+        { "person": "Miriam",           "reps": 9 },
+        { "person": "Arturo",           "reps": 23 },
+        { "person": "Patrick",          "reps": 26 },
+        { "person": "Cindy",            "reps": 20 },
+        { "person": "Josepe",           "reps": 13 },
+        { "person": "Miquel",           "reps": 31 },
+        { "person": "Damian ",          "reps": 30 },
+        { "person": "David Manzano",    "reps": 15 }
+      ]
+    },
+    {
+      "exercise": "Remo australiano",
+      "results": [
+        { "person": "alvaro.saez",      "reps": 43 },
+        { "person": "Gaston Claret",    "reps": 27 },
+        { "person": "Helena Jiménez ",  "reps": 34 },
+        { "person": "Cindy Quezada ",   "reps": 14 },
+        { "person": "Miriam",           "reps": 19 },
+        { "person": "Arturo",           "reps": 24 },
+        { "person": "Patrick",          "reps": 36 },
+        { "person": "Cindy",            "reps": 39 },
+        { "person": "Josepe",           "reps": 16 },
+        { "person": "Miquel",           "reps": 33 },
+        { "person": "Damian ",          "reps": 30 },
+        { "person": "David Manzano",    "reps": 24 }
+      ]
+    }
+  ]
+},
+{
+  "date": "2026-06-15",
+  "time": "19:30",
+  "activity_type": "Toma de marcas",
+  "category": "Empuje",
+  "exercises": [
+    {
+      "exercise": "Flexiones militares",
+      "results": [
+        { "person": "Emil",      "reps": 46 },
+        { "person": "Chema",     "reps": 36 },
+        { "person": "Brown",     "reps": 44 },
+        { "person": "Pascu",     "reps": 63 },
+        { "person": "Alberto Del Carpio", "reps": 65 },
+        { "person": "Pablo",     "reps": 142 },
+        { "person": "Paloma",    "reps": 35 },
+        { "person": "Alejandra", "reps": 21 },
+        { "person": "Ruben",     "reps": 55 },
+        { "person": "Patrick",   "reps": 39 },
+        { "person": "Emil 2",    "reps": 6 },
+        { "person": "Alonso ",   "reps": 34 },
+        { "person": "Luis David Latan Hidalgo", "reps": 31 },
+        { "person": "Alba",      "reps": 38 }
+      ]
+    },
+    {
+      "exercise": "Flexiones diamante",
+      "results": [
+        { "person": "Emil",      "reps": 38 },
+        { "person": "Chema",     "reps": 23 },
+        { "person": "Brown",     "reps": 38 },
+        { "person": "Pascu",     "reps": 45 },
+        { "person": "Alberto Del Carpio", "reps": 49 },
+        { "person": "Pablo",     "reps": 52 },
+        { "person": "Paloma",    "reps": 31 },
+        { "person": "Alejandra", "reps": 14 },
+        { "person": "Ruben",     "reps": 45 },
+        { "person": "Patrick",   "reps": 38 },
+        { "person": "Emil 2",    "reps": 4 },
+        { "person": "Alonso ",   "reps": 32 },
+        { "person": "Luis David Latan Hidalgo", "reps": 18 },
+        { "person": "Alba",      "reps": 20 }
+      ]
+    },
+    {
+      "exercise": "Fondos",
+      "results": [
+        { "person": "Emil",      "reps": 29 },
+        { "person": "Chema",     "reps": 21 },
+        { "person": "Brown",     "reps": 26 },
+        { "person": "Pascu",     "reps": 21 },
+        { "person": "Alberto Del Carpio", "reps": 36 },
+        { "person": "Pablo",     "reps": 39 },
+        { "person": "Paloma",    "reps": 19 },
+        { "person": "Alejandra", "reps": 7 },
+        { "person": "Ruben",     "reps": 32 },
+        { "person": "Patrick",   "reps": 0 },
+        { "person": "Emil 2",    "reps": 5 },
+        { "person": "Alonso ",   "reps": 18 },
+        { "person": "Luis David Latan Hidalgo", "reps": 14 },
+        { "person": "Alba",      "reps": 18 }
+      ]
+    },
+    {
+      "exercise": "Fondos tríceps (SBD)",
+      "results": [
+        { "person": "Emil",      "reps": 34 },
+        { "person": "Chema",     "reps": 21 },
+        { "person": "Brown",     "reps": 27 },
+        { "person": "Pascu",     "reps": 32 },
+        { "person": "Alberto Del Carpio", "reps": 41 },
+        { "person": "Pablo",     "reps": 26 },
+        { "person": "Paloma",    "reps": 13 },
+        { "person": "Alejandra", "reps": 10 },
+        { "person": "Ruben",     "reps": 29 },
+        { "person": "Patrick",   "reps": 0 },
+        { "person": "Emil 2",    "reps": 3 },
+        { "person": "Alonso ",   "reps": 32 },
+        { "person": "Luis David Latan Hidalgo", "reps": 13 },
+        { "person": "Alba",      "reps": 20 }
+      ]
+    }
+  ]
+}
     ]
 }
