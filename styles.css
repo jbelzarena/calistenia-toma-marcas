@@ -349,6 +349,46 @@ header h1 {
     color: #1abc9c;
 }
 
+.list-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+    color: #0a1628;
+    font-weight: bold;
+    font-size: 0.95em;
+    margin-right: 12px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.list-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.list-avatar .avatar-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .list-avatar {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+        font-size: 0.85em;
+    }
+}
+
 .name {
     flex: 1;
     font-size: 1.2em;

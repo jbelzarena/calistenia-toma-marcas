@@ -139,6 +139,40 @@ function normalizePersonName(name) {
         .join(' ');
 }
 
+// Index of normalized person name -> url_photo (latest occurrence wins)
+let PHOTO_INDEX = {};
+
+function buildPhotoIndex(data) {
+    const idx = {};
+    if (data && Array.isArray(data.sessions)) {
+        data.sessions.forEach(session => {
+            (session.exercises || []).forEach(ex => {
+                (ex.results || []).forEach(r => {
+                    if (r && r.url_photo) {
+                        idx[normalizePersonName(r.person)] = r.url_photo;
+                    }
+                });
+            });
+        });
+    }
+    PHOTO_INDEX = idx;
+    return idx;
+}
+
+function getPhotoUrl(name) {
+    return PHOTO_INDEX[normalizePersonName(name)] || null;
+}
+
+// Render an avatar element. When a photo is available it overlays the initial fallback.
+function getAvatarHTML(name, className = 'list-avatar') {
+    const url = getPhotoUrl(name);
+    const initial = (name || '?').trim().charAt(0).toUpperCase() || '?';
+    const imgTag = url
+        ? `<img src="${url}" alt="" loading="lazy" onerror="this.remove()">`
+        : '';
+    return `<div class="${className}"><span class="avatar-fallback">${initial}</span>${imgTag}</div>`;
+}
+
 // Calculate normalized reps based on assistance
 function getNormalizedReps(reps, gomaCode, rodillas) {
     const parsed = parseReps(reps);

@@ -226,6 +226,7 @@ async function loadData() {
         const response = await fetch('data.json');
         if (!response.ok) throw new Error('Failed to load data');
         data = await response.json();
+        buildPhotoIndex(data);
         displayUserProfile();
     } catch (error) {
         console.error('Error loading data:', error);
@@ -357,7 +358,7 @@ function displayUserProfile() {
             <div class="logo-container"><img src="logo.jpg" alt="Logo" class="logo" onerror="this.style.display='none'"></div>
             <a href="index.html" class="back-link">← Volver al ranking</a>
             <div class="user-header">
-                <div class="user-avatar">${userName.charAt(0).toUpperCase()}</div>
+                ${getAvatarHTML(userName, 'user-avatar')}
                 <h1 class="user-name">${userName}</h1>
             </div>
             <div class="user-stats">

@@ -17,6 +17,7 @@ async function loadData() {
         const response = await fetch('data.json');
         if (!response.ok) throw new Error('Failed to load data');
         data = await response.json();
+        buildPhotoIndex(data);
         initializeApp();
     } catch (error) {
         console.error('Error loading data:', error);
@@ -736,6 +737,7 @@ function displayLeaderboard(results) {
             const parsed = parseReps(result.reps);
             const assistanceBadge = getAssistanceBadge(result.goma, result.rodillas);
             item.innerHTML = `<div class="rank">${rankEmoji}</div>
+                ${getAvatarHTML(result.person)}
                 <div class="name">${result.person}</div>
                 <div class="profile-link">👉 Ver perfil</div>
                 <div class="score" style="display: flex; align-items: center; justify-content: flex-end;">
@@ -744,6 +746,7 @@ function displayLeaderboard(results) {
                 </div>`;
         } else {
             item.innerHTML = `<div class="rank">${rankEmoji}</div>
+                ${getAvatarHTML(result.person)}
                 <div class="name">${result.person}</div>
                 <div class="profile-link">👉 Ver perfil</div>
                 <div class="score-multi" style="text-align: right;">
@@ -855,6 +858,7 @@ function displayGlobalLeaderboard() {
 
         item.innerHTML = `
             <div class="rank">${rankEmoji}</div>
+            ${getAvatarHTML(score.person)}
             <div class="name">
                 ${score.person}
                 ${medalsHTML ? `<div style="font-size: 0.75em; margin-top: 4px; opacity: 0.9;">${medalsHTML}</div>` : ''}
@@ -1002,6 +1006,7 @@ function displayImprovementRanking() {
 
         item.innerHTML = `
             <div class="rank">${rankEmoji}</div>
+            ${getAvatarHTML(result.person)}
             <div class="name">${result.person}</div>
             <div class="score" style="text-align: right; color: #2ecc71; font-weight: bold;">
                 +${result.improvement.toFixed(1)}%
