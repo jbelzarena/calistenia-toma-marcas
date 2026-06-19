@@ -1,4 +1,15 @@
 {
-    "version": 1,
-    "users": {}
+  "version": 1,
+  "users": {
+    "Jeferson Rosa Belzarena": [
+      {
+        "id": "mqkmn5gohb9t",
+        "createdAt": "2026-06-19",
+        "updatedAt": "2026-06-19T07:48:26.088Z",
+        "exercise": "Dominada prona",
+        "target": 15,
+        "type": "clean"
+      }
+    ]
+  }
 }
