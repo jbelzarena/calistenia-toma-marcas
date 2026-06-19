@@ -14,10 +14,9 @@ let currentSortMode = 'reps'; // 'reps' or 'name'
 
 async function loadData() {
     try {
-        const response = await fetch('data.json');
-        if (!response.ok) throw new Error('Failed to load data');
-        data = await response.json();
+        data = await fetchData();
         buildPhotoIndex(data);
+        applyTheme(getTheme());
         initializeApp();
     } catch (error) {
         console.error('Error loading data:', error);
@@ -51,6 +50,7 @@ function initializeApp() {
                 <span class="brand-valencia">VALENCIA</span>
             </h1>
         </div>
+        <button type="button" class="icon-btn theme-toggle-fixed" id="theme-toggle" title="Cambiar tema" aria-label="Cambiar tema" onclick="toggleThemeAndRefresh()">${getTheme() === 'light' ? '☽' : '☀'}</button>
     </div>
 </header>
         
@@ -125,6 +125,7 @@ function initializeApp() {
         <div id="welcome-message" class="welcome-message">
             <h2>👋 Bienvenido</h2>
             <p>Selecciona una categoría para comenzar a ver los rankings</p>
+            ${renderDashboard(data)}
         </div>
 
         <div id="content-container" class="hidden">
@@ -977,9 +978,15 @@ function displayImprovementRanking() {
     }));
 
     const improvements = Array.from(personsSet).map(person => {
+        const breakdown = calculateUserImprovementBreakdown(filteredSessions, person);
         const improvement = calculateUserImprovement(filteredSessions, person);
-        return { person, improvement };
-    }).filter(u => u.improvement > 0);
+        return {
+            person,
+            improvement,
+            cleanEquivPct: breakdown.cleanEquivPct,
+            avgAssistDrop: breakdown.avgAssistDrop
+        };
+    }).filter(u => u.improvement > 0 || u.avgAssistDrop > 0);
 
     improvements.sort((a, b) => b.improvement - a.improvement);
 
@@ -1007,7 +1014,13 @@ function displayImprovementRanking() {
         item.innerHTML = `
             <div class="rank">${rankEmoji}</div>
             ${getAvatarHTML(result.person)}
-            <div class="name">${result.person}</div>
+            <div class="name">
+                ${result.person}
+                <div class="improvement-tags">
+                    <span class="tag-clean" title="Mejora de reps normalizada">💪 +${result.cleanEquivPct.toFixed(1)}%</span>
+                    ${result.avgAssistDrop > 0 ? `<span class="tag-drop" title="Bajada media de niveles de asistencia">↓ ${result.avgAssistDrop.toFixed(1)} goma</span>` : ''}
+                </div>
+            </div>
             <div class="score" style="text-align: right; color: #2ecc71; font-weight: bold;">
                 +${result.improvement.toFixed(1)}%
             </div>
@@ -1019,6 +1032,106 @@ function displayImprovementRanking() {
 
 function openUserProfile(personName) {
     window.location.href = `user.html?name=${encodeURIComponent(personName)}`;
+}
+
+function toggleThemeAndRefresh() {
+    toggleTheme();
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = getTheme() === 'light' ? '☽' : '☀';
+}
+
+// Dashboard widgets shown in the welcome screen on the index page.
+function renderDashboard(d) {
+    if (!d || !d.sessions || d.sessions.length === 0) return '';
+
+    const sortedByDate = [...d.sessions].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const lastSession = sortedByDate[0];
+    const lastDate = new Date(lastSession.date);
+
+    // Sessions in last 7 days
+    const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - 7);
+    const recent = d.sessions.filter(s => new Date(s.date) >= cutoff);
+
+    // Unique athletes
+    const athletes = new Set();
+    d.sessions.forEach(s => s.exercises.forEach(ex => ex.results.forEach(r => athletes.add(normalizePersonName(r.person)))));
+
+    // Top reps in the last 30 days (across all exercises) — excluding assistance
+    const cutoff30 = new Date(); cutoff30.setDate(cutoff30.getDate() - 30);
+    let topPR = null;
+    d.sessions.filter(s => new Date(s.date) >= cutoff30).forEach(s => {
+        s.exercises.forEach(ex => {
+            ex.results.forEach(r => {
+                if (r.goma || r.rodillas === 'Y') return;
+                const reps = parseReps(r.reps).value;
+                if (!topPR || reps > topPR.reps) {
+                    topPR = {
+                        reps,
+                        person: normalizePersonName(r.person),
+                        exercise: normalizeExerciseName(ex.exercise),
+                        date: s.date
+                    };
+                }
+            });
+        });
+    });
+
+    // Most active athletes in last 30 days (number of distinct session dates)
+    const dateCounts = {};
+    d.sessions.filter(s => new Date(s.date) >= cutoff30).forEach(s => {
+        s.exercises.forEach(ex => ex.results.forEach(r => {
+            const p = normalizePersonName(r.person);
+            if (!dateCounts[p]) dateCounts[p] = new Set();
+            dateCounts[p].add(s.date);
+        }));
+    });
+    const mostActive = Object.entries(dateCounts)
+        .map(([p, set]) => ({ person: p, count: set.size }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 4);
+
+    const lastDateText = lastDate.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
+
+    return `
+        <div class="dashboard-grid">
+            <div class="dash-card">
+                <h3>👥 Comunidad</h3>
+                <div class="dash-value">${athletes.size}</div>
+                <div class="dash-meta">atletas registrados</div>
+            </div>
+            <div class="dash-card">
+                <h3>📅 Esta semana</h3>
+                <div class="dash-value">${recent.length}</div>
+                <div class="dash-meta">sesion${recent.length === 1 ? '' : 'es'} en los últimos 7 días</div>
+            </div>
+            <div class="dash-card">
+                <h3>⏱️ Última sesión</h3>
+                <div class="dash-value" style="font-size:1.2em;">${lastDateText}</div>
+                <div class="dash-meta">${lastSession.category} · ${lastSession.time || ''}</div>
+            </div>
+            ${topPR ? `
+            <div class="dash-card">
+                <h3>🏆 PR del mes</h3>
+                <div class="dash-value">${topPR.reps}</div>
+                <div class="dash-meta">
+                    ${topPR.exercise} ·
+                    <a href="user.html?name=${encodeURIComponent(topPR.person)}" style="color:#1abc9c;text-decoration:none;">${topPR.person}</a>
+                </div>
+            </div>` : ''}
+            ${mostActive.length > 0 ? `
+            <div class="dash-card" style="grid-column: span 2;">
+                <h3>🔥 Más activos (30 días)</h3>
+                <ul class="dash-list">
+                    ${mostActive.map(a => `
+                        <li onclick="openUserProfile('${a.person.replace(/'/g, "\\'")}')">
+                            <span>${a.person}</span>
+                            <span>${a.count} sesion${a.count === 1 ? '' : 'es'}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>` : ''}
+        </div>
+    `;
 }
 
 document.addEventListener('DOMContentLoaded', loadData);

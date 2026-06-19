@@ -52,7 +52,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 // ===== DATA LOADING =====
 async function loadData() {
     try {
-        const response = await fetch('data.json');
+        const response = await fetch('data.json', { cache: 'no-store' });
         data = await response.json();
         displaySessions();
         populateNewSessionForm();

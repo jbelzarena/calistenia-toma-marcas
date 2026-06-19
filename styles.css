@@ -839,3 +839,370 @@ header h1 {
     background: rgba(26, 188, 156, 0.5);
     border-radius: 4px;
 }
+/* ====================================================================
+ * Theme variants & enhancements (added)
+ * ==================================================================== */
+
+/* Light theme overrides — opt-in via body.theme-light. Default keeps the
+   original dark gradient & teal accent untouched. */
+body.theme-light {
+    background: linear-gradient(135deg, #f5f7fb 0%, #e8eef7 100%);
+    color: #1a2940;
+}
+body.theme-light header h1 .brand-valencia { color: #1a2940; }
+body.theme-light .filter-section,
+body.theme-light .leaderboard-item,
+body.theme-light .card,
+body.theme-light .session-card-user,
+body.theme-light .exercise-card,
+body.theme-light .achievement-card,
+body.theme-light .pr-card,
+body.theme-light .goal-card,
+body.theme-light .attendance-section,
+body.theme-light .prs-section,
+body.theme-light .goals-section {
+    background: rgba(255, 255, 255, 0.85);
+    color: #1a2940;
+    box-shadow: 0 4px 14px rgba(10, 22, 40, 0.08);
+    border-color: rgba(10, 22, 40, 0.08);
+}
+body.theme-light .filter-select,
+body.theme-light .date-input,
+body.theme-light input,
+body.theme-light select {
+    background: #fff;
+    color: #1a2940;
+    border-color: rgba(10, 22, 40, 0.15);
+}
+body.theme-light #search-input {
+    background: #fff;
+    color: #1a2940;
+    border-color: rgba(26, 188, 156, 0.55);
+}
+body.theme-light #search-input::placeholder {
+    color: rgba(10, 22, 40, 0.55);
+}
+body.theme-light #search-input:focus {
+    background: #fff;
+    border-color: #16a085;
+    box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.18);
+}
+body.theme-light .search-icon { color: #16a085; opacity: 1; }
+body.theme-light .stat-row span { color: #1a2940; }
+body.theme-light .session-history h2,
+body.theme-light .exercises-section h2,
+body.theme-light .chart-section h2 { color: #16a085; }
+
+/* Theme toggle button (top-right in index header) */
+.icon-btn {
+    background: rgba(26, 188, 156, 0.15);
+    color: #1abc9c;
+    border: 1px solid rgba(26, 188, 156, 0.4);
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+.icon-btn:hover { background: rgba(26, 188, 156, 0.3); }
+.icon-btn:disabled { opacity: 0.5; cursor: wait; }
+.theme-toggle-fixed {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+header { position: relative; }
+
+/* Skeleton loader */
+.skeleton-card {
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.04) 25%,
+        rgba(255,255,255,0.10) 37%,
+        rgba(255,255,255,0.04) 63%);
+    background-size: 400% 100%;
+    animation: skeleton-pulse 1.4s ease infinite;
+    border-radius: 12px;
+    height: 80px;
+    margin-bottom: 12px;
+}
+@keyframes skeleton-pulse {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+/* Empty states */
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: rgba(255,255,255,0.55);
+    font-size: 1em;
+}
+
+/* Improvement ranking tags */
+.improvement-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+.improvement-tags .tag-clean,
+.improvement-tags .tag-drop {
+    font-size: 0.72em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(26, 188, 156, 0.18);
+    color: #1abc9c;
+    font-weight: 600;
+}
+.improvement-tags .tag-drop {
+    background: rgba(46, 204, 113, 0.18);
+    color: #2ecc71;
+}
+
+/* A11y: focus rings */
+.icon-btn:focus-visible,
+.btn-apply:focus-visible,
+.exercise-btn:focus-visible,
+.filter-select:focus-visible,
+.date-input:focus-visible,
+input:focus-visible {
+    outline: 2px solid #1abc9c;
+    outline-offset: 2px;
+}
+
+/* ====================================================================
+ * Theme/contrast fixes (combobox, options, light theme readability)
+ * ==================================================================== */
+
+/* Fix native <option> rendering: inherit a readable bg/color on dark theme. */
+select option,
+.filter-select option,
+.goal-form select option {
+    background: #0a1628;
+    color: #ffffff;
+}
+body.theme-light select option,
+body.theme-light .filter-select option,
+body.theme-light .goal-form select option {
+    background: #ffffff;
+    color: #1a2940;
+}
+
+/* Native selects: explicit colors so iOS / Windows don't render white-on-white. */
+select,
+.filter-select,
+.goal-form select,
+.goal-form input {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+body.theme-light select,
+body.theme-light .filter-select,
+body.theme-light .goal-form select,
+body.theme-light .goal-form input,
+body.theme-light input,
+body.theme-light .date-input,
+body.theme-light textarea {
+    color: #1a2940;
+    background: #ffffff;
+    border: 1px solid rgba(10, 22, 40, 0.18);
+}
+body.theme-light ::placeholder { color: rgba(10, 22, 40, 0.45); }
+
+/* Light theme: filter labels, welcome message, headings */
+body.theme-light label,
+body.theme-light .filter-group label,
+body.theme-light .welcome-message,
+body.theme-light .welcome-message h2,
+body.theme-light .welcome-message p {
+    color: #1a2940;
+}
+body.theme-light header h1 { text-shadow: 0 1px 2px rgba(10, 22, 40, 0.08); }
+body.theme-light .leaderboard h2,
+body.theme-light .exercises-section h2,
+body.theme-light .session-history h2,
+body.theme-light .chart-section h2,
+body.theme-light .next-challenges-section h2 { color: #16a085; }
+
+body.theme-light .exercise-btn {
+    color: #16a085;
+    border-color: #16a085;
+    background: rgba(22, 160, 133, 0.08);
+}
+body.theme-light .exercise-btn.active,
+body.theme-light .exercise-btn:hover {
+    background: #16a085;
+    color: #ffffff;
+}
+body.theme-light .exercise-btn:disabled {
+    color: rgba(10, 22, 40, 0.35);
+    border-color: rgba(10, 22, 40, 0.18);
+    background: rgba(10, 22, 40, 0.04);
+}
+
+body.theme-light .leaderboard-item .name,
+body.theme-light .leaderboard-item .score,
+body.theme-light .leaderboard-item .score-multi,
+body.theme-light .leaderboard-item .rank,
+body.theme-light .stat-card,
+body.theme-light .stat-card .stat-value,
+body.theme-light .stat-card .stat-label {
+    color: #1a2940;
+}
+body.theme-light .stat-card .stat-value { color: #16a085; }
+body.theme-light .stat-card { background: rgba(22, 160, 133, 0.06); border-color: rgba(22, 160, 133, 0.25); }
+
+body.theme-light .profile-link { color: #16a085; }
+body.theme-light .global-description,
+body.theme-light .exercise-description { color: rgba(10, 22, 40, 0.78); }
+body.theme-light .global-description .highlight { color: #16a085; }
+body.theme-light .details-toggle { color: #16a085; border-color: #16a085; }
+
+/* Loading screen on light theme */
+body.theme-light .loading-screen,
+body.theme-light .loading-screen p { color: #1a2940; }
+body.theme-light .skeleton-card {
+    background: linear-gradient(90deg,
+        rgba(10,22,40,0.04) 25%,
+        rgba(10,22,40,0.10) 37%,
+        rgba(10,22,40,0.04) 63%);
+    background-size: 400% 100%;
+}
+body.theme-light .empty-state { color: rgba(10, 22, 40, 0.55); }
+
+/* Better icon-button contrast on light */
+body.theme-light .icon-btn {
+    background: #ffffff;
+    color: #16a085;
+    border-color: rgba(22, 160, 133, 0.4);
+}
+body.theme-light .icon-btn:hover { background: rgba(22, 160, 133, 0.1); }
+
+/* "Welcome" dashboard cards (used on index page) */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 0 0 28px;
+}
+.dash-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(26, 188, 156, 0.22);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: all 0.25s ease;
+}
+.dash-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26, 188, 156, 0.15); }
+.dash-card h3 {
+    color: #1abc9c;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 8px;
+}
+.dash-value {
+    font-size: 2em;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+.dash-meta { font-size: 0.85em; color: rgba(255, 255, 255, 0.6); }
+.dash-list { list-style: none; padding: 0; margin: 4px 0 0; }
+.dash-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9em;
+    cursor: pointer;
+}
+.dash-list li:last-child { border-bottom: 0; }
+.dash-list li:hover { color: #1abc9c; }
+.dash-pr-badge {
+    font-size: 0.7em;
+    padding: 2px 6px;
+    border-radius: 8px;
+    background: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+    margin-left: 6px;
+}
+
+body.theme-light .dash-card { background: #ffffff; }
+body.theme-light .dash-value { color: #1a2940; }
+body.theme-light .dash-meta { color: rgba(10, 22, 40, 0.6); }
+body.theme-light .dash-list li { border-bottom-color: rgba(10, 22, 40, 0.06); }
+body.theme-light .dash-card h3 { color: #16a085; }
+
+/* ====================================================================
+ * Light theme: leaderboard panel & sort buttons readability fix
+ * ==================================================================== */
+
+body.theme-light .leaderboard {
+    background: #ffffff;
+    border: 2px solid rgba(22, 160, 133, 0.35);
+    box-shadow: 0 6px 22px rgba(10, 22, 40, 0.08);
+}
+body.theme-light .leaderboard h2 { color: #16a085; }
+
+body.theme-light .sort-controls { color: #1a2940; }
+body.theme-light .sort-btn {
+    background: #ffffff;
+    color: #16a085;
+    border: 1px solid #16a085;
+}
+body.theme-light .sort-btn:hover {
+    background: rgba(22, 160, 133, 0.1);
+    color: #16a085;
+}
+body.theme-light .sort-btn.active {
+    background: #16a085;
+    color: #ffffff;
+    border-color: #16a085;
+}
+
+body.theme-light .leaderboard-item {
+    background: #ffffff;
+    border: 1px solid rgba(10, 22, 40, 0.08);
+}
+body.theme-light .leaderboard-item:hover {
+    background: rgba(22, 160, 133, 0.06);
+}
+body.theme-light .leaderboard-item .name,
+body.theme-light .leaderboard-item .score-number,
+body.theme-light .leaderboard-item .modifier { color: #1a2940; }
+
+body.theme-light .podium-place .person-name,
+body.theme-light .podium-place .reps { color: #1a2940; }
+
+/* Goals sync badge */
+.sync-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 0.82em;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.75);
+}
+.sync-badge.sync-syncing {
+    background: rgba(241, 196, 15, 0.18);
+    color: #f1c40f;
+    border-color: rgba(241, 196, 15, 0.4);
+}
+.sync-badge.sync-ok {
+    background: rgba(46, 204, 113, 0.18);
+    color: #2ecc71;
+    border-color: rgba(46, 204, 113, 0.4);
+}
+.sync-badge.sync-error {
+    background: rgba(231, 76, 60, 0.16);
+    color: #e74c3c;
+    border-color: rgba(231, 76, 60, 0.4);
+}
+body.theme-light .sync-badge { background: #f0f3f8; color: #1a2940; }
+body.theme-light .sync-badge.sync-ok { background: rgba(46, 204, 113, 0.18); color: #1e7e44; }
+body.theme-light .sync-badge.sync-syncing { background: rgba(241, 196, 15, 0.22); color: #8a6d00; }
+body.theme-light .sync-badge.sync-error { background: rgba(231, 76, 60, 0.18); color: #a72424; }

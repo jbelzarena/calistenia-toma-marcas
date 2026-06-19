@@ -4,23 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a1628">
+    <meta name="description" content="Perfil de atleta - Calistenia Valencia">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
     <title>Perfil - Calistenia Valencia</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="user-styles.css">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="user-styles.css?v=5">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 </head>
 
 <body>
-    <div class="container" id="user-container">
+    <div class="container" id="user-container" aria-live="polite">
         <div class="loading-screen">
-            <div class="spinner"></div>
-            <p>Cargando perfil...</p>
+            <div class="spinner" aria-hidden="true"></div>
+            <p>Cargando perfil…</p>
+            <div style="max-width:420px;margin:24px auto;">
+                <div class="skeleton-card" style="height:140px;border-radius:50%;width:140px;margin:0 auto 16px;"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
         </div>
     </div>
 
-    <script src="calculations.js"></script>
-    <script src="user.js"></script>
+    <script src="calculations.js?v=5"></script>
+    <script src="user.js?v=5"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(() => { });
+            });
+        }
+    </script>
 </body>
 
 </html>
