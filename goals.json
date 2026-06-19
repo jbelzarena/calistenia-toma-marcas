@@ -10,6 +10,16 @@
         "target": 15,
         "type": "clean"
       }
+    ],
+    "Diego": [
+      {
+        "id": "mqknwhe2n21x",
+        "createdAt": "2026-06-19",
+        "updatedAt": "2026-06-19T08:23:41.066Z",
+        "exercise": "Dominada prona",
+        "target": 15,
+        "type": "clean"
+      }
     ]
   }
 }
