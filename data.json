@@ -2460,7 +2460,7 @@
                             "goma": "M"
                         },
                         {
-                            "person": "Ana Domínguez Luna",
+                            "person": "Ana",
                             "reps": 15,
                             "goma": "M"
                         },
@@ -2507,7 +2507,7 @@
                             "goma": "M"
                         },
                         {
-                            "person": "Ana Domínguez Luna",
+                            "person": "Ana",
                             "reps": 17,
                             "goma": "M"
                         },
@@ -2550,7 +2550,7 @@
                             "reps": 6
                         },
                         {
-                            "person": "Ana Domínguez Luna",
+                            "person": "Ana",
                             "reps": 20
                         },
                         {
@@ -2591,7 +2591,7 @@
                             "reps": 10
                         },
                         {
-                            "person": "Ana Domínguez Luna",
+                            "person": "Ana",
                             "reps": 30
                         },
                         {
@@ -3783,7 +3783,7 @@
                     "exercise": "Flexiones militares",
                     "results": [
                         {
-                            "person": "Ana",
+                            "person": "Ana Domínguez Luna",
                             "reps": 24
                         },
                         {
@@ -3821,7 +3821,7 @@
                     "exercise": "Flexiones diamante",
                     "results": [
                         {
-                            "person": "Ana",
+                            "person": "Ana Domínguez Luna",
                             "reps": 50,
                             "rodillas": "Y"
                         },
@@ -3861,7 +3861,7 @@
                     "exercise": "Fondos",
                     "results": [
                         {
-                            "person": "Ana",
+                            "person": "Ana Domínguez Luna",
                             "reps": 13,
                             "rodillas": "Y"
                         },
@@ -3900,7 +3900,7 @@
                     "exercise": "Fondos tríceps (SBD)",
                     "results": [
                         {
-                            "person": "Ana",
+                            "person": "Ana Domínguez Luna",
                             "reps": 13
                         },
                         {
@@ -6582,8 +6582,7 @@
                         {
                             "person": "Ana Domínguez Luna",
                             "reps": 32,
-                             "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
-                     
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
                         },
                         {
                             "person": "Camila de la maza perez",
@@ -6697,7 +6696,7 @@
             "date": "2026-06-16",
             "time": "19:30",
             "activity_type": "Toma de marcas",
-            "category": "Tracción",
+            "category": "Empuje",
             "exercises": [
                 {
                     "exercise": "Flexiones militares",
@@ -7031,7 +7030,7 @@
             "date": "2026-06-16",
             "time": "18:00",
             "activity_type": "Toma de marcas",
-            "category": "Empuje",
+            "category": "Tracción",
             "exercises": [
                 {
                     "exercise": "Dominada prona",
@@ -7126,7 +7125,7 @@
                     ]
                 },
                 {
-                    "exercise": "Fondos tríceps",
+                    "exercise": "Fondos tríceps (SBD)",
                     "results": [
                         {
                             "person": "Manu",
@@ -7570,7 +7569,7 @@
                     ]
                 },
                 {
-                    "exercise": "Fondos tríceps",
+                    "exercise": "Fondos tríceps (SBD)",
                     "results": [
                         {
                             "person": "Carlos",
@@ -8011,454 +8010,766 @@
             "time": "08:30",
             "activity_type": "Toma de marcas",
             "category": "Tracción",
-                "exercises": [
-                    {
-                        "exercise": "Dominada prona",
-                        "results": [
-                            {
-                                "person": "Anael",
-                                "reps": 16,
-                                "goma": "RN",
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
-                            },
-                            {
-                                "person": "alfonso",
-                                "reps": 12,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Dominada supino",
-                        "results": [
-                            {
-                                "person": "Anael",
-                                "reps": 16,
-                                "goma": "RN",
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
-                            },
-                            {
-                                "person": "alfonso",
-                                "reps": 12,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Remo australiano",
-                        "results": [
-                            {
-                                "person": "Anael",
-                                "reps": 33,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
-                            },
-                            {
-                                "person": "alfonso",
-                                "reps": 50,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Remo neutro",
-                        "results": [
-                            {
-                                "person": "Anael",
-                                "reps": 23,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
-                            },
-                            {
-                                "person": "alfonso",
-                                "reps": 35,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "date": "2026-06-15",
-                "time": "10:00",
-                "activity_type": "Toma de marcas",
-                "category": "Tracción",
-                "exercises": [
-                    {
-                        "exercise": "Dominada prona",
-                        "results": [
-                            {
-                                "person": "Alix",
-                                "reps": 11,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
-                            },
-                            {
-                                "person": "Travis",
-                                "reps": 20,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
-                            },
-                            {
-                                "person": "Raul",
-                                "reps": 7,
-                                "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
-                            },
-                            {
-                                "person": "Dobro",
-                                "reps": 9,
-                                "goma": "M",
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
-                            },
-                            {
-                                "person": "Iñigo",
-                                "reps": 14,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
-                            },
-                            {
-                                "person": "Débora",
-                                "reps": 6,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 7,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 8,
-                                "goma": "M",
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Dominada supino",
-                        "results": [
-                            {
-                                "person": "Alix",
-                                "reps": 13,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
-                            },
-                            {
-                                "person": "Travis",
-                                "reps": 17,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
-                            },
-                            {
-                                "person": "Raul",
-                                "reps": 8,
-                                "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
-                            },
-                            {
-                                "person": "Dobro",
-                                "reps": 10,
-                                "goma": "M",
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
-                            },
-                            {
-                                "person": "Iñigo",
-                                "reps": 13,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
-                            },
-                            {
-                                "person": "Débora",
-                                "reps": 8,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 7,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 9,
-                                "goma": "M",
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Remo australiano",
-                        "results": [
-                            {
-                                "person": "Alix",
-                                "reps": 42,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
-                            },
-                            {
-                                "person": "Travis",
-                                "reps": 31,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
-                            },
-                            {
-                                "person": "Raul",
-                                "reps": 30,
-                                "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
-                            },
-                            {
-                                "person": "Dobro",
-                                "reps": 23,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
-                            },
-                            {
-                                "person": "Iñigo",
-                                "reps": 34,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
-                            },
-                            {
-                                "person": "Débora",
-                                "reps": 40,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 35,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 25,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Remo neutro",
-                        "results": [
-                            {
-                                "person": "Alix",
-                                "reps": 20,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
-                            },
-                            {
-                                "person": "Travis",
-                                "reps": 19,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
-                            },
-                            {
-                                "person": "Raul",
-                                "reps": 20,
-                                "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
-                            },
-                            {
-                                "person": "Dobro",
-                                "reps": 5,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
-                            },
-                            {
-                                "person": "Iñigo",
-                                "reps": 28,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
-                            },
-                            {
-                                "person": "Débora",
-                                "reps": 21,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 8,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 13,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "date": "2026-06-16",
-                "time": "08:30",
-                "activity_type": "Toma de marcas",
-                "category": "Empuje",
-                "exercises": [
-                    {
-                        "exercise": "Flexiones militares",
-                        "results": [
-                            {
-                                "person": "alfonso",
-                                "reps": 52,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            },
-                            {
-                                "person": "Paco Montoro",
-                                "reps": 34,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Flexiones diamante",
-                        "results": [
-                            {
-                                "person": "alfonso",
-                                "reps": 40,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            },
-                            {
-                                "person": "Paco Montoro",
-                                "reps": 23,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Fondos",
-                        "results": [
-                            {
-                                "person": "alfonso",
-                                "reps": 21,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            },
-                            {
-                                "person": "Paco Montoro",
-                                "reps": 13,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Fondos tríceps (SBD)",
-                        "results": [
-                            {
-                                "person": "alfonso",
-                                "reps": 21,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
-                            },
-                            {
-                                "person": "Paco Montoro",
-                                "reps": 13,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "date": "2026-06-16",
-                "time": "10:00",
-                "activity_type": "Toma de marcas",
-                "category": "Empuje",
-                "exercises": [
-                    {
-                        "exercise": "Flexiones militares",
-                        "results": [
-                            {
-                                "person": "Toni",
-                                "reps": 23,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
-                            },
-                            {
-                                "person": "Sergio Santos Sánchez",
-                                "reps": 52,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
-                            },
-                            {
-                                "person": "Laura",
-                                "reps": 10,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/3/b/e/3bed2281-1379-4d88-937f-a395bab3c33d.jpg?t=638610471410770000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 24,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 30,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Flexiones diamante",
-                        "results": [
-                            {
-                                "person": "Toni",
-                                "reps": 17,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
-                            },
-                            {
-                                "person": "Sergio Santos Sánchez",
-                                "reps": 35,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
-                            },
-                            {
-                                "person": "Laura",
-                                "reps": 7,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/3/b/e/3bed2281-1379-4d88-937f-a395bab3c33d.jpg?t=638610471410770000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 16,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 17,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Fondos",
-                        "results": [
-                            {
-                                "person": "Toni",
-                                "reps": 4,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
-                            },
-                            {
-                                "person": "Sergio Santos Sánchez",
-                                "reps": 24,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
-                            },
-                            {
-                                "person": "Laura",
-                                "reps": 10,
-                                "goma": "negra",
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/3/b/e/3bed2281-1379-4d88-937f-a395bab3c33d.jpg?t=638610471410770000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 8,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 10,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            }
-                        ]
-                    },
-                    {
-                        "exercise": "Fondos tríceps (SBD)",
-                        "results": [
-                            {
-                                "person": "Toni",
-                                "reps": 5,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
-                            },
-                            {
-                                "person": "Sergio Santos Sánchez",
-                                "reps": 20,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
-                            },
-                            {
-                                "person": "pere.baifer",
-                                "reps": 7,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
-                            },
-                            {
-                                "person": "joana_penades",
-                                "reps": 15,
-                                "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Anael",
+                            "reps": 16,
+                            "goma": "RN",
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 12,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Anael",
+                            "reps": 16,
+                            "goma": "RN",
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 12,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Anael",
+                            "reps": 33,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 50,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Anael",
+                            "reps": 23,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/d/d/f/ddf5020e-14d5-4aba-9f18-402edf5de6e4.jpg?t=638419879400530000"
+                        },
+                        {
+                            "person": "alfonso",
+                            "reps": 35,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-06-15",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Tracción",
+            "exercises": [
+                {
+                    "exercise": "Dominada prona",
+                    "results": [
+                        {
+                            "person": "Alix",
+                            "reps": 11,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 20,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 7,
+                            "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                        },
+                        {
+                            "person": "Dobro",
+                            "reps": 9,
+                            "goma": "M",
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 14,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 6,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 7,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 8,
+                            "goma": "M",
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Dominada supino",
+                    "results": [
+                        {
+                            "person": "Alix",
+                            "reps": 13,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 17,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 8,
+                            "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                        },
+                        {
+                            "person": "Dobro",
+                            "reps": 10,
+                            "goma": "M",
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 13,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 8,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 7,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 9,
+                            "goma": "M",
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo australiano",
+                    "results": [
+                        {
+                            "person": "Alix",
+                            "reps": 42,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 31,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 30,
+                            "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                        },
+                        {
+                            "person": "Dobro",
+                            "reps": 23,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 34,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 40,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 35,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 25,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Remo neutro",
+                    "results": [
+                        {
+                            "person": "Alix",
+                            "reps": 20,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/b/e/e/beeed0b0-b853-4b51-b1cd-2ebcf58ff050.jpg?t=639030633386100000"
+                        },
+                        {
+                            "person": "Travis",
+                            "reps": 19,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/9/2/1/921af929-099f-466d-a9b1-f442b10fb0ac.jpg?t=637260837483870000"
+                        },
+                        {
+                            "person": "Raul",
+                            "reps": 20,
+                            "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                        },
+                        {
+                            "person": "Dobro",
+                            "reps": 5,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/3/0/230908e3-bff7-48cd-b41f-607b38f7e8b7.jpg?t=638942992987570000"
+                        },
+                        {
+                            "person": "Iñigo",
+                            "reps": 28,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/7/827824e5-5c81-424d-b3ef-49492f15515d.jpg?t=639128192511570000"
+                        },
+                        {
+                            "person": "Débora",
+                            "reps": 21,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/c/2/3/c23e8381-c02e-483b-a92e-1d85d1940db4.jpg?t=639047593920070000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 8,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 13,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-06-16",
+            "time": "08:30",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "alfonso",
+                            "reps": 52,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 34,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "alfonso",
+                            "reps": 40,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 23,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "alfonso",
+                            "reps": 21,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 13,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "alfonso",
+                            "reps": 21,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/f/3/5/f358187f-9689-4435-95f5-d576ca3c2a3f.jpg?t=638633818070030000"
+                        },
+                        {
+                            "person": "Paco Montoro",
+                            "reps": 13,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/6/4/264dda27-53e5-498f-9e28-4a1636fafe02.jpg?t=639070153163500000"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-06-16",
+            "time": "10:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Toni",
+                            "reps": 23,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 52,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
+                        },
+                        {
+                            "person": "Laura",
+                            "reps": 10,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/3/b/e/3bed2281-1379-4d88-937f-a395bab3c33d.jpg?t=638610471410770000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 24,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 30,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Toni",
+                            "reps": 17,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 35,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
+                        },
+                        {
+                            "person": "Laura",
+                            "reps": 7,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/3/b/e/3bed2281-1379-4d88-937f-a395bab3c33d.jpg?t=638610471410770000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 16,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 17,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Toni",
+                            "reps": 4,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 24,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
+                        },
+                        {
+                            "person": "Laura",
+                            "reps": 10,
+                            "goma": "negra",
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/3/b/e/3bed2281-1379-4d88-937f-a395bab3c33d.jpg?t=638610471410770000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 8,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 10,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Toni",
+                            "reps": 5,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/7/7/577b6be5-8c9d-4409-8ee0-f140a8a5d20c.jpg?t=638677193693470000"
+                        },
+                        {
+                            "person": "Sergio Santos Sánchez",
+                            "reps": 20,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/5/e/1/5e15e285-6cdc-44b0-8911-c087bf3a86a1.jpg?t=639058034826530000"
+                        },
+                        {
+                            "person": "pere.baifer",
+                            "reps": 7,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/2/2/6/226da570-9605-4f9a-b498-e9c8fa9bb05b.jpg?t=639131775510770000"
+                        },
+                        {
+                            "person": "joana_penades",
+                            "reps": 15,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/6/7/5/675cbbdf-8fe4-417a-976a-b9ffc4d5a6b0.jpg?t=638342892870200000"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2026-06-19",
+            "time": "18:00",
+            "activity_type": "Toma de marcas",
+            "category": "Empuje",
+            "exercises": [
+                {
+                    "exercise": "Flexiones militares",
+                    "results": [
+                        {
+                            "person": "Paula",
+                            "reps": 60,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/e/4/5/e458ee28-733a-4b85-92bf-23a8ceaded4f.jpg?t=638942458069930000"
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 102,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/a/7/4/a74d8116-9f77-4110-b6ff-291c1cada1fb.jpg?t=637798001604370000"
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 30,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
+                        },
+                        {
+                            "person": "FranAzorín",
+                            "reps": 34,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
+                        },
+                        {
+                            "person": "fuad.alkwkabani",
+                            "reps": 30,
+                            "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Flexiones diamante",
+                    "results": [
+                        {
+                            "person": "Paula",
+                            "reps": 38,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/e/4/5/e458ee28-733a-4b85-92bf-23a8ceaded4f.jpg?t=638942458069930000"
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 73,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/a/7/4/a74d8116-9f77-4110-b6ff-291c1cada1fb.jpg?t=637798001604370000"
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 21,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
+                        },
+                        {
+                            "person": "FranAzorín",
+                            "reps": 22,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
+                        },
+                        {
+                            "person": "fuad.alkwkabani",
+                            "reps": 20,
+                            "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos",
+                    "results": [
+                        {
+                            "person": "Paula",
+                            "reps": 16,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/e/4/5/e458ee28-733a-4b85-92bf-23a8ceaded4f.jpg?t=638942458069930000"
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 37,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/a/7/4/a74d8116-9f77-4110-b6ff-291c1cada1fb.jpg?t=637798001604370000"
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 3,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
+                        }
+                    ]
+                },
+                {
+                    "exercise": "Fondos tríceps (SBD)",
+                    "results": [
+                        {
+                            "person": "Paula",
+                            "reps": 15,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/e/4/5/e458ee28-733a-4b85-92bf-23a8ceaded4f.jpg?t=638942458069930000"
+                        },
+                        {
+                            "person": "Ismael",
+                            "reps": 26,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/a/7/4/a74d8116-9f77-4110-b6ff-291c1cada1fb.jpg?t=637798001604370000"
+                        },
+                        {
+                            "person": "Ana",
+                            "reps": 15,
+                            "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
+                        }
+                    ]
+                }]},
+                 {
+                    "date": "2026-06-19",
+                    "time": "18:00",
+                    "activity_type": "Toma de marcas",
+                    "category": "Tracción",
+                    "exercises": [
+                        {
+                            "exercise": "Dominada prona",
+                            "results": [
+                                {
+                                    "person": "FranAzorín",
+                                    "reps": 8,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
+                                },
+                                {
+                                    "person": "fuad.alkwkabani",
+                                    "reps": 6,
+                                    "goma": "M",
+                                    "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                                }
+                            ]
+                        },
+                        {
+                            "exercise": "Dominada supino",
+                            "results": [
+                                {
+                                    "person": "FranAzorín",
+                                    "reps": 6,
+                                    "goma": "M",
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
+                                },
+                                {
+                                    "person": "fuad.alkwkabani",
+                                    "reps": 3,
+                                    "goma": "M",
+                                    "url_photo": "https://cdn.wodbuster.com/static/sinfoto.jpg?v=2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "date": "2026-06-19",
+                    "time": "16:30",
+                    "activity_type": "Toma de marcas",
+                    "category": "Empuje",
+                    "exercises": [
+                        {
+                            "exercise": "Flexiones militares",
+                            "results": [
+                                {
+                                    "person": "Gaston Claret",
+                                    "reps": 73,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/6/d0616941-a3ea-4c69-b798-43e3c046f7ba.jpg?t=638610470209670000"
+                                },
+                                {
+                                    "person": "Jorge",
+                                    "reps": 40,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/e/d/e/ede2e050-3c67-4fb2-a83a-51dc127fa118.jpg?t=638997946180430000"
+                                },
+                                {
+                                    "person": "Pipe",
+                                    "reps": 40,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/9/b/6/9b68e68b-1091-4ce1-a341-47fa4b089ade.jpg?t=638614737462130000"
+                                }
+                            ]
+                        },
+                        {
+                            "exercise": "Flexiones diamante",
+                            "results": [
+                                {
+                                    "person": "Gaston Claret",
+                                    "reps": 44,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/6/d0616941-a3ea-4c69-b798-43e3c046f7ba.jpg?t=638610470209670000"
+                                },
+                                {
+                                    "person": "Jorge",
+                                    "reps": 21,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/e/d/e/ede2e050-3c67-4fb2-a83a-51dc127fa118.jpg?t=638997946180430000"
+                                },
+                                {
+                                    "person": "Pipe",
+                                    "reps": 30,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/9/b/6/9b68e68b-1091-4ce1-a341-47fa4b089ade.jpg?t=638614737462130000"
+                                }
+                            ]
+                        },
+                        {
+                            "exercise": "Fondos",
+                            "results": [
+                                {
+                                    "person": "Gaston Claret",
+                                    "reps": 21,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/6/d0616941-a3ea-4c69-b798-43e3c046f7ba.jpg?t=638610470209670000"
+                                },
+                                {
+                                    "person": "Jorge",
+                                    "reps": 14,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/e/d/e/ede2e050-3c67-4fb2-a83a-51dc127fa118.jpg?t=638997946180430000"
+                                },
+                                {
+                                    "person": "Mandy",
+                                    "reps": 7,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/4/6/0/4605b57b-ebc9-4243-82af-97a8f811ec04.jpg?t=638977285105630000"
+                                },
+                                {
+                                    "person": "Pipe",
+                                    "reps": 17,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/9/b/6/9b68e68b-1091-4ce1-a341-47fa4b089ade.jpg?t=638614737462130000"
+                                }
+                            ]
+                        },
+                        {
+                            "exercise": "Fondos tríceps (SBD)",
+                            "results": [
+                                {
+                                    "person": "Gaston Claret",
+                                    "reps": 23,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/6/d0616941-a3ea-4c69-b798-43e3c046f7ba.jpg?t=638610470209670000"
+                                },
+                                {
+                                    "person": "Jorge",
+                                    "reps": 24,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/e/d/e/ede2e050-3c67-4fb2-a83a-51dc127fa118.jpg?t=638997946180430000"
+                                },
+                                {
+                                    "person": "Mandy",
+                                    "reps": 2,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/4/6/0/4605b57b-ebc9-4243-82af-97a8f811ec04.jpg?t=638977285105630000"
+                                },
+                                {
+                                    "person": "Pipe",
+                                    "reps": 35,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/9/b/6/9b68e68b-1091-4ce1-a341-47fa4b089ade.jpg?t=638614737462130000"
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "date": "2026-06-19",
+                    "time": "19:30",
+                    "activity_type": "Toma de marcas",
+                    "category": "Tracción",
+                    "exercises": [
+                        {
+                            "exercise": "Dominada prona",
+                            "results": [
+                                {
+                                    "person": "Iván",
+                                    "reps": 14,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/d/5/cd51d1f9-35ae-456c-bd5e-8aa3d11351c3.jpg?t=638949532616530000"
+                                },
+                                {
+                                    "person": "Joan",
+                                    "reps": 21,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/8/b/c8b1f470-dc13-4ebd-89e8-c61f916f688f.jpg?t=638651104398430000"
+                                }
+                            ]
+                        },
+                        {
+                            "exercise": "Dominada supino",
+                            "results": [
+                                {
+                                    "person": "Iván",
+                                    "reps": 12,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/d/5/cd51d1f9-35ae-456c-bd5e-8aa3d11351c3.jpg?t=638949532616530000"
+                                },
+                                {
+                                    "person": "Joan",
+                                    "reps": 16,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/8/b/c8b1f470-dc13-4ebd-89e8-c61f916f688f.jpg?t=638651104398430000"
+                                }
+                            ]
+                        },
+                        {
+                            "exercise": "Remo neutro",
+                            "results": [
+                                {
+                                    "person": "Iván",
+                                    "reps": 15,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/d/5/cd51d1f9-35ae-456c-bd5e-8aa3d11351c3.jpg?t=638949532616530000"
+                                },
+                                {
+                                    "person": "Joan",
+                                    "reps": 25,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/8/b/c8b1f470-dc13-4ebd-89e8-c61f916f688f.jpg?t=638651104398430000"
+                                }
+                            ]
+                        },
+                        {
+                            "exercise": "Remo australiano",
+                            "results": [
+                                {
+                                    "person": "Iván",
+                                    "reps": 30,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/d/5/cd51d1f9-35ae-456c-bd5e-8aa3d11351c3.jpg?t=638949532616530000"
+                                },
+                                {
+                                    "person": "Joan",
+                                    "reps": 38,
+                                    "url_photo": "https://cdn.wodbuster.com/static/atletas/c/8/b/c8b1f470-dc13-4ebd-89e8-c61f916f688f.jpg?t=638651104398430000"
+                                }
+                            ]
+                        }
+                    ]
+                }
+    ]
 }
