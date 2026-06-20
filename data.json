@@ -8770,6 +8770,170 @@
                             ]
                         }
                     ]
-                }
+                },
+                {
+  "date": "2026-06-20",
+  "time": "10:00",
+  "activity_type": "Toma de marcas",
+  "category": "Empuje",
+  "exercises": [
+    {
+      "exercise": "Flexiones militares",
+      "results": [
+        {
+          "person": "Alex",
+          "reps": 15,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/0/e/5/0e5ada1c-4bdd-4026-a6d2-059ff7f387e1.jpg?t=638947685964300000"
+        },
+        {
+          "person": "Yakim",
+          "reps": 15,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
+        },
+      
+        {
+          "person": "Cindy Quezada",
+          "reps": 30,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/3/a/1/3a1c711f-55d9-4da1-94fc-99c5dd08dea0.jpg?t=639151192397870000"
+        },
+        {
+          "person": "Francisco",
+          "reps": 36,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/3/823d3949-1e5a-4aa8-a911-3487c2faffc7.jpg?t=638895786002100000"
+        }
+      ]
+    },
+    {
+      "exercise": "Flexiones diamante",
+      "results": [
+        {
+          "person": "Alex",
+          "reps": 8,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/0/e/5/0e5ada1c-4bdd-4026-a6d2-059ff7f387e1.jpg?t=638947685964300000"
+        },
+        {
+          "person": "Yakim",
+          "reps": 8,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
+        },
+        
+        {
+          "person": "Cindy Quezada",
+          "reps": 20,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/3/a/1/3a1c711f-55d9-4da1-94fc-99c5dd08dea0.jpg?t=639151192397870000"
+        },
+        {
+          "person": "Francisco",
+          "reps": 20,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/3/823d3949-1e5a-4aa8-a911-3487c2faffc7.jpg?t=638895786002100000"
+        }
+      ]
+    },
+    {
+      "exercise": "Fondos",
+      "results": [
+        {
+          "person": "Cindy Quezada",
+          "reps": 9,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/3/a/1/3a1c711f-55d9-4da1-94fc-99c5dd08dea0.jpg?t=639151192397870000"
+        },
+        {
+          "person": "Francisco",
+          "reps": 11,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/3/823d3949-1e5a-4aa8-a911-3487c2faffc7.jpg?t=638895786002100000"
+        }
+      ]
+    },
+    {
+      "exercise": "Fondos tríceps (SBD)",
+      "results": [
+        {
+          "person": "Cindy Quezada",
+          "reps": 20,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/3/a/1/3a1c711f-55d9-4da1-94fc-99c5dd08dea0.jpg?t=639151192397870000"
+        },
+        {
+          "person": "Francisco",
+          "reps": 15,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/3/823d3949-1e5a-4aa8-a911-3487c2faffc7.jpg?t=638895786002100000"
+        }
+      ]
+    }
+  ]
+},
+{
+  "date": "2026-06-20",
+  "time": "10:00",
+  "activity_type": "Toma de marcas",
+  "category": "Tracción",
+  "exercises": [
+    {
+      "exercise": "Dominada prona",
+      "results": [
+        {
+          "person": "Alex",
+          "reps": 14,
+          "goma": "NR",
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/0/e/5/0e5ada1c-4bdd-4026-a6d2-059ff7f387e1.jpg?t=638947685964300000"
+        },
+        {
+          "person": "Yakim",
+          "reps": 6,
+          "goma": "M",
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
+        },
+        {
+          "person": "claudia.pdrn",
+          "reps": 13,
+          "goma": "V",
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/4/e/9/4e9c3cb5-9fef-481b-8b28-301f49d40570.jpg?t=638978750095600000"
+        }
+      ]
+    },
+    {
+      "exercise": "Dominada supino",
+      "results": [
+        {
+          "person": "Alex",
+          "reps": 6,
+          "goma": "NR",
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/0/e/5/0e5ada1c-4bdd-4026-a6d2-059ff7f387e1.jpg?t=638947685964300000"
+        },
+        {
+          "person": "Yakim",
+          "reps": 4,
+          "goma": "M",
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
+        },
+        {
+          "person": "claudia.pdrn",
+          "reps": 13,
+          "goma": "V",
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/4/e/9/4e9c3cb5-9fef-481b-8b28-301f49d40570.jpg?t=638978750095600000"
+        }
+      ]
+    },
+    {
+      "exercise": "Remo neutro",
+      "results": [
+        {
+          "person": "claudia.pdrn",
+          "reps": 15,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/4/e/9/4e9c3cb5-9fef-481b-8b28-301f49d40570.jpg?t=638978750095600000"
+        }
+      ]
+    },
+    {
+      "exercise": "Remo australiano",
+      "results": [
+        {
+          "person": "claudia.pdrn",
+          "reps": 24,
+          "url_photo": "https://cdn.wodbuster.com/static/atletas/4/e/9/4e9c3cb5-9fef-481b-8b28-301f49d40570.jpg?t=638978750095600000"
+        }
+      ]
+    }
+  ]
+}
     ]
 }
