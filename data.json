@@ -590,7 +590,7 @@
                             "goma": "V"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 12
                         },
                         {
@@ -662,7 +662,7 @@
                             "goma": "V"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 12
                         },
                         {
@@ -732,7 +732,7 @@
                             "reps": 7
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 10
                         },
                         {
@@ -866,7 +866,7 @@
                             "reps": 34
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 40,
                             "rodillas": "Y"
                         },
@@ -895,7 +895,7 @@
                             "reps": 49
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 43
                         }
                     ]
@@ -912,7 +912,7 @@
                             "reps": 25
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 35,
                             "rodillas": "Y"
                         },
@@ -941,7 +941,7 @@
                             "reps": 35
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 32
                         }
                     ]
@@ -958,7 +958,7 @@
                             "reps": 18
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 16,
                             "goma": "N"
                         },
@@ -987,7 +987,7 @@
                             "reps": 28
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 29
                         }
                     ]
@@ -1004,7 +1004,7 @@
                             "reps": 19
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 6
                         },
                         {
@@ -1032,7 +1032,7 @@
                             "reps": 26
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 22
                         }
                     ]
@@ -1874,7 +1874,7 @@
                             "reps": "37"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": "54"
                         }
                     ]
@@ -1905,7 +1905,7 @@
                             "reps": "17"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": "33"
                         }
                     ]
@@ -1935,7 +1935,7 @@
                             "reps": "7"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": "22"
                         }
                     ]
@@ -1964,7 +1964,7 @@
                             "reps": "20"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": "24"
                         }
                     ]
@@ -2871,11 +2871,11 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 16
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 13
                         },
                         {
@@ -2930,11 +2930,11 @@
                     "exercise": "Dominada supino",
                     "results": [
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 10
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 10
                         },
                         {
@@ -2989,11 +2989,11 @@
                     "exercise": "Remo neutro",
                     "results": [
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 18
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 22
                         },
                         {
@@ -3043,11 +3043,11 @@
                     "exercise": "Remo australiano",
                     "results": [
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 17
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 23
                         },
                         {
@@ -3161,11 +3161,11 @@
                             "reps": 17
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 21
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 68
                         },
                         {
@@ -3173,7 +3173,7 @@
                             "reps": 42
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 31
                         },
                         {
@@ -3208,12 +3208,12 @@
                             "rodillas": "Y"
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 68,
                             "rodillas": "Y"
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 36
                         },
                         {
@@ -3221,7 +3221,7 @@
                             "reps": 24
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 25
                         },
                         {
@@ -3255,11 +3255,11 @@
                             "rodillas": "Y"
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 16
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 23
                         },
                         {
@@ -3267,7 +3267,7 @@
                             "reps": 20
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 18
                         },
                         {
@@ -3300,7 +3300,7 @@
                             "reps": 6
                         },
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 12
                         }
                     ]
@@ -3321,7 +3321,7 @@
                             "reps": 11
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 15,
                             "goma": "N"
                         },
@@ -3344,7 +3344,7 @@
                             "reps": 9
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 5
                         },
                         {
@@ -3620,7 +3620,7 @@
                             "reps": 25
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 24
                         },
                         {
@@ -3661,7 +3661,7 @@
                             "reps": 30
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 13
                         },
                         {
@@ -3740,7 +3740,7 @@
                             "reps": 6
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 7
                         },
                         {
@@ -3762,7 +3762,7 @@
                             "reps": 7
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 6
                         },
                         {
@@ -4431,11 +4431,11 @@
                     "exercise": "Flexiones militares",
                     "results": [
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 70
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 43
                         },
                         {
@@ -4482,11 +4482,11 @@
                     "exercise": "Flexiones diamante",
                     "results": [
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 50
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 32
                         },
                         {
@@ -4533,11 +4533,11 @@
                     "exercise": "Fondos",
                     "results": [
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 27
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 26
                         },
                         {
@@ -4588,11 +4588,11 @@
                     "exercise": "Fondos tríceps (SBD)",
                     "results": [
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 20
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 26
                         },
                         {
@@ -4891,12 +4891,12 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 13,
                             "goma": "NR"
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 15
                         },
                         {
@@ -4914,12 +4914,12 @@
                     "exercise": "Dominada supino",
                     "results": [
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 10,
                             "goma": "NR"
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 12
                         },
                         {
@@ -4937,11 +4937,11 @@
                     "exercise": "Remo neutro",
                     "results": [
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 15
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 21
                         },
                         {
@@ -4958,11 +4958,11 @@
                     "exercise": "Remo australiano",
                     "results": [
                         {
-                            "person": "Florencia Koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 15
                         },
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 27
                         },
                         {
@@ -6226,12 +6226,12 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/3/d03c8fd4-d44f-44b0-a93a-f1ef70a6d0c5.jpg?t=639129905201770000"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 57,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 120,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/0/4/7/04787eaa-97c7-4e61-9307-7ce753a3d13f.jpg?t=639002274221370000"
                         },
@@ -6276,12 +6276,12 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/3/d03c8fd4-d44f-44b0-a93a-f1ef70a6d0c5.jpg?t=639129905201770000"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 58,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 71,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/0/4/7/04787eaa-97c7-4e61-9307-7ce753a3d13f.jpg?t=639002274221370000"
                         },
@@ -6326,12 +6326,12 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/3/d03c8fd4-d44f-44b0-a93a-f1ef70a6d0c5.jpg?t=639129905201770000"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 34,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 33,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/0/4/7/04787eaa-97c7-4e61-9307-7ce753a3d13f.jpg?t=639002274221370000"
                         },
@@ -6375,12 +6375,12 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/0/3/d03c8fd4-d44f-44b0-a93a-f1ef70a6d0c5.jpg?t=639129905201770000"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 36,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
                         {
-                            "person": "Carlos Santa",
+                            "person": "Carlos Santacatalina",
                             "reps": 30,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/0/4/7/04787eaa-97c7-4e61-9307-7ce753a3d13f.jpg?t=639002274221370000"
                         },
@@ -6490,7 +6490,7 @@
                             "reps": 14
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 14
                         },
                         {
@@ -6554,7 +6554,7 @@
                             "reps": 15
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 12
                         },
                         {
@@ -6614,7 +6614,7 @@
                             "reps": 25
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 18
                         },
                         {
@@ -6673,7 +6673,7 @@
                             "reps": 28
                         },
                         {
-                            "person": "Miguel",
+                            "person": "Miguel Diaz",
                             "reps": 25
                         },
                         {
@@ -6754,7 +6754,7 @@
                     "exercise": "Flexiones militares",
                     "results": [
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 61
                         },
                         {
@@ -6773,7 +6773,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/2/5/52535df7-0e8a-425f-be29-785d22f0f922.jpg?t=637703588622530000"
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 35,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/4/0/7/4074e1e3-fd0f-4f85-afe3-621d79fb6fb6.jpg?t=637900644919000000"
                         },
@@ -6812,7 +6812,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/a/5ca2aa17-bf2e-4d08-9a74-fa6a62401fc7.jpg?t=638977215104030000"
                         },
                         {
-                            "person": "florencia.koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 24,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/9/f/d9f40250-545d-4aae-912f-ace31b7ab02d.jpg?t=638959965631270000"
                         }
@@ -6822,7 +6822,7 @@
                     "exercise": "Flexiones diamante",
                     "results": [
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 38
                         },
                         {
@@ -6841,7 +6841,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/2/5/52535df7-0e8a-425f-be29-785d22f0f922.jpg?t=637703588622530000"
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 27,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/4/0/7/4074e1e3-fd0f-4f85-afe3-621d79fb6fb6.jpg?t=637900644919000000"
                         },
@@ -6880,7 +6880,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/a/5ca2aa17-bf2e-4d08-9a74-fa6a62401fc7.jpg?t=638977215104030000"
                         },
                         {
-                            "person": "florencia.koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 15,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/9/f/d9f40250-545d-4aae-912f-ace31b7ab02d.jpg?t=638959965631270000"
                         }
@@ -6890,7 +6890,7 @@
                     "exercise": "Fondos",
                     "results": [
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 21
                         },
                         {
@@ -6909,7 +6909,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/2/5/52535df7-0e8a-425f-be29-785d22f0f922.jpg?t=637703588622530000"
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 0,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/4/0/7/4074e1e3-fd0f-4f85-afe3-621d79fb6fb6.jpg?t=637900644919000000"
                         },
@@ -6949,7 +6949,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/a/5ca2aa17-bf2e-4d08-9a74-fa6a62401fc7.jpg?t=638977215104030000"
                         },
                         {
-                            "person": "florencia.koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 10,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/9/f/d9f40250-545d-4aae-912f-ace31b7ab02d.jpg?t=638959965631270000"
                         }
@@ -6959,7 +6959,7 @@
                     "exercise": "Fondos tríceps (SBD)",
                     "results": [
                         {
-                            "person": "Tomás",
+                            "person": "Tomás Gianni",
                             "reps": 21
                         },
                         {
@@ -6978,7 +6978,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/2/5/52535df7-0e8a-425f-be29-785d22f0f922.jpg?t=637703588622530000"
                         },
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 0,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/4/0/7/4074e1e3-fd0f-4f85-afe3-621d79fb6fb6.jpg?t=637900644919000000"
                         },
@@ -7018,7 +7018,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/a/5ca2aa17-bf2e-4d08-9a74-fa6a62401fc7.jpg?t=638977215104030000"
                         },
                         {
-                            "person": "florencia.koelln",
+                            "person": "Florencia Koelln Gonzalez",
                             "reps": 11,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/d/9/f/d9f40250-545d-4aae-912f-ace31b7ab02d.jpg?t=638959965631270000"
                         }
@@ -7036,7 +7036,7 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 14,
                             "goma": "N",
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/4/0/7/4074e1e3-fd0f-4f85-afe3-621d79fb6fb6.jpg?t=637900644919000000"
@@ -7053,7 +7053,7 @@
                     "exercise": "Dominada supino",
                     "results": [
                         {
-                            "person": "Adrián Guillén",
+                            "person": "Adrián Guillén González",
                             "reps": 14,
                             "goma": "N",
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/4/0/7/4074e1e3-fd0f-4f85-afe3-621d79fb6fb6.jpg?t=637900644919000000"
@@ -7708,7 +7708,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/3/5c362e39-43be-4d35-b5af-1ac17765fdf2.jpg?t=638734192318730000"
                         },
                         {
-                            "person": "Luiso",
+                            "person": "Luiso Pardo",
                             "reps": 19,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
@@ -7747,7 +7747,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/3/5c362e39-43be-4d35-b5af-1ac17765fdf2.jpg?t=638734192318730000"
                         },
                         {
-                            "person": "Luiso ",
+                            "person": "Luiso Pardo",
                             "reps": 16,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
@@ -7786,7 +7786,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/3/5c362e39-43be-4d35-b5af-1ac17765fdf2.jpg?t=638734192318730000"
                         },
                         {
-                            "person": "Luiso ",
+                            "person": "Luiso Pardo",
                             "reps": 24,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
@@ -7821,7 +7821,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/c/3/5c362e39-43be-4d35-b5af-1ac17765fdf2.jpg?t=638734192318730000"
                         },
                         {
-                            "person": "Luiso ",
+                            "person": "Luiso Pardo",
                             "reps": 33,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/e/7/1/e7167529-b892-4c74-8572-e45075c891fa.jpg?t=638756416256930000"
                         },
@@ -8484,7 +8484,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
                         },
                         {
-                            "person": "FranAzorín",
+                            "person": "Fran Azorín Chico",
                             "reps": 34,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
                         },
@@ -8514,7 +8514,7 @@
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/8/2/8/8286ca61-e13f-4287-aba9-8d6994e91f1e.jpg?t=639024550010570000"
                         },
                         {
-                            "person": "FranAzorín",
+                            "person": "Fran Azorín Chico",
                             "reps": 22,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
                         },
@@ -8575,7 +8575,7 @@
                             "exercise": "Dominada prona",
                             "results": [
                                 {
-                                    "person": "FranAzorín",
+                                    "person": "Fran Azorín Chico",
                                     "reps": 8,
                                     "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
                                 },
@@ -8591,7 +8591,7 @@
                             "exercise": "Dominada supino",
                             "results": [
                                 {
-                                    "person": "FranAzorín",
+                                    "person": "Fran Azorín Chico",
                                     "reps": 6,
                                     "goma": "M",
                                     "url_photo": "https://cdn.wodbuster.com/static/atletas/8/a/e/8ae1ea2b-8334-4f10-8e7f-aa487fac9d32.jpg?t=638514674002670000"
@@ -9281,6 +9281,304 @@
             { "person": "Miquel Viñoles Gonzalez", "reps": 39 }
           ]
         }
+      ]
+    },
+        {
+      "date": "2026-10-27",
+      "time": "08:30",
+      "activity_type": "Toma de marcas",
+      "category": "Empuje",
+      "exercises": [
+        {
+          "exercise": "Flexiones militares",
+          "results": [
+            { "person": "Paula Cámara", "reps": 51 },
+            { "person": "Luke Walker", "reps": 27 },
+            { "person": "Cristina Ávila Gerico", "reps": 100 },
+            { "person": "Ivan Gracia Arnau", "reps": 38 },
+            { "person": "Cristian Navarro Benlloch", "reps": 40 }
+          ]
+        },
+        {
+          "exercise": "Flexiones diamante",
+          "results": [
+            { "person": "Paula Cámara", "reps": 28 },
+            { "person": "Luke Walker", "reps": 16 },
+            { "person": "Cristina Ávila Gerico", "reps": 30 },
+            { "person": "Ivan Gracia Arnau", "reps": 15 },
+            { "person": "Cristian Navarro Benlloch", "reps": 24 }
+          ]
+        },
+        {
+          "exercise": "Fondos tríceps (SBD)",
+          "results": [
+            { "person": "Paula Cámara", "reps": 15 },
+            { "person": "Luke Walker", "reps": 7 },
+            { "person": "Cristina Ávila Gerico", "reps": 20 },
+            { "person": "Ivan Gracia Arnau", "reps": 11 },
+            { "person": "Cristian Navarro Benlloch", "reps": 18 }
+          ]
+        },
+        {
+          "exercise": "Fondos",
+          "results": [
+            { "person": "Paula Cámara", "reps": 11 },
+            { "person": "Luke Walker", "reps": 10 },
+            { "person": "Cristina Ávila Gerico", "reps": 19 },
+            { "person": "Ivan Gracia Arnau", "reps": 12 },
+            { "person": "Cristian Navarro Benlloch", "reps": 21 }
+          ]
+        }
+      ]
+    },
+        {
+      "date": "2026-10-27",
+      "time": "10:00",
+      "activity_type": "Toma de marcas",
+      "category": "Empuje",
+      "exercises": [
+        {
+          "exercise": "Flexiones militares",
+          "results": [
+            { "person": "Laura Acosta", "reps": 10 },
+            { "person": "Fran Sancho", "reps": 36 },
+            { "person": "Yuliia Hlyniana", "reps": 30 },
+            { "person": "Ana Margarida da Silva Fialho", "reps": 30, "rodillas": "Y" }
+          ]
+        },
+        {
+          "exercise": "Flexiones diamante",
+          "results": [
+            { "person": "Laura Acosta", "reps": 17 },
+            { "person": "Fran Sancho", "reps": 21 },
+            { "person": "Yuliia Hlyniana", "reps": 20 },
+            { "person": "Ana Margarida da Silva Fialho", "reps": 20, "rodillas": "Y" }
+          ]
+        },
+        {
+          "exercise": "Fondos tríceps (SBD)",
+          "results": [
+            { "person": "Laura Acosta", "reps": 15, "goma": "R" },
+            { "person": "Yuliia Hlyniana", "reps": 15, "goma": "R" },
+            { "person": "Fran Sancho", "reps": 15, "goma": "R" },
+            { "person": "Ana Margarida da Silva Fialho", "reps": 11, "goma": "M" }
+          ]
+        },
+        {
+          "exercise": "Fondos",
+          "results": [
+            { "person": "Laura Acosta", "reps": 10, "goma": "R" },
+            { "person": "Yuliia Hlyniana", "reps": 7, "goma": "R" },
+             {"person": "Fran Sancho", "reps": 7 },
+            { "person": "Ana Margarida da Silva Fialho", "reps": 10, "goma": "M" }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "time": "18:00",
+      "activity_type": "Toma de marcas",
+      "category": "Empuje",
+      "exercises": [
+        { "exercise": "Flexiones militares", "results": [
+          { "person": "David Manzano Tomás", "reps": 45 },
+          { "person": "Fran Azorín Chico", "reps": 37 },
+          { "person": "Gaston Claret", "reps": 54 },
+          { "person": "Florencia Koelln Gonzalez", "reps": 21 },
+          { "person": "Joan Bernardo", "reps": 51 },
+          { "person": "Tomás Gianni", "reps": 73 },
+          { "person": "Tomás Sánchez", "reps": "18", "goma": "R" },
+          { "person": "Arturo Tello", "reps": 46 },
+          { "person": "Adrián Guillén González", "reps": 34 },
+          { "person": "Alfonso Rodrigo", "reps": 53 },
+          { "person": "Miguel Diaz", "reps": 50 },
+          { "person": "Giuseppe Giordano", "reps": 42 }
+        ]},
+        { "exercise": "Flexiones diamante", "results": [
+          { "person": "David Manzano Tomás", "reps": 22 },
+          { "person": "Fran Azorín Chico", "reps": 30 },
+          { "person": "Gaston Claret", "reps": 45 },
+          { "person": "Florencia Koelln Gonzalez", "reps": 15 },
+          { "person": "Joan Bernardo", "reps": 31 },
+          { "person": "Tomás Gianni", "reps": 38 },
+          { "person": "Tomás Sánchez", "reps": "18", "goma": "R" },
+          { "person": "Arturo Tello", "reps": 38 },
+          { "person": "Adrián Guillén González", "reps": 29 },
+          { "person": "Alfonso Rodrigo", "reps": 39 },
+          { "person": "Miguel Diaz", "reps": 40 },
+          { "person": "Giuseppe Giordano", "reps": 28 }
+        ]},
+        { "exercise": "Fondos tríceps (SBD)", "results": [
+          { "person": "David Manzano Tomás", "reps": 10 },
+          { "person": "Fran Azorín Chico", "reps": 13 },
+          { "person": "Gaston Claret", "reps": 18 },
+          { "person": "Florencia Koelln Gonzalez", "reps": 8 },
+          { "person": "Joan Bernardo", "reps": 22 },
+          { "person": "Tomás Gianni", "reps": 21 },
+          { "person": "Tomás Sánchez", "reps": 3 },
+          { "person": "Arturo Tello", "reps": 24 },
+          { "person": "Adrián Guillén González", "reps": 26 },
+          { "person": "Alfonso Rodrigo", "reps": 19 },
+          { "person": "Miguel Diaz", "reps": 23 },
+          { "person": "Giuseppe Giordano", "reps": 23 }
+        ]},
+        { "exercise": "Fondos", "results": [
+          { "person": "David Manzano Tomás", "reps": 13 },
+          { "person": "Fran Azorín Chico", "reps": 13 },
+          { "person": "Gaston Claret", "reps": 20 },
+          { "person": "Florencia Koelln Gonzalez", "reps": 8 },
+          { "person": "Joan Bernardo", "reps": 24 },
+          { "person": "Tomás Gianni", "reps": 22 },
+          { "person": "Tomás Sánchez", "reps": 3 },
+          { "person": "Arturo Tello", "reps": 22 },
+          { "person": "Adrián Guillén González", "reps": 17 },
+          { "person": "Alfonso Rodrigo", "reps": 19 },
+          { "person": "Miguel Diaz", "reps": 20 },
+          { "person": "Giuseppe Giordano", "reps": 15 }
+        ]}
+      ]
+    },
+     {
+      "date": "2026-10-27",
+      "time": "14:30",
+      "activity_type": "Toma de marcas",
+      "category": "Empuje",
+      "exercises": [
+        { "exercise": "Flexiones militares", "results": [
+          { "person": "Gines Delgado", "reps": 77 },
+          { "person": "Mario Estellés Caravantes", "reps": 89 },
+          { "person": "Carlos Santacatalina", "reps": 110 },
+          { "person": "Luiso Pardo", "reps": 66 },
+          { "person": "Xiroi Pastor", "reps": 55 },
+          { "person": "Martín Almendros Zafra", "reps": 50 },
+          { "person": "Ana Herrador", "reps": 38 },
+          { "person": "Alba Michelena Rubio", "reps": "20", "goma": "R" },
+          { "person": "Pere Baixauli", "reps": 36 },
+          { "person": "Irene Figueroa Hernández", "reps": 16 },
+          { "person": "Sophie Brossard", "reps": 22 },
+          { "person": "Ana Pardo", "reps": 7 },
+          { "person": "Susana Espejo", "reps": "26", "goma": "R" }
+        ]},
+        { "exercise": "Flexiones diamante", "results": [
+          { "person": "Gines Delgado", "reps": 51 },
+          { "person": "Mario Estellés Caravantes", "reps": 58 },
+          { "person": "Carlos Santacatalina", "reps": 50 },
+          { "person": "Luiso Pardo", "reps": 42 },
+          { "person": "Xiroi Pastor", "reps": 32 },
+          { "person": "Martín Almendros Zafra", "reps": 24 },
+          { "person": "Ana Herrador", "reps": 22 },
+          { "person": "Alba Michelena Rubio", "reps": "17", "goma": "R" },
+          { "person": "Pere Baixauli", "reps": 24 },
+          { "person": "Irene Figueroa Hernández", "reps": 12 },
+          { "person": "Sophie Brossard", "reps": 15 },
+          { "person": "Ana Pardo", "reps": 7 },
+          { "person": "Susana Espejo", "reps": "12", "goma": "R" }
+        ]},
+        { "exercise": "Fondos tríceps (SBD)", "results": [
+          { "person": "Gines Delgado", "reps": 29 },
+          { "person": "Mario Estellés Caravantes", "reps": 19 },
+          { "person": "Carlos Santacatalina", "reps": 35 },
+          { "person": "Luiso Pardo", "reps": 39 },
+          { "person": "Xiroi Pastor", "reps": 21 },
+          { "person": "Martín Almendros Zafra", "reps": 21 },
+          { "person": "Ana Herrador", "reps": 20 },
+          { "person": "Alba Michelena Rubio", "reps": 18 },
+          { "person": "Pere Baixauli", "reps": 13 },
+          { "person": "Irene Figueroa Hernández", "reps": 7 },
+          { "person": "Sophie Brossard", "reps": 18 },
+          { "person": "Ana Pardo", "reps": "4", "goma": "N" },
+          { "person": "Susana Espejo", "reps": 6 }
+        ]},
+        { "exercise": "Fondos", "results": [
+          { "person": "Gines Delgado", "reps": 34 },
+          { "person": "Mario Estellés Caravantes", "reps": 17 },
+          { "person": "Carlos Santacatalina", "reps": 30 },
+          { "person": "Luiso Pardo", "reps": 25 },
+          { "person": "Xiroi Pastor", "reps": 20 },
+          { "person": "Martín Almendros Zafra", "reps": 20 },
+          { "person": "Ana Herrador", "reps": 20 },
+          { "person": "Alba Michelena Rubio", "reps": 25 },
+          { "person": "Pere Baixauli", "reps": 12 },
+          { "person": "Irene Figueroa Hernández", "reps": 10 },
+          { "person": "Sophie Brossard", "reps": 9 },
+          { "person": "Ana Pardo", "reps": 6 },
+          { "person": "Susana Espejo", "reps": 4 }
+        ]}
+      ]
+    },
+     {
+      "date": "2026-10-27",
+      "time": "19:30",
+      "activity_type": "Toma de marcas",
+      "category": "Tracción",
+      "exercises": [
+        { "exercise": "Dominada prona", "results": [
+          { "person": "Juan Rodenas Montano", "reps": 17 },
+          { "person": "Alberto Serrano Martinez", "reps": "13", "goma": "N" },
+          { "person": "Cristina Sanmartin Sánchez", "reps": "10", "goma": "V" },
+          { "person": "Jose Miguel Arroyo Lopez", "reps": 12 },
+          { "person": "Alex Monzó Machirant", "reps": "12", "goma": "N" },
+          { "person": "Laura Mittelbrunn Alquezar", "reps": "13", "goma": "M" },
+          { "person": "Luis David Latan Hidalgo", "reps": 8 },
+          { "person": "Alonso Cañamero Ruiz", "reps": 12 },
+          { "person": "Pascual Sanchez Casero", "reps": 13 },
+          { "person": "Alberto Del Carpio Méndez", "reps": 12 },
+          { "person": "Yakim Cañizares", "reps": "13", "goma": "N" },
+          { "person": "Ana Domínguez Luna", "reps": "11", "goma": "N" }
+        ]},
+        { "exercise": "Dominada supino", "results": [
+          { "person": "Juan Rodenas Montano", "reps": 7 },
+          { "person": "Alberto Serrano Martinez", "reps": "10", "goma": "N" },
+          { "person": "Cristina Sanmartin Sánchez", "reps": "7", "goma": "V" },
+          { "person": "Jose Miguel Arroyo Lopez", "reps": 10 },
+          { "person": "Alex Monzó Machirant", "reps": "10", "goma": "N" },
+          { "person": "Laura Mittelbrunn Alquezar", "reps": "9", "goma": "M" },
+          { "person": "Luis David Latan Hidalgo", "reps": 6 },
+          { "person": "Alonso Cañamero Ruiz", "reps": 13 },
+          { "person": "Pascual Sanchez Casero", "reps": 10 },
+          { "person": "Alberto Del Carpio Méndez", "reps": 10 },
+          { "person": "Yakim Cañizares", "reps": "10", "goma": "N" },
+          { "person": "Ana Domínguez Luna", "reps": "11", "goma": "N" }
+        ]},
+        { "exercise": "Remo neutro", "results": [
+          { "person": "Alberto Serrano Martinez", "reps": 17 },
+          { "person": "Jose Miguel Arroyo Lopez", "reps": 18 },
+          { "person": "Alex Monzó Machirant", "reps": 15 },
+          { "person": "Luis David Latan Hidalgo", "reps": 18 },
+          { "person": "Alonso Cañamero Ruiz", "reps": 15 },
+          { "person": "Pascual Sanchez Casero", "reps": 32 },
+          { "person": "Alberto Del Carpio Méndez", "reps": 22 },
+          { "person": "Yakim Cañizares", "reps": 15 },
+          { "person": "Ana Domínguez Luna", "reps": 35 }
+        ]},
+        { "exercise": "Remo australiano", "results": [
+          { "person": "Alberto Serrano Martinez", "reps": 30 },
+          { "person": "Jose Miguel Arroyo Lopez", "reps": 20 },
+          { "person": "Alex Monzó Machirant", "reps": 15 },
+          { "person": "Luis David Latan Hidalgo", "reps": 14 },
+          { "person": "Alonso Cañamero Ruiz", "reps": 22 },
+          { "person": "Pascual Sanchez Casero", "reps": 47 },
+          { "person": "Alberto Del Carpio Méndez", "reps": 28 },
+          { "person": "Yakim Cañizares", "reps": 16 },
+          { "person": "Ana Domínguez Luna", "reps": 37 }
+        ]} ]},
+        {
+      "date": "2026-10-27",
+      "time": "19:30",
+      "activity_type": "Toma de marcas",
+      "category": "Empuje",
+      "exercises": [
+        { "exercise": "Flexiones militares", "results": [
+          { "person": "Juan Rodenas Montano", "reps": 27 },
+          { "person": "Cristina Sanmartin Sánchez", "reps": "26", "goma": "R" },
+          { "person": "Laura Mittelbrunn Alquezar", "reps": 23 }
+        ]},
+        { "exercise": "Flexiones diamante", "results": [
+          { "person": "Juan Rodenas Montano", "reps": 11 },
+          { "person": "Cristina Sanmartin Sánchez", "reps": "18", "goma": "R" },
+          { "person": "Laura Mittelbrunn Alquezar", "reps": 13 }
+        ]}
       ]
     }
     ]
