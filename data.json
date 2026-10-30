@@ -1095,7 +1095,7 @@
                             "goma": "R"
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": "4",
                             "goma": "M"
                         },
@@ -1155,7 +1155,7 @@
                             "goma": "R"
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": "6",
                             "goma": "M"
                         },
@@ -1211,7 +1211,7 @@
                             "reps": 10
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 5
                         },
                         {
@@ -1264,7 +1264,7 @@
                             "reps": 17
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 10
                         },
                         {
@@ -3407,7 +3407,7 @@
                             "goma": "M"
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 12,
                             "goma": "M"
                         },
@@ -3458,7 +3458,7 @@
                             "goma": "M"
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 10,
                             "goma": "M"
                         },
@@ -3492,7 +3492,7 @@
                             "reps": 13
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 10
                         }
                     ]
@@ -3521,7 +3521,7 @@
                             "reps": 19
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 15
                         }
                     ]
@@ -4987,11 +4987,11 @@
                     "exercise": "Flexiones militares",
                     "results": [
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 22
                         },
                         {
-                            "person": "Alex Silva Lopera",
+                            "person": "Alex Monzo Machirant",
                             "reps": 22
                         },
                         {
@@ -5004,11 +5004,11 @@
                     "exercise": "Flexiones diamante",
                     "results": [
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 15
                         },
                         {
-                            "person": "Alex Silva Lopera",
+                            "person": "Alex Monzo Machirant",
                             "reps": 19
                         },
                         {
@@ -5021,11 +5021,11 @@
                     "exercise": "Fondos",
                     "results": [
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 4
                         },
                         {
-                            "person": "Alex Silva Lopera",
+                            "person": "Alex Monzo Machirant",
                             "reps": 7
                         },
                         {
@@ -5038,11 +5038,11 @@
                     "exercise": "Fondos tríceps (SBD)",
                     "results": [
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 7
                         },
                         {
-                            "person": "Alex Silva Lopera",
+                            "person": "Alex Monzo Machirant",
                             "reps": 6
                         },
                         {
@@ -8784,7 +8784,7 @@
                             "goma":"NR"
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 15,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
                         },
@@ -8804,12 +8804,12 @@
                     "exercise": "Flexiones diamante",
                     "results": [
                         {
-                            "person": "Alex Monzó Machirant",
+                            "person": "Alex Monzo Machirant",
                             "reps": 8,
                             "goma":"NR"
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 8,
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
                         },
@@ -8867,13 +8867,12 @@
                     "exercise": "Dominada prona",
                     "results": [
                         {
-                            "person": "Alex Silva Lopera",
+                            "person": "Alex Monzo Machirant",
                             "reps": 14,
-                            "goma": "NR",
-                            "url_photo": "https://cdn.wodbuster.com/static/atletas/0/e/5/0e5ada1c-4bdd-4026-a6d2-059ff7f387e1.jpg?t=638947685964300000"
+                            "goma": "NR"
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 6,
                             "goma": "M",
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
@@ -8890,13 +8889,13 @@
                     "exercise": "Dominada supino",
                     "results": [
                         {
-                            "person": "Alex Silva Lopera",
+                            "person": "Alex Monzo Machirant",
                             "reps": 6,
                             "goma": "NR"
                          
                         },
                         {
-                            "person": "Yakim",
+                            "person": "Yakim Canizares",
                             "reps": 4,
                             "goma": "M",
                             "url_photo": "https://cdn.wodbuster.com/static/atletas/5/b/0/5b03ae9d-0a5a-48e0-b7ba-a1bcd96b136d.jpg?t=639006496278500000"
